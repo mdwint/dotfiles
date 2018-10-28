@@ -33,10 +33,11 @@ end)
 
 -- Toggle fullscreen mode
 hyper:bind({}, 'space', function()
-    local win = hs.window.focusedWindow()
-    if win ~= nil then
-    	win:setFullScreen(not win:isFullScreen())
-    end
+    hs.execute('/usr/local/bin/chunkc tiling::window -t fullscreen')
+end)
+
+hyper:bind({'shift'}, 'space', function()
+    hs.execute('/usr/local/bin/chunkc tiling::window -t native-fullscreen')
 end)
 
 -- Send to desktop
