@@ -49,11 +49,11 @@ chunkc set custom_bar_offset_left        0
 chunkc set custom_bar_offset_right       0
 
 chunkc set global_desktop_mode           bsp
-chunkc set global_desktop_offset_top     0
-chunkc set global_desktop_offset_bottom  0
-chunkc set global_desktop_offset_left    0
-chunkc set global_desktop_offset_right   0
-chunkc set global_desktop_offset_gap     0
+chunkc set global_desktop_offset_top     15
+chunkc set global_desktop_offset_bottom  15
+chunkc set global_desktop_offset_left    15
+chunkc set global_desktop_offset_right   15
+chunkc set global_desktop_offset_gap     15
 
 #
 # NOTE: syntax for desktop-specific settings
@@ -67,7 +67,7 @@ chunkc set global_desktop_offset_gap     0
 # chunkc set 3_desktop_offset_gap          30
 #
 
-chunkc set desktop_padding_step_size     10.0
+chunkc set desktop_padding_step_size     60.0
 chunkc set desktop_gap_step_size         5.0
 
 chunkc set bsp_spawn_left                1
@@ -87,8 +87,8 @@ chunkc set mouse_resize_window           \"fn 2\"
 chunkc set mouse_motion_interval         35
 
 chunkc set preselect_border_color        0xff1eb0fc  # 0xff68c9fd
-chunkc set preselect_border_width        5
-chunkc set preselect_border_radius       5
+chunkc set preselect_border_width        4
+chunkc set preselect_border_radius       0
 
 #
 # NOTE: these settings require chwm-sa.
@@ -105,9 +105,9 @@ chunkc set window_use_cgs_move           0
 # NOTE: the following are config variables for the chunkwm-border plugin.
 #
 
-chunkc set focused_border_color          0xff8fd7ff  # 0xff1eb0fc
+chunkc set focused_border_color          0xff8fd7ff
 chunkc set focused_border_width          4
-chunkc set focused_border_radius         4
+chunkc set focused_border_radius         0
 chunkc set focused_border_skip_floating  0
 chunkc set focused_border_skip_monocle   0
 
@@ -131,10 +131,11 @@ chunkc core::load ffm.so
 #
 
 chunkc tiling::rule --owner Finder --name Copy --state float &
-chunkc tiling::rule --owner Chrome --state native-fullscreen --monitor 1 &
+#chunkc tiling::rule --owner Firefox --state native-fullscreen --monitor 1 &
+#chunkc tiling::rule --owner Chrome --state native-fullscreen --monitor 1 &
 #chunkc tiling::rule --owner Code --monitor 2 &
 #chunkc tiling::rule --owner iTerm2 --monitor 2 &
-chunkc tiling::rule --owner Dash --monitor 1 &
-chunkc tiling::rule --owner Slack --state native-fullscreen --monitor 1 &
-chunkc tiling::rule --owner Spotify --state native-fullscreen --monitor 1 &
-chunkc tiling::rule --owner SoundCleod --state native-fullscreen --monitor 1 &
+#chunkc tiling::rule --owner Dash --monitor 1 &
+#chunkc tiling::rule --owner Slack --state native-fullscreen --monitor 1 &
+#chunkc tiling::rule --owner Spotify --state native-fullscreen --monitor 1 &
+#chunkc tiling::rule --owner SoundCleod --state native-fullscreen --monitor 1 &

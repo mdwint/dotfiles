@@ -6,14 +6,14 @@ f18 = hs.hotkey.bind({}, 'f18', function()
     hyper:enter()
   end, function()
     hyper:exit()
-    if not hyper.triggered then
-      hs.eventtap.keyStroke({}, 'escape')
-    end
+    -- if not hyper.triggered then
+    --   hs.eventtap.keyStroke({}, 'escape')
+    -- end
 end)
 
 -- Launch or focus app
 local app_keys = {
-    ['q'] = 'Google Chrome',
+    ['q'] = 'Firefox',
     ['w'] = 'iTerm 2',
     ['e'] = 'Visual Studio Code',
     ['s'] = 'Slack',
@@ -82,6 +82,18 @@ local chunkwm_focus_keys = {
 for key, side in pairs(chunkwm_focus_keys) do
     hyper:bind({}, key, function()
         hs.execute('/usr/local/bin/chunkc tiling::window -f ' .. side)
+    end)
+end
+
+-- Adjust desktop padding
+local chunkwm_padding_keys = {
+    ['-'] = 'inc',
+    ['='] = 'dec',
+}
+
+for key, args in pairs(chunkwm_padding_keys) do
+    hyper:bind({}, key, function()
+        hs.execute('/usr/local/bin/chunkc tiling::desktop -p ' .. args)
     end)
 end
 
