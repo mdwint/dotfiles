@@ -28,6 +28,7 @@ syntax on
 let g:python_highlight_all = 0
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
+let g:signify_sign_change = '~'
 
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set backspace=indent,eol,start
@@ -35,20 +36,6 @@ set number
 set cursorline
 set splitbelow
 set splitright
-
-set t_Co=256
-color grb24bit
-
-highlight clear SignColumn
-highlight LineNr ctermfg=darkgray
-highlight EndOfBuffer ctermfg=darkgray
-highlight CursorLine ctermbg=233
-highlight ALEErrorSign ctermbg=none ctermfg=red
-highlight ALEError ctermbg=red ctermfg=233
-highlight DiffAdd cterm=bold ctermbg=none ctermfg=green
-highlight DiffDelete cterm=bold ctermbg=none ctermfg=red
-highlight DiffChange cterm=bold ctermbg=none ctermfg=yellow
-let g:signify_sign_change = '~'
 
 map <C-P> :FZF<CR>
 map <C-B> :NERDTreeToggle<CR>
@@ -62,3 +49,15 @@ vnoremap <C-K> :m '<-2<CR>gv=gv
 
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
 autocmd BufWritePre *.py execute ':Black'
+
+set t_Co=256
+color grb24bit
+hi clear SignColumn
+hi LineNr ctermfg=darkgray
+hi EndOfBuffer ctermfg=darkgray
+hi CursorLine ctermbg=233
+hi ALEErrorSign ctermbg=none ctermfg=red
+hi ALEError ctermbg=red ctermfg=233
+hi DiffAdd cterm=bold ctermbg=none ctermfg=green
+hi DiffDelete cterm=bold ctermbg=none ctermfg=red
+hi DiffChange cterm=bold ctermbg=none ctermfg=yellow
