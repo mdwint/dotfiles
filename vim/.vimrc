@@ -1,5 +1,3 @@
-let g:python3_host_prog='~/vim-python/bin/python'
-
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -22,6 +20,7 @@ Plug 'google/vim-coverage'
 Plug 'google/vim-glaive', {'do': ':call glaive#Install()'}
 call plug#end()
 
+let g:python3_host_prog='~/vim-python/bin/python'
 let g:black_virtualenv = '~/vim-python'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -30,8 +29,10 @@ let g:python_highlight_all = 0
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
 
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set backspace=indent,eol,start
 set number
+set cursorline
 set splitbelow
 set splitright
 
@@ -39,6 +40,9 @@ set t_Co=256
 color grb24bit
 
 highlight clear SignColumn
+highlight LineNr ctermfg=darkgray
+highlight EndOfBuffer ctermfg=darkgray
+highlight CursorLine ctermbg=233
 highlight ALEErrorSign ctermbg=none ctermfg=red
 highlight ALEError ctermbg=red ctermfg=233
 highlight DiffAdd cterm=bold ctermbg=none ctermfg=green
@@ -46,13 +50,15 @@ highlight DiffDelete cterm=bold ctermbg=none ctermfg=red
 highlight DiffChange cterm=bold ctermbg=none ctermfg=yellow
 let g:signify_sign_change = '~'
 
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
 map <C-P> :FZF<CR>
 map <C-B> :NERDTreeToggle<CR>
+
+nnoremap <C-J> :m .+1<CR>==
+nnoremap <C-K> :m .-2<CR>==
+inoremap <C-J> <Esc>:m .+1<CR>==gi
+inoremap <C-K> <Esc>:m .-2<CR>==gi
+vnoremap <C-J> :m '>+1<CR>gv=gv
+vnoremap <C-K> :m '<-2<CR>gv=gv
 
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
 autocmd BufWritePre *.py execute ':Black'
