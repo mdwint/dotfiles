@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'simnalamburt/vim-mundo'
@@ -14,6 +15,7 @@ Plug 'vim-python/python-syntax'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'nicwest/vim-http'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
@@ -24,6 +26,10 @@ Plug 'google/vim-coverage'
 Plug 'google/vim-glaive', {'do': ':call glaive#Install()'}
 Plug 'morhetz/gruvbox'
 call plug#end()
+
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 syntax on
 filetype plugin on
@@ -53,6 +59,7 @@ nmap <C-M><C-M> :set invrelativenumber<CR>
 map <F1> !pipenv run pytest %<CR>
 map <F4> :NERDTreeToggle<CR>
 map <F5> :MundoToggle<CR>
+map <Leader>tt :Http!<CR>
 
 nnoremap ª :m .+1<CR>==
 nnoremap º :m .-2<CR>==
@@ -67,6 +74,7 @@ autocmd BufWritePre *.py silent! execute ':Black'
 
 set termguicolors
 set background=dark
-let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='soft'
 let g:gruvbox_sign_column='bg0'
 colors gruvbox
