@@ -43,6 +43,7 @@ let g:rustfmt_autosave=1
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 let g:signify_sign_change='~'
+let g:vim_http_split_vertically=1
 
 set autoread mouse=a backspace=indent,eol,start
 set number cursorline splitbelow splitright
@@ -50,6 +51,7 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set ignorecase smartcase
 set completeopt=longest,menuone
 set showcmd wildmenu
+set diffopt+=vertical
 
 nmap <C-P> :FZF<CR>
 nmap <C-_> <Plug>NERDCommenterToggle
@@ -61,14 +63,14 @@ map <F4> :NERDTreeToggle<CR>
 map <F5> :MundoToggle<CR>
 map <Leader>tt :Http!<CR>
 
-nnoremap ª :m .+1<CR>==
-nnoremap º :m .-2<CR>==
-inoremap ª <Esc>:m .+1<CR>==gi
-inoremap º <Esc>:m .-2<CR>==gi
-vnoremap ª :m '>+1<CR>gv=gv
-vnoremap º :m '<-2<CR>gv=gv
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
 
-autocmd FocusGained,BufEnter * :checktime
+autocmd BufEnter,FocusGained * :checktime
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
 autocmd BufWritePre *.py silent! execute ':Black'
 
