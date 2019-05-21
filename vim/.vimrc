@@ -18,6 +18,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'nicwest/vim-http'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
+Plug 'rizzatti/dash.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'python/black'
 Plug 'fisadev/vim-isort'
@@ -54,10 +55,13 @@ set showcmd wildmenu
 set diffopt+=vertical
 
 nmap <C-P> :FZF<CR>
+nnoremap <Leader>a :Ack!<Space>
+nnoremap <CR> :noh<CR><CR>
+nmap <silent> <leader>f <Plug>DashSearch
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 nmap <C-N><C-N> :set invnumber<CR>
-nmap <C-M><C-M> :set invrelativenumber<CR>
+" nmap <C-M><C-M> :set invrelativenumber<CR>
 map <F1> !pipenv run pytest %<CR>
 map <F4> :NERDTreeToggle<CR>
 map <F5> :MundoToggle<CR>
@@ -70,7 +74,7 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
-autocmd BufEnter,FocusGained * :checktime
+autocmd BufEnter,FocusGained * checktime
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
 autocmd BufWritePre *.py silent! execute ':Black'
 
