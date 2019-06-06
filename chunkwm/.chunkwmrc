@@ -122,7 +122,7 @@ chunkc set ffm_standby_on_float          1
 # NOTE: specify plugins to load when chunkwm starts.
 #
 
-chunkc core::load border.so
+#chunkc core::load border.so
 chunkc core::load tiling.so
 chunkc core::load ffm.so
 

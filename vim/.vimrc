@@ -32,6 +32,11 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
 syntax on
 filetype plugin on
 let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
@@ -39,6 +44,7 @@ let g:NERDSpaceDelims=1
 let g:NERDToggleCheckAllLines=1
 let g:python3_host_prog='~/vim-python/bin/python'
 let g:black_virtualenv='~/vim-python'
+let g:ale_fix_on_save=1
 let g:python_highlight_all=1
 let g:rustfmt_autosave=1
 let g:terraform_align=1
@@ -53,6 +59,7 @@ set ignorecase smartcase
 set completeopt=longest,menuone
 set showcmd wildmenu
 set diffopt+=vertical
+set clipboard=unnamed
 
 nmap <C-P> :FZF<CR>
 nnoremap <Leader>a :Ack!<Space>
@@ -74,7 +81,7 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
-autocmd BufEnter,FocusGained * checktime
+autocmd BufEnter,FocusGained * checktime | SignifyRefresh
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
 autocmd BufWritePre *.py silent! execute ':Black'
 
