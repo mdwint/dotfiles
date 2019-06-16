@@ -4,23 +4,17 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'simnalamburt/vim-mundo'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-python/python-syntax'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'rust-lang/rust.vim'
-Plug 'hashivim/vim-terraform'
+Plug 'jparise/vim-graphql'
 Plug 'nicwest/vim-http'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 Plug 'rizzatti/dash.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'python/black'
 Plug 'fisadev/vim-isort'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-coverage'
@@ -32,23 +26,23 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-
 syntax on
 filetype plugin on
 let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
+let g:NERDDefaultAlign='left'
 let g:NERDSpaceDelims=1
 let g:NERDToggleCheckAllLines=1
 let g:python3_host_prog='~/vim-python/bin/python'
-let g:black_virtualenv='~/vim-python'
+let g:ale_completion_enabled=1
 let g:ale_fix_on_save=1
-let g:python_highlight_all=1
-let g:rustfmt_autosave=1
-let g:terraform_align=1
-let g:terraform_fmt_on_save=1
+let g:ale_fixers={
+\ 'python': ['black'],
+\ 'rust': ['rustfmt'],
+\ 'terraform': ['terraform'],
+\ 'javascript': ['prettier'],
+\ 'css': ['prettier'],
+\}
+let g:signify_vcs_list=['git']
 let g:signify_sign_change='~'
 let g:vim_http_split_vertically=1
 
@@ -67,11 +61,7 @@ nnoremap <CR> :noh<CR><CR>
 nmap <silent> <leader>f <Plug>DashSearch
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
-nmap <C-N><C-N> :set invnumber<CR>
-" nmap <C-M><C-M> :set invrelativenumber<CR>
-map <F1> !pipenv run pytest %<CR>
-map <F4> :NERDTreeToggle<CR>
-map <F5> :MundoToggle<CR>
+nmap <C-N><C-N> :set invrelativenumber<CR>
 map <Leader>tt :Http!<CR>
 
 nnoremap ∆ :m .+1<CR>==
@@ -83,7 +73,6 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 autocmd BufEnter,FocusGained * checktime | SignifyRefresh
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
-autocmd BufWritePre *.py silent! execute ':Black'
 
 set termguicolors
 set background=dark
