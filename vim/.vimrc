@@ -47,7 +47,7 @@ let g:signify_sign_change='~'
 let g:vim_http_split_vertically=1
 
 set autoread mouse=a backspace=indent,eol,start
-set number cursorline splitbelow splitright
+set number relativenumber cursorline splitbelow splitright
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set ignorecase smartcase
 set completeopt=longest,menuone
@@ -73,6 +73,12 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 autocmd BufEnter,FocusGained * checktime | SignifyRefresh
 autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 set termguicolors
 set background=dark
