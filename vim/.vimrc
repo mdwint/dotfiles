@@ -71,8 +71,11 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
-autocmd BufEnter,FocusGained * checktime | SignifyRefresh
-autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
+augroup default
+  autocmd!
+  autocmd BufEnter,FocusGained * checktime | SignifyRefresh
+  autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
+augroup END
 
 augroup numbertoggle
   autocmd!
