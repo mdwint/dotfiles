@@ -10,7 +10,7 @@ exists git || brew install git
 
 (
     TARGET_DIR=~/dotfiles
-    git clone git@github.com:mdwint/dotfiles.git "$TARGET_DIR"
+    git clone https://github.com/mdwint/dotfiles.git "$TARGET_DIR"
     cd "$TARGET_DIR"
 
     brew bundle
