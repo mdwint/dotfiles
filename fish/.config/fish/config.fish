@@ -17,4 +17,4 @@ alias vim nvim
 
 direnv hook fish | source
 thefuck --alias | source
-status --is-interactive; and source (pyenv init - | psub)
+pyenv init - | source
