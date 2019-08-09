@@ -1,0 +1,7 @@
+[user]
+    name = Matteo De Wint
+    email = matteo@novemberfive.co
+
+[core]
+    editor = nvim
+    ignorecase = false
