@@ -1,0 +1,10 @@
+#navigator-toolbox { -moz-box-ordinal-group: 2; }
+#back-button, #forward-button { display: none !important; }
+#TabsToolbar { visibility: collapse !important; }
+#sidebar-header { visibility: collapse !important; }
+
+#statuspanel-label {
+    background: #000 !important;
+    border-color: #222 !important;
+    color: #fff !important;
+}
