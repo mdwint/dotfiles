@@ -30,7 +30,6 @@ syntax on
 filetype plugin on
 let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
 let g:NERDDefaultAlign='left'
-let g:NERDSpaceDelims=1
 let g:NERDToggleCheckAllLines=1
 let g:python3_host_prog='~/vim-python/bin/python'
 let g:ale_completion_enabled=1
