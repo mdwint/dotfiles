@@ -1,7 +1,12 @@
-#navigator-toolbox { -moz-box-ordinal-group: 2; }
-#back-button, #forward-button { display: none !important; }
-#TabsToolbar { visibility: collapse !important; }
-#sidebar-header { visibility: collapse !important; }
+/*#navigator-toolbox { -moz-box-ordinal-group: 2; }*/
+
+#back-button, #forward-button,
+/*.tabbrowser-tab:not([pinned]) .tab-icon-image,*/
+.tabbrowser-tab[usercontextid] .tab-bottom-line
+{ display: none !important; }
+
+#TabsToolbar .tabbrowser-tab[selected] .tab-line
+{ background-color: #00c100 !important; }
 
 #statuspanel-label {
     background: #000 !important;
