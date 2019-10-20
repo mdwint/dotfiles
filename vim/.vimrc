@@ -55,7 +55,7 @@ set diffopt+=vertical
 set clipboard=unnamed
 
 nmap <C-P> :FZF<CR>
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>a :Ag<CR>
 nnoremap <CR> :noh<CR><CR>
 nmap <silent> <leader>f <Plug>DashSearch
 nmap <C-_> <Plug>NERDCommenterToggle
