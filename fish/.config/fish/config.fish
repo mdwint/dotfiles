@@ -5,7 +5,7 @@ set -U fish_prompt_pwd_dir_length 0
 
 set PATH ~/bin ~/.cargo/bin ~/.poetry/bin $PATH
 
-set -xU FZF_DEFAULT_COMMAND 'ag --nocolor --ignore node_modules -g ""'
+set -xU FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -xU MANPAGER 'most -wd'
 
 alias l 'exa -l'

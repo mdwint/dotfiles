@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
@@ -21,10 +20,6 @@ Plug 'google/vim-coverage'
 Plug 'google/vim-glaive', {'do': ':call glaive#Install()'}
 Plug 'morhetz/gruvbox'
 call plug#end()
-
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
 
 syntax on
 filetype plugin on
@@ -54,8 +49,9 @@ set showcmd wildmenu
 set diffopt+=vertical
 set clipboard=unnamed
 
-nmap <C-P> :FZF<CR>
-nnoremap <Leader>a :Ag<CR>
+nmap <C-P> :Files<CR>
+nnoremap / :Lines<CR>
+nnoremap <Leader>a :Rg<CR>
 nnoremap <CR> :noh<CR><CR>
 nmap <silent> <leader>f <Plug>DashSearch
 nmap <C-_> <Plug>NERDCommenterToggle
