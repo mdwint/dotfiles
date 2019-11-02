@@ -1,6 +1,6 @@
 /*#navigator-toolbox { -moz-box-ordinal-group: 2; }*/
 
-#back-button, #forward-button,
+/*#back-button, #forward-button,*/
 /*.tabbrowser-tab:not([pinned]) .tab-icon-image,*/
 .tabbrowser-tab[usercontextid] .tab-bottom-line
 { display: none !important; }

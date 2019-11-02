@@ -3,7 +3,9 @@ set fish_color_user normal
 set fish_color_cwd brblue
 set -U fish_prompt_pwd_dir_length 0
 
-set PATH ~/bin ~/.cargo/bin ~/.poetry/bin $PATH
+set PATH ~/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin $PATH
+set -xU LC_ALL en_US.UTF-8
+set -xU LC_CTYPE en_US.UTF-8
 
 set -xU FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -xU MANPAGER 'most -wd'

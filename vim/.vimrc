@@ -50,7 +50,7 @@ set diffopt+=vertical
 set clipboard=unnamed
 
 nmap <C-P> :Files<CR>
-nnoremap / :Lines<CR>
+"nnoremap / :Lines<CR>
 nnoremap <Leader>a :Rg<CR>
 nnoremap <CR> :noh<CR><CR>
 nmap <silent> <leader>f <Plug>DashSearch
