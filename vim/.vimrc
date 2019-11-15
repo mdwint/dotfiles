@@ -3,21 +3,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'machakann/vim-highlightedyank'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'sheerun/vim-polyglot'
 Plug 'jparise/vim-graphql'
-Plug 'nicwest/vim-http'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 Plug 'rizzatti/dash.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'fisadev/vim-isort'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-coverage'
-Plug 'google/vim-glaive', {'do': ':call glaive#Install()'}
 Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -26,6 +23,7 @@ filetype plugin on
 let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
 let g:NERDDefaultAlign='left'
 let g:NERDToggleCheckAllLines=1
+let g:highlightedyank_highlight_duration=200
 let g:python3_host_prog='~/vim-python/bin/python'
 let g:ale_completion_enabled=1
 let g:ale_fix_on_save=1
@@ -48,7 +46,9 @@ set completeopt=longest,menuone
 set showcmd wildmenu
 set diffopt+=vertical
 set clipboard=unnamed
+set inccommand=nosplit
 
+inoremap <Esc> <Esc>:update<CR>
 nmap <C-P> :Files<CR>
 "nnoremap / :Lines<CR>
 nnoremap <Leader>a :Rg<CR>

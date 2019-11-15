@@ -19,6 +19,10 @@ alias gs 'git status'
 alias gd 'git diff'
 alias gD 'git diff --staged'
 alias ga 'git add'
+alias gch 'git checkout'
+alias gco 'git commit'
+alias gp 'git pull'
+alias gP 'git push'
 
 direnv hook fish | source
 thefuck --alias | source
