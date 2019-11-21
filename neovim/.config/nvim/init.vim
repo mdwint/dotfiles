@@ -20,11 +20,56 @@ call plug#end()
 
 syntax on
 filetype plugin on
-let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
+
+set autoread
+set backspace=indent,eol,start
+set clipboard=unnamed
+set mouse=a
+set cursorline
+set completeopt=longest,menuone wildmenu
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+
+" Escape and save
+inoremap jk <esc>:update<cr>
+
+" Split windows
+set splitbelow splitright
+nnoremap <leader>- :sp<cr>
+nnoremap <leader>\| :vsp<cr>
+nnoremap <leader>o :only<cr>
+
+" Search
+set ignorecase smartcase
+set inccommand=nosplit
+nnoremap <c-p> :Files<cr>
+nnoremap <leader>a :Rg<cr>
+nnoremap <cr> :noh<cr><cr>
+nmap <silent> <leader>f <plug>DashSearch
+
+" Move lines up and down
+nnoremap ∆ :m .+1<cr>==
+nnoremap ˚ :m .-2<cr>==
+inoremap ∆ <esc>:m .+1<cr>==gi
+inoremap ˚ <esc>:m .-2<cr>==gi
+vnoremap ∆ :m '>+1<cr>gv=gv
+vnoremap ˚ :m '<-2<cr>gv=gv
+
+" Highlight yanked text
+let g:highlightedyank_highlight_duration=200
+
+" Toggle comments
 let g:NERDDefaultAlign='left'
 let g:NERDToggleCheckAllLines=1
-let g:highlightedyank_highlight_duration=200
+nmap <c-_> <plug>NERDCommenterToggle
+vmap <c-_> <plug>NERDCommenterToggle<cr>gv
+
+" Python
 let g:python3_host_prog='~/vim-python/bin/python'
+
+" Editor config
+let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
+
+" Linting
 let g:ale_completion_enabled=1
 let g:ale_fix_on_save=1
 let g:ale_fixers={
@@ -34,53 +79,37 @@ let g:ale_fixers={
 \ 'javascript': ['prettier'],
 \ 'css': ['prettier'],
 \}
+nnoremap gj :ALENextWrap<cr>
+nnoremap gk :ALEPreviousWrap<cr>
+nnoremap g1 :ALEFirst<cr>
+
+" Git signs
 let g:signify_vcs_list=['git']
 let g:signify_sign_change='~'
-let g:vim_http_split_vertically=1
-
-set autoread mouse=a backspace=indent,eol,start
-set number relativenumber cursorline splitbelow splitright
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
-set ignorecase smartcase
-set completeopt=longest,menuone
-set showcmd wildmenu
-set diffopt+=vertical
-set clipboard=unnamed
-set inccommand=nosplit
-
-inoremap <Esc> <Esc>:update<CR>
-nmap <C-P> :Files<CR>
-"nnoremap / :Lines<CR>
-nnoremap <Leader>a :Rg<CR>
-nnoremap <CR> :noh<CR><CR>
-nmap <silent> <leader>f <Plug>DashSearch
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
-nmap <C-N><C-N> :set invrelativenumber<CR>
-map <Leader>tt :Http!<CR>
-
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv
-
-augroup default
+augroup gitsigns
   autocmd!
   autocmd BufEnter,FocusGained * checktime | SignifyRefresh
-  autocmd BufWritePre * %s/\s\+$//e  " Strip trailing whitespace
 augroup END
 
+" Strip trailing whitespace on save
+augroup stripwhitespace
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+" Toggle relative line numbers
+set number relativenumber
+nnoremap <c-n><c-n> :set invrelativenumber<cr>
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" Color theme
 set termguicolors
 set background=dark
-" let g:gruvbox_contrast_dark='hard'
+"let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 let g:gruvbox_sign_column='bg0'
 colors gruvbox
