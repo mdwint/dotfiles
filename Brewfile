@@ -1,3 +1,4 @@
+brew "autojump"
 brew "awscli"
 brew "direnv"
 brew "docker-compose"

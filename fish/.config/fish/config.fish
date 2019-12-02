@@ -27,3 +27,4 @@ alias gP 'git push'
 direnv hook fish | source
 thefuck --alias | source
 pyenv init - | source
+source /usr/local/share/autojump/autojump.fish
