@@ -32,6 +32,13 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 " Escape and save
 inoremap jk <esc>:update<cr>
 
+" Persistent undo history
+if !isdirectory($HOME . '/.vimdid')
+  call mkdir($HOME . '/.vimdid', '', 0700)
+endif
+set undodir=~/.vimdid
+set undofile
+
 " Split windows
 set splitbelow splitright
 nnoremap <leader>- :sp<cr>
