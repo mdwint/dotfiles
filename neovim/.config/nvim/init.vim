@@ -26,7 +26,7 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
 set cursorline
-set completeopt=longest,menuone wildmenu
+set wildmenu wildmode=longest:full,full
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 
 " Escape and save
@@ -52,6 +52,7 @@ nnoremap <c-p> :Files<cr>
 nnoremap <leader>a :Rg<cr>
 nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
+autocmd VimEnter * delcommand Windows
 
 " Move lines up and down
 nnoremap ∆ :m .+1<cr>==
@@ -76,8 +77,10 @@ let g:python3_host_prog='~/vim-python/bin/python'
 " Editor config
 let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
 
+" Disable automatic popups
+let g:jedi#popup_on_dot=0
+
 " Linting
-let g:ale_completion_enabled=1
 let g:ale_fix_on_save=1
 let g:ale_fixers={
 \ 'python': ['black'],
