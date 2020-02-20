@@ -79,6 +79,7 @@ let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
 
 " Disable automatic popups
 let g:jedi#popup_on_dot=0
+let g:jedi#show_call_signatures = "2"
 
 " Linting
 let g:ale_fix_on_save=1
