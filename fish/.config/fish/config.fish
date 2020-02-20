@@ -9,7 +9,8 @@ alias l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
 alias vim nvim
 alias gl 'git log'
-alias gg 'git log --all --graph --oneline --decorate'
+alias gg 'git log --all --graph --oneline'
+alias gh 'git show HEAD'
 alias gs 'git status'
 alias gd 'git diff'
 alias gD 'git diff --staged'
