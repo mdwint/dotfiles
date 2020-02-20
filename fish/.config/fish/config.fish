@@ -36,7 +36,7 @@ if status --is-interactive
     set -U fish_color_comment           normal
     set -U fish_color_cwd               brwhite
     set -U fish_color_end               cyan
-    set -U fish_color_error             red
+    set -U fish_color_error             normal
     set -U fish_color_escape            brcyan
     set -U fish_color_operator          cyan
     set -U fish_color_param             normal
