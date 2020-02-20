@@ -3,7 +3,6 @@ set -xU LC_ALL en_US.UTF-8
 set -xU LC_CTYPE en_US.UTF-8
 
 set -xU FZF_DEFAULT_COMMAND 'rg --files --hidden'
-# set -xU MANPAGER 'most -wd'
 
 alias l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
@@ -32,10 +31,18 @@ if status --is-interactive
     source $BASE16_SHELL/profile_helper.fish
     source ~/.config/base16-fzf/fish/base16-$BASE16_THEME.fish
 
-    set fish_greeting
+    set -U fish_color_autosuggestion    cyan
+    set -U fish_color_command           normal
+    set -U fish_color_comment           normal
     set -U fish_color_cwd               brwhite
+    set -U fish_color_end               cyan
+    set -U fish_color_error             red
     set -U fish_color_escape            brcyan
     set -U fish_color_operator          cyan
+    set -U fish_color_param             normal
+    set -U fish_color_quote             normal
+    set -U fish_color_redirection       cyan
     set -U fish_pager_color_description yellow
-    set -U fish_prompt_pwd_dir_length 0
+    set -U fish_prompt_pwd_dir_length   0
+    set fish_greeting
 end
