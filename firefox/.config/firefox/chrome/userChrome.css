@@ -1,12 +1,15 @@
-/*#navigator-toolbox { -moz-box-ordinal-group: 2; }*/
+#browser { -moz-box-ordinal-group: 0 !important; }
+#urlbar-container .urlbarView { top: unset !important; bottom: 32px; }
 
-/*#back-button, #forward-button,*/
-/*.tabbrowser-tab:not([pinned]) .tab-icon-image,*/
+#sidebar-header,
+#urlbar .search-one-offs,
+#back-button, #forward-button,
+#navigator-toolbox:not(:hover) #TabsToolbar,
+.tabbrowser-tab[selected] .tab-line,
 .tabbrowser-tab[usercontextid] .tab-bottom-line
 { display: none !important; }
 
-#TabsToolbar .tabbrowser-tab[selected] .tab-line
-{ background-color: #00c100 !important; }
+.tabbrowser-tab .tab-icon-image { filter: grayscale(100%) !important; }
 
 #statuspanel-label {
     background: #000 !important;
