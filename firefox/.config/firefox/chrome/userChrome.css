@@ -1,18 +1,62 @@
 #browser { -moz-box-ordinal-group: 0 !important; }
 #urlbar-container .urlbarView { top: unset !important; bottom: 32px; }
 
-#sidebar-header,
-#urlbar .search-one-offs,
-#back-button, #forward-button,
-#navigator-toolbox:not(:hover) #TabsToolbar,
-.tabbrowser-tab[selected] .tab-line,
-.tabbrowser-tab[usercontextid] .tab-bottom-line
-{ display: none !important; }
+#urlbar-container, #statuspanel-label
+{ font-family: Menlo; font-size: 12px !important; }
 
-.tabbrowser-tab .tab-icon-image { filter: grayscale(100%) !important; }
+#urlbar-container .urlbarView-title,
+#urlbar-container .urlbarView-title-separator,
+#urlbar-container .urlbarView-tags,
+#urlbar-container .urlbarView-action,
+#urlbar-container .urlbarView-url
+{ font-size: 12px !important; }
 
-#statuspanel-label {
-    background: #000 !important;
-    border-color: #222 !important;
-    color: #fff !important;
+#urlbar-container .urlbarView-row { border-radius: 0 !important; }
+
+#urlbar { border: 0 !important; }
+#urlbar[focused="true"] {
+    -moz-appearance: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
 }
+
+#statuspanel {
+    margin-top: -8.5px !important;
+    margin-left: 1px !important;
+    transition: none !important;
+    z-index: 1;
+}
+#statuspanel-label {
+    color: #fff !important;
+    background: #000 !important;
+    border-color: #000 !important;
+    border-radius: 0 !important;
+    padding-right: 16px !important;
+}
+
+:root[uidensity=compact] #urlbar,
+:root[uidensity=compact] .searchbar-textbox {
+    font-size: 12px !important;
+    min-height: 24px !important;
+}
+:root[uidensity=compact] #identity-box { max-height: 22px; }
+:root[uidensity=compact] #nav-bar .toolbarbutton-1 { padding: 0px !important; }
+
+/*.tabbrowser-tab .tab-icon-image { filter: grayscale(100%) !important; }*/
+#userContext-label { color: #7f7f7f !important; }
+
+#urlbar .search-one-offs,
+#urlbar .urlbar-history-dropmarker,
+#back-button, #forward-button,
+#tracking-protection-icon-container,
+#identity-box.verifiedDomain,
+#identity-box.verifiedIdentity,
+#identity-box.mixedActiveBlocked,
+#userContext-indicator,
+#pageActionButton,
+#pageActionSeparator,
+#star-button,
+#navigator-toolbox:not(:hover) #TabsToolbar,
+#tabbrowser-tabs .tabbrowser-tab[selected] .tab-line,
+#tabbrowser-tabs .tabbrowser-tab[usercontextid] .tab-bottom-line
+{ display: none !important; }
