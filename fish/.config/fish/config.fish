@@ -16,6 +16,7 @@ alias gD 'git diff --staged'
 alias ga 'git add'
 alias gc 'git checkout'
 alias gC 'git commit'
+alias gM 'git merge'
 alias gp 'git pull'
 alias gP 'git push'
 
