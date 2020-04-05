@@ -7,6 +7,7 @@ set -xU FZF_DEFAULT_COMMAND 'rg --files --hidden'
 alias l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
 alias vim nvim
+alias t watson
 alias gl 'git log'
 alias gg 'git log --all --graph --oneline'
 alias gh 'git show HEAD'
