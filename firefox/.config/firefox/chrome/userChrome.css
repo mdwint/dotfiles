@@ -67,6 +67,7 @@
 #urlbar .urlbar-history-dropmarker,
 #back-button, #forward-button,
 #tracking-protection-icon-container,
+#identity-box:not([class]),
 #identity-box.chromeUI,
 #identity-box.mixedActiveBlocked,
 #identity-box.unknownIdentity,
