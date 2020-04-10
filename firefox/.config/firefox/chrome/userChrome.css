@@ -45,18 +45,18 @@
 }
 
 /* Monospace font */
-#urlbar-container, #statuspanel-label
+#urlbar, #statuspanel-label
 { font-family: Menlo; font-size: 12px !important; }
-#urlbar-container .urlbarView-title,
-#urlbar-container .urlbarView-title-separator,
-#urlbar-container .urlbarView-tags,
-#urlbar-container .urlbarView-action,
-#urlbar-container .urlbarView-url
+#urlbar .urlbarView-title,
+#urlbar .urlbarView-title-separator,
+#urlbar .urlbarView-tags,
+#urlbar .urlbarView-action,
+#urlbar .urlbarView-url
 { font-size: 12px !important; }
 
 /* URL bar dropdown */
-#urlbar-container .urlbarView-row { border-radius: 0 !important; }
-#urlbar-container .urlbarView-row[selected] { background-color: #1a1a1a !important; }
+#urlbar .urlbarView-row { border-radius: 0 !important; }
+#urlbar .urlbarView-row[selected] { background-color: #1a1a1a !important; }
 
 /* Grayscale colors */
 /*.tabbrowser-tab .tab-icon-image { filter: grayscale(100%) !important; }*/
