@@ -29,9 +29,6 @@ set cursorline
 set wildmenu wildmode=longest:full,full
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 
-" Escape and save
-inoremap jk <esc>:update<cr>
-
 " Persistent undo history
 if !isdirectory($HOME . '/.vimdid')
   call mkdir($HOME . '/.vimdid', '', 0700)
@@ -89,6 +86,7 @@ let g:ale_fixers={
 \ 'terraform': ['terraform'],
 \ 'javascript': ['prettier'],
 \ 'css': ['prettier'],
+\ 'json': ['jq'],
 \}
 nnoremap gj :ALENextWrap<cr>
 nnoremap gk :ALEPreviousWrap<cr>
