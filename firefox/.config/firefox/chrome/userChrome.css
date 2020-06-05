@@ -12,7 +12,7 @@
 :root[uidensity=compact] #nav-bar .toolbarbutton-1 { padding: 0px !important; }
 
 /* Hide URL bar border */
-#urlbar { border: 0 !important; }
+#urlbar, #urlbar-background { border: 0 !important; }
 #urlbar[focused] {
     -moz-appearance: none !important;
     box-shadow: none !important;
@@ -32,7 +32,7 @@
 /* Move status panel over URL bar */
 #statuspanel {
     margin-top: -9.5px !important;
-    margin-left: 1px !important;
+    margin-left: 2px !important;
     transition: none !important;
     z-index: 1;
 }
@@ -55,12 +55,20 @@
 { font-size: 12px !important; }
 
 /* URL bar dropdown */
+#urlbar[breakout][breakout-extend]{
+  display: flex !important;
+  flex-direction: column-reverse;
+  bottom: -2px !important; /* Change to 3-5 px if using compact_urlbar_megabar.css depending on toolbar density */
+  top: auto !important;
+}
+#urlbar[open] > .urlbarView{ margin-block: 0px calc(var(--urlbar-height) + 1px) !important; box-shadow: none !important; }
 #urlbar .urlbarView-row { border-radius: 0 !important; }
 #urlbar .urlbarView-row[selected] { background-color: #1a1a1a !important; }
 
 /* Grayscale colors */
 /*.tabbrowser-tab .tab-icon-image { filter: grayscale(100%) !important; }*/
 #userContext-label { color: #7f7f7f !important; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid] { --identity-tab-color: none !important; }
 
 /* Hide unnecessary elements */
 #urlbar .search-one-offs,
