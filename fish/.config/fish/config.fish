@@ -2,7 +2,8 @@ set PATH ~/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin /usr/local/opt/libpq/bin 
 set -xU LC_ALL en_US.UTF-8
 set -xU LC_CTYPE en_US.UTF-8
 
-set -xU FZF_DEFAULT_COMMAND 'rg --files --hidden'
+set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
+set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 alias l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
@@ -21,7 +22,7 @@ alias gM 'git merge'
 alias gp 'git pull'
 alias gP 'git push'
 
-direnv hook fish | source
+eval (direnv hook fish)
 pyenv init - | source
 rbenv init - | source
 
