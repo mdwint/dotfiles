@@ -46,7 +46,7 @@
 
 /* Monospace font */
 #urlbar, #statuspanel-label
-{ font-family: Menlo; font-size: 12px !important; }
+{ font-family: "JetBrains Mono"; font-size: 12px !important; }
 #urlbar .urlbarView-title,
 #urlbar .urlbarView-title-separator,
 #urlbar .urlbarView-tags,
