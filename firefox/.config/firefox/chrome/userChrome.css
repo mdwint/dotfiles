@@ -31,7 +31,7 @@
 
 /* Move status panel over URL bar */
 #statuspanel {
-    margin-top: -9.5px !important;
+    margin-top: -9px !important;
     margin-left: 2px !important;
     transition: none !important;
     z-index: 1;
@@ -61,7 +61,7 @@
   bottom: -2px !important; /* Change to 3-5 px if using compact_urlbar_megabar.css depending on toolbar density */
   top: auto !important;
 }
-#urlbar[open] > .urlbarView{ margin-block: 0px calc(var(--urlbar-height) + 1px) !important; box-shadow: none !important; }
+#urlbar[open] > .urlbarView { margin-block: 0px calc(var(--urlbar-height) + 1px) !important; box-shadow: none !important; }
 #urlbar .urlbarView-row { border-radius: 0 !important; }
 #urlbar .urlbarView-row[selected] { background-color: #1a1a1a !important; }
 
