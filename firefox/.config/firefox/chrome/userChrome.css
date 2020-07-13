@@ -31,7 +31,7 @@
 
 /* Move status panel over URL bar */
 #statuspanel {
-    margin-top: -9px !important;
+    margin-top: -9.5px !important;
     margin-left: 2px !important;
     transition: none !important;
     z-index: 1;
@@ -46,7 +46,7 @@
 
 /* Monospace font */
 #urlbar, #statuspanel-label
-{ font-family: "JetBrains Mono"; font-size: 12px !important; }
+{ font-family: "Menlo"; font-size: 12px !important; }
 #urlbar .urlbarView-title,
 #urlbar .urlbarView-title-separator,
 #urlbar .urlbarView-tags,
