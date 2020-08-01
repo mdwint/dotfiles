@@ -6,6 +6,9 @@
     editor = nvim
     ignorecase = false
 
+[pull]
+    rebase = false
+
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f

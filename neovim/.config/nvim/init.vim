@@ -51,7 +51,7 @@ nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
 autocmd VimEnter * delcommand Windows
 
-" Move lines up and down
+" Move lines up/down and reformat (alt-k/j)
 nnoremap ∆ :m .+1<cr>==
 nnoremap ˚ :m .-2<cr>==
 inoremap ∆ <esc>:m .+1<cr>==gi
@@ -76,7 +76,7 @@ let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
 
 " Disable automatic popups
 let g:jedi#popup_on_dot=0
-let g:jedi#show_call_signatures = "2"
+let g:jedi#show_call_signatures="2"
 
 " Linting
 let g:ale_fix_on_save=1
