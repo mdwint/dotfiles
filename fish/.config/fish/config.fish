@@ -30,6 +30,13 @@ if status --is-interactive
     thefuck --alias | source
     source /usr/local/share/autojump/autojump.fish
 
+    function e -d 'jump and open vim'
+        j $argv && vim
+    end
+
+    alias dark base16-black
+    alias light base16-grayscale-light
+
     set BASE16_SHELL ~/.config/base16-shell/
     source $BASE16_SHELL/profile_helper.fish
     source ~/.config/base16-fzf/fish/base16-$BASE16_THEME.fish
