@@ -1,4 +1,4 @@
-set PATH ~/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin /usr/local/opt/libpq/bin $PATH
+set PATH ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin /usr/local/opt/libpq/bin $PATH
 set -xU LC_ALL en_US.UTF-8
 set -xU LC_CTYPE en_US.UTF-8
 
