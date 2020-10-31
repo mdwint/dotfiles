@@ -71,6 +71,8 @@
 #tabbrowser-tabs .tabbrowser-tab[usercontextid] { --identity-tab-color: none !important; }
 
 /* Hide unnecessary elements */
+#titlebar .titlebar-buttonbox-container,
+#titlebar .titlebar-spacer,
 #urlbar .search-one-offs,
 #urlbar .urlbar-history-dropmarker,
 #back-button, #forward-button,
