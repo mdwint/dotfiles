@@ -34,8 +34,12 @@ if status --is-interactive
         j $argv && vim
     end
 
-    alias dark base16-black
-    alias light base16-grayscale-light
+    function darkmode
+        osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv
+    end
+
+    alias dark 'base16-black && darkmode true'
+    alias light 'base16-grayscale-light && darkmode false'
 
     set BASE16_SHELL ~/.config/base16-shell/
     source $BASE16_SHELL/profile_helper.fish
