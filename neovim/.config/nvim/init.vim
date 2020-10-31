@@ -92,6 +92,7 @@ let g:jedi#show_call_signatures="2"
 let g:ale_fix_on_save=1
 let g:ale_fixers={
 \ 'python': ['black'],
+\ 'go': ['goimports'],
 \ 'rust': ['rustfmt'],
 \ 'terraform': ['terraform'],
 \ 'javascript': ['prettier'],
