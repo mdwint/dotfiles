@@ -1,8 +1,8 @@
 # swap managed window
-cmd + ctrl - h : yabai -m window --swap west
-cmd + ctrl - j : yabai -m window --swap south
-cmd + ctrl - k : yabai -m window --swap north
-cmd + ctrl - l : yabai -m window --swap east
+cmd + ctrl - h : yabai -m window --swap west  || yabai -m window --swap east
+cmd + ctrl - j : yabai -m window --swap south || yabai -m window --swap north
+cmd + ctrl - k : yabai -m window --swap north || yabai -m window --swap south
+cmd + ctrl - l : yabai -m window --swap east  || yabai -m window --swap west
 
 # rotate windows
 cmd + ctrl - 0x2B : yabai -m space --rotate 90
