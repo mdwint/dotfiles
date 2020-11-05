@@ -5,22 +5,24 @@ set -xU LC_CTYPE en_US.UTF-8
 set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
 set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
-alias l 'ls -lh'
+abbr l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
 alias vim nvim
-alias t watson
-alias gl 'git log'
-alias gg 'git log --all --graph --oneline'
-alias gh 'git show HEAD'
-alias gs 'git status'
-alias gd 'git diff'
-alias gD 'git diff --staged'
-alias ga 'git add'
-alias gc 'git checkout'
-alias gC 'git commit'
-alias gM 'git merge'
-alias gp 'git pull'
-alias gP 'git push'
+abbr v vim
+abbr t watson
+abbr tl 'watson log -c'
+abbr gl 'git log'
+abbr gg 'git log --all --graph --oneline'
+abbr gh 'git show HEAD'
+abbr gs 'git status'
+abbr gd 'git diff'
+abbr gD 'git diff --staged'
+abbr ga 'git add'
+abbr gc 'git checkout'
+abbr gC 'git commit'
+abbr gM 'git merge'
+abbr gp 'git pull'
+abbr gP 'git push'
 
 eval (direnv hook fish)
 pyenv init - | source
