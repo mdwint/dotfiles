@@ -39,7 +39,7 @@ if status --is-interactive
     end
 
     alias dark 'base16-black && darkmode true'
-    alias light 'base16-grayscale-light && darkmode false'
+    alias light 'base16-one-light && darkmode false'
 
     set BASE16_SHELL ~/.config/base16-shell/
     source $BASE16_SHELL/profile_helper.fish
