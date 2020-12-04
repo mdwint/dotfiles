@@ -117,6 +117,12 @@ augroup stripwhitespace
   autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
+" For documentation files, enable text wrapping and spell checking
+augroup docs_config
+    autocmd!
+    autocmd BufRead,BufNewFile *.md,*.rst setlocal textwidth=80 spell spelllang=en
+augroup END
+
 " Toggle relative line numbers
 set number relativenumber
 nnoremap <c-n><c-n> :set invrelativenumber<cr>
