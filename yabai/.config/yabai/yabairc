@@ -17,7 +17,7 @@ yabai -m config normal_window_border_color   0xff000000
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
-yabai -m config mouse_modifier               fn
+yabai -m config mouse_modifier               alt
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
@@ -31,5 +31,8 @@ yabai -m config right_padding                0
 yabai -m config window_gap                   6
 
 # rules
+yabai -m rule --add app="^Slack$" space=4
+yabai -m rule --add app="^Mail$" space=4
+yabai -m rule --add app="^Calendar$" space=4
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
