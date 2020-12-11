@@ -1,9 +1,8 @@
+set -U fish_features qmark-noglob
+
 set PATH ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin /usr/local/opt/libpq/bin $PATH
 set -xU LC_ALL en_US.UTF-8
 set -xU LC_CTYPE en_US.UTF-8
-
-set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
-set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 abbr l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
@@ -31,11 +30,21 @@ pyenv init - | source
 rbenv init - | source
 
 if status --is-interactive
+    set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
+    set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+
+    set -xg LYNX_CFG ~/.config/lynx/lynx.cfg
+    set -xg LYNX_LSS ~/.config/lynx/lynx.lss
+
     thefuck --alias | source
     source /usr/local/share/autojump/autojump.fish
 
     function e -d 'jump and open vim'
         j $argv && vim
+    end
+
+    function ? -d 'web search in lynx'
+        lynx "https://duckduckgo.com/lite?q=$argv"
     end
 
     function darkmode
