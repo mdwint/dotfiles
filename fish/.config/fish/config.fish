@@ -1,4 +1,4 @@
-set -U fish_features qmark-noglob
+set -U fish_features stderr-nocaret qmark-noglob
 
 set PATH ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin /usr/local/opt/libpq/bin $PATH
 set -xU LC_ALL en_US.UTF-8

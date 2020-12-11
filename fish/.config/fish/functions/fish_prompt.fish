@@ -1,30 +1,19 @@
 function fish_prompt --description 'Write out the prompt'
     set -l last_status $status
 
-    # set_color $fish_color_user
-    # echo -n (whoami)
-    # set_color normal
-
-    # echo -n '@'
-
-    # set_color $fish_color_host
-    # echo -n (prompt_hostname)
-    # set_color normal
-
-    # echo -n ':'
-
+    set -l cwd (prompt_pwd)
     set_color $fish_color_cwd
-    echo -n (prompt_pwd)
-    # set_color normal
+    echo -n $cwd
 
-    set -l branch (git rev-parse --abbrev-ref HEAD ^/dev/null)
+    set -l branch (git rev-parse --abbrev-ref HEAD 2>/dev/null)
     if test -n "$branch"
         set_color $fish_color_escape
         echo -n " ($branch)"
     end
-    # __terlar_git_prompt
-    # __fish_hg_prompt
-    echo
+
+    if test (string length "$cwd ($branch)") -ge 20
+        echo
+    end
 
     if test $last_status -eq 0
         set_color --bold normal
