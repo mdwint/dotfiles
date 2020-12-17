@@ -8,6 +8,7 @@ abbr l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
 alias vim nvim
 abbr v vim
+abbr d date
 abbr t watson
 abbr tl 'watson log -c'
 abbr gl 'git log'
