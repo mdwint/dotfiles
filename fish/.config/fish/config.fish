@@ -25,6 +25,7 @@ abbr gCan 'git commit --amend --no-edit'
 abbr gM 'git merge'
 abbr gp 'git pull'
 abbr gP 'git push'
+abbr gPu 'git push -u origin HEAD'
 
 eval (direnv hook fish)
 pyenv init - | source
@@ -43,6 +44,12 @@ if status --is-interactive
     function e -d 'jump and open vim'
         j $argv && vim
     end
+
+    function z -d 'fuzzy find and change directory'
+        set dest (fd --type directory $argv | fzf) && cd $dest
+    end
+
+    alias zz 'z --max-depth 3 . ~'
 
     function ? -d 'web search in lynx'
         lynx "https://duckduckgo.com/lite?q=$argv"
