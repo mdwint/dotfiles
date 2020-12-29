@@ -14,6 +14,9 @@ cmd + ctrl - b : yabai -m space --balance
 # toggle window zoom
 cmd + ctrl - g : yabai -m window --toggle zoom-fullscreen
 
+# toggle window float
+cmd + ctrl - t : yabai -m window --toggle float
+
 # fast focus desktop
 cmd - escape : yabai -m space --focus recent
 cmd + ctrl + shift + alt - 1 : yabai -m space --focus 1
@@ -69,9 +72,6 @@ cmd + ctrl - 4 : yabai -m window --space 4
 # toggle window split type
 # alt - e : yabai -m window --toggle split
 
-# float / unfloat window and center on screen
-# alt - t : yabai -m window --toggle float;\
-#           yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\

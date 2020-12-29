@@ -91,9 +91,12 @@ let g:jedi#show_call_signatures="2"
 " Linting
 let g:ale_fix_on_save=1
 let g:ale_fixers={
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'python': ['black'],
 \ 'go': ['goimports'],
 \ 'rust': ['rustfmt'],
+\ 'c': ['clang-format'],
+\ 'cpp': ['clang-format'],
 \ 'terraform': ['terraform'],
 \ 'javascript': ['prettier'],
 \ 'css': ['prettier'],
@@ -109,12 +112,6 @@ let g:signify_sign_change='~'
 augroup gitsigns
   autocmd!
   autocmd BufEnter,FocusGained * checktime | SignifyRefresh
-augroup END
-
-" Strip trailing whitespace on save
-augroup stripwhitespace
-  autocmd!
-  autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
 " For documentation files, enable text wrapping and spell checking

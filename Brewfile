@@ -1,6 +1,8 @@
 tap "koekeishiya/formulae"
 brew "autojump"
 brew "awscli"
+brew "clang-format"
+brew "dasht"
 brew "direnv"
 brew "docker-compose"
 brew "exa"
