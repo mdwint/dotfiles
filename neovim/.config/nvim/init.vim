@@ -26,10 +26,12 @@ filetype plugin on
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamed
-set mouse=a
 set cursorline
-set wildmenu wildmode=longest:full,full
+set hidden
+set mouse=a
+set scrolloff=8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set wildmenu wildmode=longest:full,full
 
 " Persistent undo history
 if !isdirectory($HOME . '/.vimdid')
@@ -116,8 +118,8 @@ augroup END
 
 " For documentation files, enable text wrapping and spell checking
 augroup docs_config
-    autocmd!
-    autocmd BufRead,BufNewFile *.md,*.rst setlocal textwidth=80 spell spelllang=en
+  autocmd!
+  autocmd BufRead,BufNewFile *.md,*.rst setlocal textwidth=80 spell spelllang=en
 augroup END
 
 " Toggle relative line numbers
