@@ -6,6 +6,7 @@ set -xU LC_CTYPE en_US.UTF-8
 
 abbr l 'ls -lh'
 alias tree "exa -T -I='__pycache__|node_modules'"
+abbr chmox 'chmod +x'
 alias vim nvim
 abbr v vim
 abbr d date

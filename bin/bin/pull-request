@@ -1,0 +1,4 @@
+#!/bin/sh
+repo=$(git remote get-url origin | sed -nE 's/.+:(.+)\.git$/\1/p')
+branch=$(git symbolic-ref --short HEAD)
+open "https://bitbucket.org/$repo/pull-requests/new?source=$branch&t=1"
