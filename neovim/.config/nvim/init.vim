@@ -140,6 +140,10 @@ function! s:base16_customize() abort
   call Base16hi("SignifySignDelete", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00, "", "")
   call Base16hi("VertSplit", g:base16_gui01, g:base16_gui00, g:base16_cterm01, g:base16_cterm00, "none", "")
 
+  hi Normal guibg=none ctermbg=none
+  hi LineNr guibg=none ctermbg=none
+  hi SignColumn guibg=none ctermbg=none
+
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
