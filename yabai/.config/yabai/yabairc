@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+sudo yabai --load-sa
 
 # global settings
 yabai -m config mouse_follows_focus          off
