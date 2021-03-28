@@ -103,6 +103,7 @@ let g:ale_fixers={
 \ 'javascript': ['prettier'],
 \ 'css': ['prettier'],
 \ 'json': ['jq'],
+\ 'xml': ['xmllint'],
 \}
 nnoremap gj :ALENextWrap<cr>
 nnoremap gk :ALEPreviousWrap<cr>

@@ -28,9 +28,8 @@ abbr gp 'git pull'
 abbr gP 'git push'
 abbr gPu 'git push -u origin HEAD'
 
-eval (direnv hook fish)
-pyenv init - | source
-rbenv init - | source
+if type -q direnv; eval (direnv hook fish); end
+if type -q pyenv; pyenv init - | source; end
 
 if status --is-interactive
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
@@ -39,12 +38,12 @@ if status --is-interactive
     set -xg LYNX_CFG ~/.config/lynx/lynx.cfg
     set -xg LYNX_LSS ~/.config/lynx/lynx.lss
 
-    thefuck --alias | source
-    source /usr/local/share/autojump/autojump.fish
+    if type -q thefuck; thefuck --alias | source; end
 
-    function e -d 'jump and open vim'
-        j $argv && vim
-    end
+    set AUTOJUMP /usr/local/share/autojump/autojump.fish
+    if test -e $AUTOJUMP; source $AUTOJUMP; end
+
+    function e -d 'jump and open vim'; j $argv && vim; end
 
     function z -d 'fuzzy find and change directory'
         set dest (fd --type directory $argv | fzf) && cd $dest
@@ -63,9 +62,12 @@ if status --is-interactive
     alias dark 'base16-black && darkmode true'
     alias light 'base16-one-light && darkmode false'
 
-    set BASE16_SHELL ~/.config/base16-shell/
-    source $BASE16_SHELL/profile_helper.fish
-    source ~/.config/base16-fzf/fish/base16-$BASE16_THEME.fish
+    set BASE16_SHELL ~/.config/base16-shell/profile_helper.fish
+    if test -e $BASE16_SHELL
+        source $BASE16_SHELL
+        set BASE16_FZF ~/.config/base16-fzf/fish/base16-$BASE16_THEME.fish
+        if test -e $BASE16_FZF; source $BASE16_FZF; end
+    end
 
     set -U fish_color_autosuggestion    cyan
     set -U fish_color_command           normal
