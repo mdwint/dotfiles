@@ -145,6 +145,7 @@ function! s:base16_customize() abort
   hi LineNr guibg=none ctermbg=none
   hi SignColumn guibg=none ctermbg=none
 
+  let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'sharp' } }
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -153,7 +154,7 @@ function! s:base16_customize() abort
     \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
     \ 'hl+':     ['fg', 'Statement'],
     \ 'info':    ['fg', 'PreProc'],
-    \ 'border':  ['fg', 'Ignore'],
+    \ 'border':  ['fg', 'Comment'],
     \ 'prompt':  ['fg', 'Conditional'],
     \ 'pointer': ['fg', 'Exception'],
     \ 'marker':  ['fg', 'Keyword'],
