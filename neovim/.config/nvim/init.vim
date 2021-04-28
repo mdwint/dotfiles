@@ -9,6 +9,7 @@ Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -34,11 +35,8 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
 
 " Persistent undo history
-if !isdirectory($HOME . '/.vimdid')
-  call mkdir($HOME . '/.vimdid', '', 0700)
-endif
-set undodir=~/.vimdid
 set undofile
+nnoremap <leader>u :UndotreeToggle<cr>
 
 " Split windows
 set splitbelow splitright
