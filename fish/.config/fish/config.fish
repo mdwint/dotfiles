@@ -29,7 +29,7 @@ abbr gP 'git push'
 abbr gPu 'git push -u origin HEAD'
 
 if type -q direnv; eval (direnv hook fish); end
-if type -q pyenv; pyenv init - | source; end
+if type -q pyenv; pyenv init - --no-rehash | source; end
 
 if status --is-interactive
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
