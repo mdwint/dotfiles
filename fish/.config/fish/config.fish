@@ -63,11 +63,7 @@ if status --is-interactive
     alias light 'base16-one-light && darkmode false'
 
     set BASE16_SHELL ~/.config/base16-shell/profile_helper.fish
-    if test -e $BASE16_SHELL
-        source $BASE16_SHELL
-        set BASE16_FZF ~/.config/base16-fzf/fish/base16-$BASE16_THEME.fish
-        if test -e $BASE16_FZF; source $BASE16_FZF; end
-    end
+    if test -e $BASE16_SHELL; source $BASE16_SHELL; end
 
     set -U fish_color_autosuggestion    cyan
     set -U fish_color_command           normal
