@@ -1,0 +1,3 @@
+#!/bin/bash -e
+url=$1; shift
+aws $@ s3 cp $url $url --metadata-directive REPLACE
