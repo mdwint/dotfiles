@@ -11,3 +11,9 @@
 #browser textarea {
     font-family: 'Menlo', monospace !important;
 }
+
+.UrlBar-AddressField:focus-within,
+#browser.tabs-off .UrlBar-AddressField {
+    border-color: var(--colorBgIntenser) !important;
+    box-shadow: none !important;
+}
