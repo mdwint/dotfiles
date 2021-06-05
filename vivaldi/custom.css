@@ -1,0 +1,13 @@
+#header {
+    display: none !important;
+}
+
+#browser,
+#browser + div,
+#browser + div + div,
+#browser button,
+#browser input,
+#browser select,
+#browser textarea {
+    font-family: 'Menlo', monospace !important;
+}
