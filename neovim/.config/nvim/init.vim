@@ -34,6 +34,9 @@ set scrolloff=8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
 
+" Quick save
+noremap <leader>w :update<cr>
+
 " Persistent undo history
 set undofile
 nnoremap <leader>u :UndotreeToggle<cr>

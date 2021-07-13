@@ -27,6 +27,7 @@ abbr gM 'git merge'
 abbr gp 'git pull'
 abbr gP 'git push'
 abbr gPu 'git push -u origin HEAD'
+abbr gPf 'git push --force-with-lease'
 
 if type -q direnv; eval (direnv hook fish); end
 if type -q pyenv; pyenv init - --no-rehash | source; end
