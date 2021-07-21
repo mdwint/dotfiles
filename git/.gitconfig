@@ -7,7 +7,13 @@
     ignorecase = false
 
 [pull]
-    rebase = false
+    rebase = true
+
+[merge]
+    conflictstyle = diff3
+
+[rerere]
+    enabled = true
 
 [filter "lfs"]
     required = true
