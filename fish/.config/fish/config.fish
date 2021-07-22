@@ -31,7 +31,12 @@ abbr gPu 'git push -u origin HEAD'
 abbr gPf 'git push --force-with-lease'
 
 if type -q direnv; eval (direnv hook fish); end
-if type -q pyenv; pyenv init - --no-rehash | source; end
+
+if type -q pyenv
+    set -Ux PYENV_ROOT $HOME/.pyenv
+    set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+    pyenv init --path --no-rehash | source
+end
 
 if status --is-interactive
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
