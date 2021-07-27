@@ -50,6 +50,8 @@ if status --is-interactive
     set AUTOJUMP /usr/local/share/autojump/autojump.fish
     if test -e $AUTOJUMP; source $AUTOJUMP; end
 
+    function ccd -d 'create and change directory'; mkdir -p $argv && cd $argv; end
+
     function e -d 'jump and open vim'; j $argv && vim; end
 
     function z -d 'fuzzy find and change directory'
