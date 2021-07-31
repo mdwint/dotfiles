@@ -34,6 +34,9 @@ set scrolloff=8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
 
+" Reload config
+noremap <leader>r :source $MYVIMRC<cr>
+
 " Quick save
 noremap <leader>w :update<cr>
 
@@ -56,6 +59,13 @@ nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
 autocmd VimEnter * delcommand Windows
 
+" Yank until end of line
+nnoremap Y y$
+
+" Keep cursor centered when jumping
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " Move lines up/down and reformat (alt-k/j)
 nnoremap ∆ :m .+1<cr>==
 nnoremap ˚ :m .-2<cr>==
@@ -63,6 +73,14 @@ inoremap ∆ <esc>:m .+1<cr>==gi
 inoremap ˚ <esc>:m .-2<cr>==gi
 vnoremap ∆ :m '>+1<cr>gv=gv
 vnoremap ˚ :m '<-2<cr>gv=gv
+
+" Insert undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap : :<c-g>u
+inoremap ( (<c-g>u
+inoremap [ [<c-g>u
+inoremap { {<c-g>u
 
 " Configure netrw
 let g:netrw_altv=1
