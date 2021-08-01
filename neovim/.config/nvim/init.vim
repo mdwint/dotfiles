@@ -4,7 +4,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
-Plug 'fisadev/vim-isort'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
