@@ -5,11 +5,12 @@ Plug 'davidhalter/jedi-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'jparise/vim-graphql'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -52,11 +53,12 @@ nnoremap <leader>o :only<cr>
 " Search
 set ignorecase smartcase
 set inccommand=nosplit
-nnoremap <c-p> :Files<cr>
-nnoremap <leader>a :Rg<cr>
+nnoremap <c-p> :Telescope find_files theme=get_ivy<cr>
+nnoremap <leader>a :Telescope live_grep theme=get_ivy<cr>
+nnoremap <leader>b :Telescope buffers theme=get_ivy<cr>
+nnoremap <leader>h :Telescope help_tags theme=get_ivy<cr>
 nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
-autocmd VimEnter * delcommand Windows
 
 " Yank until end of line
 nnoremap Y y$
@@ -162,22 +164,6 @@ function! s:base16_customize() abort
   hi Normal guibg=none ctermbg=none
   hi LineNr guibg=none ctermbg=none
   hi SignColumn guibg=none ctermbg=none
-
-  let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'sharp' } }
-  let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'border':  ['fg', 'Comment'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
 endfunction
 
 augroup on_change_colorschema
