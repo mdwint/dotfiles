@@ -2,9 +2,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
-Plug 'jparise/vim-graphql'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
@@ -53,12 +51,27 @@ nnoremap <leader>o :only<cr>
 " Search
 set ignorecase smartcase
 set inccommand=nosplit
+nnoremap <cr> :noh<cr><cr>
 nnoremap <c-p> :Telescope find_files theme=get_ivy<cr>
+nnoremap <leader>t :Telescope git_files theme=get_ivy<cr>
 nnoremap <leader>a :Telescope live_grep theme=get_ivy<cr>
+nnoremap <leader>* :Telescope grep_string theme=get_ivy<cr>
 nnoremap <leader>b :Telescope buffers theme=get_ivy<cr>
 nnoremap <leader>h :Telescope help_tags theme=get_ivy<cr>
-nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
+
+lua << EOF
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+EOF
 
 " Yank until end of line
 nnoremap Y y$
@@ -160,6 +173,8 @@ function! s:base16_customize() abort
   call Base16hi("SignifySignChange", g:base16_gui0D, g:base16_gui00, g:base16_cterm0D, g:base16_cterm00, "", "")
   call Base16hi("SignifySignDelete", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00, "", "")
   call Base16hi("VertSplit", g:base16_gui01, g:base16_gui00, g:base16_cterm01, g:base16_cterm00, "none", "")
+  call Base16hi("TelescopeBorder", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
+  call Base16hi("TelescopePromptPrefix", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
 
   hi Normal guibg=none ctermbg=none
   hi LineNr guibg=none ctermbg=none
