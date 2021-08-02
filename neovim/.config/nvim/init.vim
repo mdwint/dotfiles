@@ -33,7 +33,7 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
 
 " Reload config
-noremap <leader>r :source $MYVIMRC<cr>
+noremap <leader>v :source $MYVIMRC<cr>
 
 " Quick save
 noremap <leader>w :update<cr>
@@ -52,8 +52,7 @@ nnoremap <leader>o :only<cr>
 set ignorecase smartcase
 set inccommand=nosplit
 nnoremap <cr> :noh<cr><cr>
-nnoremap <c-p> :Telescope find_files theme=get_ivy<cr>
-nnoremap <leader>t :Telescope git_files theme=get_ivy<cr>
+nnoremap <c-p> :Telescope find_files hidden=true theme=get_ivy<cr>
 nnoremap <leader>a :Telescope live_grep theme=get_ivy<cr>
 nnoremap <leader>* :Telescope grep_string theme=get_ivy<cr>
 nnoremap <leader>b :Telescope buffers theme=get_ivy<cr>
@@ -64,6 +63,11 @@ lua << EOF
 local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
+    file_ignore_patterns = {
+        ".git/",
+        ".tox/",
+        "node_modules/",
+    },
     mappings = {
       i = {
         ["<esc>"] = actions.close
@@ -115,9 +119,6 @@ vmap <c-_> <plug>NERDCommenterToggle<cr>gv
 
 " Python
 let g:python3_host_prog='~/vim-python/bin/python'
-
-" Editor config
-let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
 
 " Disable automatic popups
 let g:jedi#popup_on_dot=0
