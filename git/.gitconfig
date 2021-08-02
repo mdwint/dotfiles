@@ -6,6 +6,9 @@
     editor = nvim
     ignorecase = false
 
+[diff]
+    colorMoved = true
+
 [pull]
     rebase = true
 
