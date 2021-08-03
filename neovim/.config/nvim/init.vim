@@ -139,6 +139,8 @@ let g:ale_fixers={
 \ 'json': ['jq'],
 \ 'xml': ['xmllint'],
 \}
+let g:ale_sign_error='X'
+let g:ale_sign_warning='*'
 nnoremap gj :ALENextWrap<cr>
 nnoremap gk :ALEPreviousWrap<cr>
 nnoremap g1 :ALEFirst<cr>
@@ -173,6 +175,8 @@ function! s:base16_customize() abort
   call Base16hi("SignifySignAdd", g:base16_gui0B, g:base16_gui00, g:base16_cterm0B, g:base16_cterm00, "", "")
   call Base16hi("SignifySignChange", g:base16_gui0D, g:base16_gui00, g:base16_cterm0D, g:base16_cterm00, "", "")
   call Base16hi("SignifySignDelete", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00, "", "")
+  call Base16hi("ALEErrorSign", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00, "", "")
+  call Base16hi("ALEWarningSign", g:base16_gui0A, g:base16_gui00, g:base16_cterm0A, g:base16_cterm00, "", "")
   call Base16hi("VertSplit", g:base16_gui01, g:base16_gui00, g:base16_cterm01, g:base16_cterm00, "none", "")
   call Base16hi("TelescopeBorder", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
   call Base16hi("TelescopePromptPrefix", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
