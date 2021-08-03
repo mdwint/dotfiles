@@ -19,7 +19,8 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 call plug#end()
 
-syntax on
+syntax enable
+colors mdwint
 filetype plugin on
 
 set autoread
@@ -141,6 +142,8 @@ let g:ale_fixers={
 \}
 let g:ale_sign_error='X'
 let g:ale_sign_warning='*'
+let g:ale_virtualtext_cursor=1
+let g:ale_virtualtext_prefix=' # '
 nnoremap gj :ALENextWrap<cr>
 nnoremap gk :ALEPreviousWrap<cr>
 nnoremap g1 :ALEFirst<cr>
@@ -168,33 +171,9 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" Color scheme
-function! s:base16_customize() abort
-  call Base16hi("LineNr", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
-  call Base16hi("SignColumn", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
-  call Base16hi("SignifySignAdd", g:base16_gui0B, g:base16_gui00, g:base16_cterm0B, g:base16_cterm00, "", "")
-  call Base16hi("SignifySignChange", g:base16_gui0D, g:base16_gui00, g:base16_cterm0D, g:base16_cterm00, "", "")
-  call Base16hi("SignifySignDelete", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00, "", "")
-  call Base16hi("ALEErrorSign", g:base16_gui08, g:base16_gui00, g:base16_cterm08, g:base16_cterm00, "", "")
-  call Base16hi("ALEWarningSign", g:base16_gui0A, g:base16_gui00, g:base16_cterm0A, g:base16_cterm00, "", "")
-  call Base16hi("VertSplit", g:base16_gui01, g:base16_gui00, g:base16_cterm01, g:base16_cterm00, "none", "")
-  call Base16hi("TelescopeBorder", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
-  call Base16hi("TelescopePromptPrefix", g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
-
-  hi Normal guibg=none ctermbg=none
-  hi LineNr guibg=none ctermbg=none
-  hi SignColumn guibg=none ctermbg=none
-endfunction
-
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-augroup END
-
-set termguicolors
-set background=dark
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+" Show syntax group of text under cursor
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+nnoremap <leader>i :call SynGroup()<cr>

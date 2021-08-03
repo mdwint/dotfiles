@@ -59,24 +59,12 @@ if status --is-interactive
         lynx "https://duckduckgo.com/lite?q=$argv"
     end
 
-    function colors -d 'set color scheme'
-        base16-$argv && reload_nvim_colors
-    end
-
     function darkmode -d 'set macOS dark mode (true/false)'
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv
     end
 
-    function reload_nvim_colors -d 'find all neovim instances and reload their color scheme'
-        if not set -q TMUX; return; end
-        for pane in (ps eww | rg ' nvim ' | sed 's/^.*TMUX_PANE=//;s/ .*//')
-            if test $pane = $TMUX_PANE; continue; end
-            tmux send-keys -t $pane ':source ~/.vimrc_background' Enter
-        end
-    end
-
-    alias dark 'colors black && darkmode true'
-    alias light 'colors one-light && darkmode false'
+    alias dark 'base16-dark && darkmode true'
+    alias light 'base16-light && darkmode false'
 
     set BASE16_SHELL ~/.config/base16-shell/profile_helper.fish
     if test -e $BASE16_SHELL; source $BASE16_SHELL; end
