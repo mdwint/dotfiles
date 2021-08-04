@@ -1,4 +1,13 @@
 #!/bin/sh
-repo=$(git remote get-url origin | sed -nE 's/.+:(.+)\.git$/\1/p')
-branch=$(git symbolic-ref --short HEAD)
-open "https://bitbucket.org/$repo/pull-requests/new?source=$branch&t=1"
+remote=$(git remote get-url origin)
+case $remote in
+    git@bitbucket.org:*)
+        repo=$(echo $remote | sed -nE 's/.+:(.+)\.git$/\1/p')
+        branch=$(git symbolic-ref --short HEAD)
+        open "https://bitbucket.org/$repo/pull-requests/new?source=$branch&t=1"
+        ;;
+    *)
+        echo "Can't open a PR for $remote"
+        exit 1
+        ;;
+esac

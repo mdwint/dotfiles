@@ -12,6 +12,7 @@ abbr v vim
 abbr d date
 abbr t watson
 abbr tl 'watson log -c'
+abbr pr pull-request
 abbr gl 'git log'
 abbr gg 'git log --all --graph --oneline'
 abbr gh 'git show HEAD'
