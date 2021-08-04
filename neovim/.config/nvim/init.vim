@@ -32,6 +32,7 @@ set mouse=a
 set scrolloff=8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
+let mapleader=' '
 
 " Reload config
 noremap <leader>v :source $MYVIMRC<cr>
@@ -46,7 +47,7 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Split windows
 set splitbelow splitright
 nnoremap <leader>- :sp<cr>
-nnoremap <leader>\| :vsp<cr>
+nnoremap <leader>\ :vsp<cr>
 nnoremap <leader>o :only<cr>
 
 " Search
@@ -55,7 +56,7 @@ set inccommand=nosplit
 nnoremap <cr> :noh<cr><cr>
 nnoremap <c-p> :Telescope find_files hidden=true theme=get_ivy<cr>
 nnoremap <leader>a :Telescope live_grep theme=get_ivy<cr>
-nnoremap <leader>* :Telescope grep_string theme=get_ivy<cr>
+nnoremap <leader>8 :Telescope grep_string theme=get_ivy<cr>
 nnoremap <leader>b :Telescope buffers theme=get_ivy<cr>
 nnoremap <leader>h :Telescope help_tags theme=get_ivy<cr>
 nmap <silent> <leader>f <plug>DashSearch
