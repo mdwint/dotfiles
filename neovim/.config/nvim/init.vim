@@ -120,7 +120,8 @@ nmap <c-_> <plug>NERDCommenterToggle
 vmap <c-_> <plug>NERDCommenterToggle<cr>gv
 
 " Python
-let g:python3_host_prog='~/vim-python/bin/python'
+let g:python3_host_prog='~/.pyenv/versions/3.7.4/bin/python'
+let g:loaded_python_provider=0
 
 " Disable automatic popups
 let g:jedi#popup_on_dot=0
@@ -174,7 +175,7 @@ augroup END
 
 " Show syntax group of text under cursor
 function! SynGroup()
-    let l:s = synID(line('.'), col('.'), 1)
-    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+  let l:s=synID(line('.'), col('.'), 1)
+  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
 nnoremap <leader>i :call SynGroup()<cr>

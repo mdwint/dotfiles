@@ -61,7 +61,7 @@ hi Normal         ctermfg=7 ctermbg=none
 hi Number         ctermfg=16
 hi Operator       ctermfg=7
 hi Pmenu          ctermfg=7 ctermbg=18 cterm=none
-hi PmenuSbar      ctermbg=248
+hi PmenuSbar      ctermbg=16
 hi PmenuSel       ctermfg=18 ctermbg=7 cterm=none
 hi PmenuThumb     ctermbg=15
 hi PreProc        ctermfg=4
@@ -77,7 +77,7 @@ hi SpellBad       cterm=undercurl ctermbg=none
 hi SpellCap       cterm=undercurl ctermbg=none
 hi SpellLocal     cterm=undercurl ctermbg=none
 hi SpellRare      cterm=undercurl ctermbg=none
-hi Statement      ctermfg=7
+hi Statement      ctermfg=4
 hi StatusLine     ctermfg=20 ctermbg=19 cterm=none
 hi StatusLineNC   ctermfg=8 ctermbg=18 cterm=none
 hi StorageClass   ctermfg=4
