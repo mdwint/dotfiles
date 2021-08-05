@@ -38,27 +38,12 @@ if status --is-interactive
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
-    set -xg LYNX_CFG ~/.config/lynx/lynx.cfg
-    set -xg LYNX_LSS ~/.config/lynx/lynx.lss
-
-    if type -q thefuck; thefuck --alias | source; end
-
     set AUTOJUMP /usr/local/share/autojump/autojump.fish
     if test -e $AUTOJUMP; source $AUTOJUMP; end
 
     function ccd -d 'create and change directory'; mkdir -p $argv && cd $argv; end
 
     function e -d 'jump and open vim'; j $argv && vim; end
-
-    function z -d 'fuzzy find and change directory'
-        set dest (fd --type directory $argv | fzf) && cd $dest
-    end
-
-    alias zz 'z --max-depth 3 . ~'
-
-    function ? -d 'web search in lynx'
-        lynx "https://duckduckgo.com/lite?q=$argv"
-    end
 
     function darkmode -d 'set macOS dark mode (true/false)'
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv
