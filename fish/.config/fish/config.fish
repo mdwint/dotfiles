@@ -1,40 +1,44 @@
-set -U fish_features stderr-nocaret qmark-noglob
+if status --is-login; and not set -q __fish_login_config_sourced
+    set -U fish_features stderr-nocaret qmark-noglob
 
-fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin ~/.pyenv/bin /usr/local/opt/libpq/bin
-set -xU LC_ALL en_US.UTF-8
-set -xU LC_CTYPE en_US.UTF-8
+    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin ~/.pyenv/bin /usr/local/opt/libpq/bin
+    set -xU LC_ALL en_US.UTF-8
+    set -xU LC_CTYPE en_US.UTF-8
 
-abbr l 'ls -lh'
-alias tree "exa -T -I='__pycache__|node_modules'"
-abbr chmox 'chmod +x'
-alias vim nvim
-abbr v vim
-abbr d date
-abbr t watson
-abbr tl 'watson log -c'
-abbr pr pull-request
-abbr gl 'git log'
-abbr gg 'git log --all --graph --oneline'
-abbr gh 'git show HEAD'
-abbr gs 'git status'
-abbr gd 'git diff'
-abbr gD 'git diff --staged'
-abbr ga 'git add'
-abbr gc 'git checkout'
-abbr gC 'git commit'
-abbr gCa 'git commit --amend'
-abbr gCan 'git commit --amend --no-edit'
-abbr gM 'git merge'
-abbr gf 'git fetch --all'
-abbr gp 'git pull'
-abbr gP 'git push'
-abbr gPu 'git push -u origin HEAD'
-abbr gPf 'git push --force-with-lease'
+    set -x __fish_login_config_sourced 1
+end
 
 if type -q direnv; eval (direnv hook fish); end
 if type -q pyenv; pyenv init --path --no-rehash | source; end
 
 if status --is-interactive
+    abbr l 'ls -lh'
+    alias tree "exa -T -I='__pycache__|node_modules'"
+    abbr chmox 'chmod +x'
+    alias vim nvim
+    abbr v vim
+    abbr d date
+    abbr t watson
+    abbr tl 'watson log -c'
+    abbr pr pull-request
+    abbr gl 'git log'
+    abbr gg 'git log --all --graph --oneline'
+    abbr gh 'git show HEAD'
+    abbr gs 'git status'
+    abbr gd 'git diff'
+    abbr gD 'git diff --staged'
+    abbr ga 'git add'
+    abbr gc 'git checkout'
+    abbr gC 'git commit'
+    abbr gCa 'git commit --amend'
+    abbr gCan 'git commit --amend --no-edit'
+    abbr gM 'git merge'
+    abbr gf 'git fetch --all'
+    abbr gp 'git pull'
+    abbr gP 'git push'
+    abbr gPu 'git push -u origin HEAD'
+    abbr gPf 'git push --force-with-lease'
+
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
