@@ -101,7 +101,7 @@ hi VisualNOS      ctermfg=1
 hi WarningMsg     ctermfg=1
 hi WildMenu       ctermfg=7 ctermbg=11
 
-hi pythonSpaceError ctermfg=7 ctermbg=none
+hi link pythonSpaceError Normal
 
 hi ALEErrorSign          ctermfg=1 ctermbg=none
 hi ALEWarningSign        ctermfg=3 ctermbg=none

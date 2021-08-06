@@ -150,7 +150,8 @@ nnoremap gj :ALENextWrap<cr>
 nnoremap gk :ALEPreviousWrap<cr>
 nnoremap g1 :ALEFirst<cr>
 
-" Git signs
+" Git plugins config
+let g:fugitive_dynamic_colors=0
 let g:signify_vcs_list=['git']
 let g:signify_sign_change='~'
 augroup gitsigns
