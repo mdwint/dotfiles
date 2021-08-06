@@ -29,14 +29,14 @@ hi CursorLineNr   ctermfg=20 ctermbg=18
 hi Debug          ctermfg=7
 hi Define         ctermfg=5
 hi Delimiter      ctermfg=17
-hi DiffAdd        ctermfg=2 ctermbg=18
-hi DiffChange     ctermfg=8 ctermbg=18
-hi DiffDelete     ctermfg=1 ctermbg=18
-hi DiffFile       ctermfg=1 ctermbg=0
+hi DiffAdd        ctermfg=2 ctermbg=0
+hi DiffChange     ctermfg=8 ctermbg=0
+hi DiffDelete     ctermfg=1 ctermbg=0
+hi DiffFile       ctermfg=5 ctermbg=0
 hi DiffLine       ctermfg=4 ctermbg=0
 hi DiffNewFile    ctermfg=2 ctermbg=0
 hi DiffRemoved    ctermfg=1 ctermbg=0
-hi DiffText       cterm=bold ctermfg=4 ctermbg=18
+hi DiffText       ctermfg=4 ctermbg=0 cterm=bold
 hi Directory      ctermfg=4
 hi Error          ctermfg=0 ctermbg=1
 hi ErrorMsg       ctermfg=1 ctermbg=0
@@ -101,6 +101,8 @@ hi VisualNOS      ctermfg=1
 hi WarningMsg     ctermfg=1
 hi WildMenu       ctermfg=7 ctermbg=11
 
+hi link diffAdded DiffAdd
+hi link diffOldFile DiffRemoved
 hi link pythonSpaceError Normal
 
 hi ALEErrorSign          ctermfg=1 ctermbg=none
