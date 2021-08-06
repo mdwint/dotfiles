@@ -1,17 +1,20 @@
 if status --is-login; and not set -q __fish_login_config_sourced
     set -U fish_features stderr-nocaret qmark-noglob
 
-    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin ~/.pyenv/bin /usr/local/opt/libpq/bin
     set -xU LC_ALL en_US.UTF-8
     set -xU LC_CTYPE en_US.UTF-8
+    set -xU PYENV_ROOT $HOME/.pyenv
+
+    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin $PYENV_ROOT/bin /usr/local/opt/libpq/bin
 
     set -x __fish_login_config_sourced 1
 end
 
-if type -q direnv; eval (direnv hook fish); end
-if type -q pyenv; pyenv init --path --no-rehash | source; end
-
 if status --is-interactive
+    if type -q direnv; eval (direnv hook fish); end
+    if type -q pyenv; pyenv init --path --no-rehash | source; end
+    if type -q zoxide; zoxide init fish --cmd j | source; end
+
     abbr l 'ls -lh'
     alias tree "exa -T -I='__pycache__|node_modules'"
     abbr chmox 'chmod +x'
@@ -41,9 +44,6 @@ if status --is-interactive
 
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-
-    set AUTOJUMP /usr/local/share/autojump/autojump.fish
-    if test -e $AUTOJUMP; source $AUTOJUMP; end
 
     function ccd -d 'create and change directory'; mkdir -p $argv && cd $argv; end
 
