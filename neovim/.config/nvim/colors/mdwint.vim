@@ -103,6 +103,8 @@ hi WildMenu       ctermfg=7 ctermbg=11
 
 hi link diffAdded DiffAdd
 hi link diffOldFile DiffRemoved
+hi link fugitiveStagedModifier DiffAdd
+hi link fugitiveUnstagedModifier DiffRemoved
 hi link pythonSpaceError Normal
 
 hi ALEErrorSign          ctermfg=1 ctermbg=none
