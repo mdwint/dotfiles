@@ -32,7 +32,7 @@ set mouse=a
 set scrolloff=8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
-let mapleader=' '
+map <space> <leader>
 
 " Reload config
 noremap <leader>v :source $MYVIMRC<cr>
@@ -125,7 +125,7 @@ let g:loaded_python_provider=0
 
 " Disable automatic popups
 let g:jedi#popup_on_dot=0
-let g:jedi#show_call_signatures="2"
+let g:jedi#show_call_signatures='2'
 
 " Linting
 let g:ale_fix_on_save=1

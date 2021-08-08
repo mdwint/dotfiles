@@ -59,7 +59,7 @@ hi MoreMsg        ctermfg=5
 hi NonText        ctermfg=8
 hi Normal         ctermfg=7 ctermbg=none
 hi Number         ctermfg=16
-hi Operator       ctermfg=7
+hi Operator       ctermfg=5
 hi Pmenu          ctermfg=7 ctermbg=18 cterm=none
 hi PmenuSbar      ctermbg=16
 hi PmenuSel       ctermfg=18 ctermbg=7 cterm=none
