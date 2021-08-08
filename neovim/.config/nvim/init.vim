@@ -30,6 +30,7 @@ set cursorline
 set hidden
 set mouse=a
 set scrolloff=8
+set shell=/bin/bash
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
 map <space> <leader>
