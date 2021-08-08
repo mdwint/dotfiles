@@ -79,6 +79,18 @@ require('telescope').setup{
 }
 EOF
 
+" Quickfix list
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
+endfunction
+nnoremap <c-q> :call ToggleQuickFix()<cr>
+nnoremap <leader>j :cnext<cr>
+nnoremap <leader>k :cprev<cr>
+nnoremap <leader>1 :cfirst<cr>
+nnoremap gj :lnext<cr>
+nnoremap gk :lprev<cr>
+nnoremap g1 :lfirst<cr>
+
 " Yank until end of line
 nnoremap Y y$
 
@@ -146,9 +158,6 @@ let g:ale_sign_error='X'
 let g:ale_sign_warning='*'
 let g:ale_virtualtext_cursor=1
 let g:ale_virtualtext_prefix=' # '
-nnoremap gj :ALENextWrap<cr>
-nnoremap gk :ALEPreviousWrap<cr>
-nnoremap g1 :ALEFirst<cr>
 
 " Git plugins config
 let g:fugitive_dynamic_colors=0
