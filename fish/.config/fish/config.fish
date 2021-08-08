@@ -16,7 +16,6 @@ if status --is-interactive
     if type -q zoxide; zoxide init fish --cmd j | source; end
 
     abbr l 'ls -lh'
-    alias tree "exa -T -I='__pycache__|node_modules'"
     abbr chmox 'chmod +x'
     alias vim nvim
     abbr v vim
@@ -44,10 +43,16 @@ if status --is-interactive
 
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+    set -xg FZF_DEFAULT_OPTS '--color 16'
 
-    function ccd -d 'create and change directory'; mkdir -p $argv && cd $argv; end
+    function ccd -d 'mkdir and cd'; mkdir -p $argv && cd $argv; end
 
     function e -d 'jump and open vim'; j $argv && vim; end
+
+    function jj -d 'fzf and cd'
+        set opts -d 5 -E Applications -E Documents -E Library -E Music
+        cd (cd && fd -t d $opts | fzf --preview='tree {}')
+    end
 
     function darkmode -d 'set macOS dark mode (true/false)'
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv

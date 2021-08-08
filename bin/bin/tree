@@ -1,0 +1,2 @@
+#!/bin/sh
+exa -T -I='__pycache__|node_modules' $@
