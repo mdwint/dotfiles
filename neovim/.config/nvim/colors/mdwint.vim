@@ -40,7 +40,7 @@ hi DiffText       ctermfg=4 ctermbg=0 cterm=bold
 hi Directory      ctermfg=4
 hi Error          ctermfg=0 ctermbg=1
 hi ErrorMsg       ctermfg=1 ctermbg=0
-hi Exception      ctermfg=7
+hi Exception      ctermfg=5
 hi Float          ctermfg=16
 hi FoldColumn     ctermfg=6 ctermbg=18
 hi Folded         ctermfg=8 ctermbg=18
