@@ -1,5 +1,4 @@
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
@@ -7,7 +6,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdcommenter'
