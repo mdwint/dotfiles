@@ -75,7 +75,7 @@ if status --is-interactive
     set -U fish_color_param             normal
     set -U fish_color_quote             normal
     set -U fish_color_redirection       cyan
-    set -U fish_pager_color_description yellow
+    set -U fish_pager_color_description brcyan
     set -U fish_prompt_pwd_dir_length   0
     set fish_greeting
 end
