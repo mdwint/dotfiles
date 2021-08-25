@@ -7,6 +7,7 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -78,8 +79,12 @@ require('telescope').setup{
         ["<esc>"] = actions.close
       },
     },
+  },
+  extensions = {
+    fzf = {},
   }
 }
+require('telescope').load_extension('fzf')
 EOF
 
 " Quickfix list
