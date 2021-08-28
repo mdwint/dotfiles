@@ -6,7 +6,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'mbbill/undotree'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -69,9 +69,9 @@ local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {
-        ".git/",
-        ".tox/",
-        "node_modules/",
+      ".git/",
+      ".tox/",
+      "node_modules/",
     },
     mappings = {
       i = {
@@ -113,7 +113,7 @@ inoremap ˚ <esc>:m .-2<cr>==gi
 vnoremap ∆ :m '>+1<cr>gv=gv
 vnoremap ˚ :m '<-2<cr>gv=gv
 
-" Insert undo break points
+" Insert undo checkpoints on punctuation
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap : :<c-g>u

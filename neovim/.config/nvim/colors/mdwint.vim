@@ -56,7 +56,7 @@ hi Macro          ctermfg=7
 hi MatchParen     ctermbg=8
 hi ModeMsg        cterm=bold ctermfg=3
 hi MoreMsg        ctermfg=5
-hi NonText        ctermfg=8
+hi NonText        ctermfg=18
 hi Normal         ctermfg=7 ctermbg=none
 hi Number         ctermfg=16
 hi Operator       ctermfg=5
