@@ -3,7 +3,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'machakann/vim-highlightedyank'
 Plug 'mbbill/undotree'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -131,7 +130,7 @@ let g:netrw_winsize=20
 nnoremap <silent> <leader>e :Lexplore<cr>
 
 " Highlight yanked text
-let g:highlightedyank_highlight_duration=200
+au TextYankPost * silent! lua vim.highlight.on_yank()
 
 " Toggle comments
 let g:NERDDefaultAlign='left'
