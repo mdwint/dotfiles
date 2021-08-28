@@ -113,9 +113,5 @@ hi ALEVirtualTextError   ctermfg=1
 hi ALEVirtualTextWarning ctermfg=3
 hi link ALEVirtualTextInfo Comment
 
-hi SignifySignAdd    ctermfg=2 ctermbg=none
-hi SignifySignChange ctermfg=4 ctermbg=none
-hi SignifySignDelete ctermfg=1 ctermbg=none
-
 hi TelescopeBorder       ctermfg=8 ctermbg=0
 hi TelescopePromptPrefix ctermfg=8 ctermbg=0

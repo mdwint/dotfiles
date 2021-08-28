@@ -2,9 +2,9 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mbbill/undotree'
-Plug 'mhinz/vim-signify'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -169,12 +169,14 @@ let g:ale_virtualtext_prefix=' # '
 
 " Git plugins config
 let g:fugitive_dynamic_colors=0
-let g:signify_vcs_list=['git']
-let g:signify_sign_change='~'
-augroup gitsigns
-  autocmd!
-  autocmd BufEnter,FocusGained * checktime | SignifyRefresh
-augroup END
+lua << EOF
+require('gitsigns').setup{
+  signs = {
+    add = {text = '+'},
+    change = {text = '~'},
+  },
+}
+EOF
 
 " For documentation files, enable text wrapping and spell checking
 augroup docs_config
