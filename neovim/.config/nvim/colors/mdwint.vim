@@ -15,13 +15,13 @@ hi clear
 syntax reset
 let g:colors_name = "mdwint"
 
-hi Boolean        ctermfg=16
+hi Boolean        ctermfg=6
 hi Character      ctermfg=7
 hi ColorColumn    ctermbg=18 cterm=none
 hi Comment        ctermfg=8
 hi Conceal        ctermfg=4 ctermbg=0
 hi Conditional    ctermfg=5
-hi Constant       ctermfg=16
+hi Constant       ctermfg=6
 hi Cursor         ctermfg=0 ctermbg=7
 hi CursorColumn   ctermbg=18 cterm=none
 hi CursorLine     ctermbg=18 cterm=none
@@ -41,7 +41,7 @@ hi Directory      ctermfg=4
 hi Error          ctermfg=0 ctermbg=1
 hi ErrorMsg       ctermfg=1 ctermbg=0
 hi Exception      ctermfg=5
-hi Float          ctermfg=16
+hi Float          ctermfg=6
 hi FoldColumn     ctermfg=6 ctermbg=18
 hi Folded         ctermfg=8 ctermbg=18
 hi Function       ctermfg=4
@@ -58,7 +58,7 @@ hi ModeMsg        cterm=bold ctermfg=3
 hi MoreMsg        ctermfg=5
 hi NonText        ctermfg=18
 hi Normal         ctermfg=7 ctermbg=none
-hi Number         ctermfg=16
+hi Number         ctermfg=6
 hi Operator       ctermfg=5
 hi Pmenu          ctermfg=7 ctermbg=18 cterm=none
 hi PmenuSbar      ctermbg=16
@@ -81,7 +81,7 @@ hi Statement      ctermfg=4
 hi StatusLine     ctermfg=20 ctermbg=19 cterm=none
 hi StatusLineNC   ctermfg=8 ctermbg=18 cterm=none
 hi StorageClass   ctermfg=4
-hi String         ctermfg=16
+hi String         ctermfg=6
 hi Structure      ctermfg=5
 hi Substitute     ctermfg=18 ctermbg=3 cterm=none
 hi TabLine        ctermfg=8 ctermbg=18 cterm=none
