@@ -12,8 +12,12 @@
     font-family: 'Menlo', monospace !important;
 }
 
+.UrlBar {
+    background: var(--colorBg) !important;
+}
+
 .UrlBar-AddressField:focus-within,
 #browser.tabs-off .UrlBar-AddressField {
-    border-color: var(--colorBgIntenser) !important;
+    border-color: var(--colorBg) !important;
     box-shadow: none !important;
 }
