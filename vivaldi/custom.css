@@ -12,7 +12,8 @@
     font-family: 'Menlo', monospace !important;
 }
 
-.UrlBar {
+.UrlBar,
+.UrlBar .button-toolbar {
     background: var(--colorBg) !important;
 }
 
