@@ -13,6 +13,7 @@ exists git || brew install git
     git clone https://github.com/mdwint/dotfiles.git "$TARGET_DIR"
     cd "$TARGET_DIR"
 
+    tic -x tmux/.tmux-terminfo.src
     brew bundle
     stow */
 )
