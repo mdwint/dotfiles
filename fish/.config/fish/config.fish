@@ -13,7 +13,7 @@ end
 if status --is-interactive
     if type -q direnv; eval (direnv hook fish); end
     if type -q pyenv; pyenv init --path --no-rehash | source; end
-    if type -q zoxide; zoxide init fish --cmd j | source; end
+    if type -q zoxide; zoxide init fish | source; end
 
     abbr l 'ls -lh'
     abbr chmox 'chmod +x'
@@ -49,9 +49,13 @@ if status --is-interactive
 
     function e -d 'jump and open vim'; j $argv && vim; end
 
-    function jj -d 'fzf and cd'
-        set opts -d 5 -E Applications -E Documents -E Library -E Music
-        cd (cd && fd -t d $opts | fzf --preview='tree {}')
+    function j -d 'jump or fzf directory'
+        if test -n "$argv"
+            z $argv
+        else
+            set opts -d 5 -E Applications -E Documents -E Library -E Music
+            cd (cd && fd -t d $opts | fzf --preview='tree {}')
+        end
     end
 
     function darkmode -d 'set macOS dark mode (true/false)'
