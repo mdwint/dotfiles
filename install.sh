@@ -1,21 +1,40 @@
 #!/bin/sh
 set -e
 
-exists() {
+case "$(uname -s)" in
+    Darwin*) os=macos;;
+    Linux*)  os=linux;;
+    *)       os=unknown;;
+esac
+
+has() {
     [ -x "$(command -v $1)" ]
 }
 
-exists brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-exists git || brew install git
+if [ "$os" = macos ]; then
+    has brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    has git || brew install git
+fi
 
 (
-    TARGET_DIR=~/dotfiles
-    git clone https://github.com/mdwint/dotfiles.git "$TARGET_DIR"
-    cd "$TARGET_DIR"
+    target_dir=~/dotfiles
+    [ -d "$target_dir" ] || git clone https://github.com/mdwint/dotfiles.git "$target_dir"
+    cd "$target_dir"
 
-    tic -x tmux/.tmux-terminfo.src
-    brew bundle
-    stow */
+    if [ "$os" = macos ]; then
+        stow */
+        tic -x tmux/.tmux-terminfo.src
+        brew bundle --no-lock --no-upgrade
+    else
+        stow bin fish git neovim tmux
+    fi
+
+    if has nvim; then
+        vim_plug="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim"
+        [ -f "$vim_plug" ] || curl -fLo "$vim_plug" --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        nvim --headless +PlugInstall +qa
+    fi
 )
 
-exists rustup || curl https://sh.rustup.rs -sSf | sh
+has rustup || curl https://sh.rustup.rs -sSf | sh
