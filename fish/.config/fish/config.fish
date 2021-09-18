@@ -59,7 +59,7 @@ if status --is-interactive
     end
 
     function darkmode -d 'set macOS dark mode (true/false)'
-        osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv
+        type -q osascript; and osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv
     end
 
     alias dark 'base16-dark && darkmode true'
