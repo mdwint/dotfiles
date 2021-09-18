@@ -21,12 +21,15 @@ fi
     [ -d "$target_dir" ] || git clone https://github.com/mdwint/dotfiles.git "$target_dir"
     cd "$target_dir"
 
+    base16_shell=~/.config/base16-shell
+    [ -d "$base16_shell" ] || git clone https://github.com/chriskempson/base16-shell.git "$base16_shell"
+
     if [ "$os" = macos ]; then
         stow */
         tic -x tmux/.tmux-terminfo.src
         brew bundle --no-lock --no-upgrade
     else
-        stow bin fish git neovim tmux
+        stow base16 bin fish git neovim tmux
     fi
 
     if has nvim; then
