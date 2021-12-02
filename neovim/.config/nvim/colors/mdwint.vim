@@ -25,7 +25,7 @@ hi Constant       ctermfg=6
 hi Cursor         ctermfg=0 ctermbg=7
 hi CursorColumn   ctermbg=18 cterm=none
 hi CursorLine     ctermbg=18 cterm=none
-hi CursorLineNr   ctermfg=20 ctermbg=18
+hi CursorLineNr   ctermfg=20 ctermbg=18 cterm=none
 hi Debug          ctermfg=7
 hi Define         ctermfg=5
 hi Delimiter      ctermfg=17
