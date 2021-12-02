@@ -21,4 +21,5 @@
 #browser.tabs-off .UrlBar-AddressField {
     border-color: var(--colorBg) !important;
     box-shadow: none !important;
+    outline: none !important;
 }
