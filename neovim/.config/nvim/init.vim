@@ -4,11 +4,11 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mbbill/undotree'
+Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 Plug 'rizzatti/dash.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-fugitive'
@@ -84,6 +84,7 @@ require('telescope').setup{
   }
 }
 require('telescope').load_extension('fzf')
+require('Comment').setup()
 EOF
 
 " Quickfix list
@@ -133,10 +134,8 @@ nnoremap <silent> <leader>e :Lexplore<cr>
 au TextYankPost * silent! lua vim.highlight.on_yank()
 
 " Toggle comments
-let g:NERDDefaultAlign='left'
-let g:NERDToggleCheckAllLines=1
-nmap <c-_> <plug>NERDCommenterToggle
-vmap <c-_> <plug>NERDCommenterToggle<cr>gv
+nmap <c-_> gcc
+vmap <c-_> gccgv
 
 " Python
 let g:python3_host_prog='~/.pyenv/versions/3.7.4/bin/python'
