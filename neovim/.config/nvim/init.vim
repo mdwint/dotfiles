@@ -40,9 +40,10 @@ noremap <leader>v :source $MYVIMRC<cr>
 " Quick save
 noremap <leader>w :update<cr>
 
-" Disable mappings easily hit by accident instead of :q
+" Fix annoyances
 map q: <nop>
 nnoremap Q <nop>
+command W :w
 
 " Persistent undo history
 set undofile
