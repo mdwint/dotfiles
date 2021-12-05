@@ -8,6 +8,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rizzatti/dash.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -65,6 +66,11 @@ nnoremap <leader>h :Telescope help_tags theme=get_ivy<cr>
 nmap <silent> <leader>f <plug>DashSearch
 
 lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = "maintained",
+  highlight = { enable = true },
+}
+
 local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
@@ -84,6 +90,7 @@ require('telescope').setup{
   }
 }
 require('telescope').load_extension('fzf')
+
 require('Comment').setup()
 EOF
 
