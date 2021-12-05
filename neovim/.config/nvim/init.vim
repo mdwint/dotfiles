@@ -1,9 +1,11 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
+Plug 'folke/trouble.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mbbill/undotree'
+Plug 'neovim/nvim-lspconfig'
 Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -13,9 +15,6 @@ Plug 'rizzatti/dash.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 call plug#end()
 
 syntax enable
@@ -68,6 +67,8 @@ nnoremap <leader>h :Telescope help_tags theme=get_ivy<cr>
 nmap <silent> <leader>f <plug>DashSearch
 
 lua << EOF
+require('cfg.lsp')
+
 require('nvim-treesitter.configs').setup {
   ensure_installed = "maintained",
   highlight = { enable = true },
@@ -145,34 +146,6 @@ au TextYankPost * silent! lua vim.highlight.on_yank()
 " Toggle comments
 nmap <c-_> gcc
 vmap <c-_> gccgv
-
-" Python
-let g:python3_host_prog='~/.pyenv/versions/3.7.4/bin/python'
-let g:loaded_python_provider=0
-
-" Disable automatic popups
-let g:jedi#popup_on_dot=0
-let g:jedi#show_call_signatures='2'
-
-" Linting
-let g:ale_fix_on_save=1
-let g:ale_fixers={
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'python': ['black'],
-\ 'go': ['goimports'],
-\ 'rust': ['rustfmt'],
-\ 'c': ['clang-format'],
-\ 'cpp': ['clang-format'],
-\ 'terraform': ['terraform'],
-\ 'javascript': ['prettier'],
-\ 'css': ['prettier'],
-\ 'json': ['jq'],
-\ 'xml': ['xmllint'],
-\}
-let g:ale_sign_error='✘'
-let g:ale_sign_warning='?'
-let g:ale_virtualtext_cursor=1
-let g:ale_virtualtext_prefix=' # '
 
 " Git plugins config
 let g:fugitive_dynamic_colors=0

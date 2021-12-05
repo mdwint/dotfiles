@@ -6,6 +6,7 @@ coverage
 fava
 flake8
 isort
+jedi-language-server
 jupyterlab
 mypy
 proselint

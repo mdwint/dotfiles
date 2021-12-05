@@ -90,7 +90,7 @@ hi TabLineSel     ctermfg=7 ctermbg=18 cterm=none
 hi Tag            ctermfg=4
 hi TermCursor     cterm=reverse
 hi Title          ctermfg=4 cterm=none
-hi Todo           ctermfg=3 ctermbg=18
+hi Todo           ctermfg=3 ctermbg=none
 hi TooLong        ctermfg=1
 hi Type           ctermfg=4
 hi Typedef        ctermfg=4
