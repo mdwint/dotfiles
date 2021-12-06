@@ -39,6 +39,8 @@ fi
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         nvim --headless +PlugInstall +qa
     fi
+
+    has pipx && while read pkg; do pipx install $pkg || true; done <python-packages
 )
 
 has rustup || curl https://sh.rustup.rs -sSf | sh
