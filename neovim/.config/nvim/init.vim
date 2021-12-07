@@ -43,6 +43,7 @@ noremap <leader>w :update<cr>
 " Fix annoyances
 map q: <nop>
 nnoremap Q <nop>
+command Q :q
 command W :w
 
 " Persistent undo history
