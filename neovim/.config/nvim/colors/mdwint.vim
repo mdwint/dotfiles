@@ -107,11 +107,7 @@ hi link fugitiveStagedModifier DiffAdd
 hi link fugitiveUnstagedModifier DiffRemoved
 hi link pythonSpaceError Normal
 
-hi ALEErrorSign          ctermfg=1 ctermbg=none
-hi ALEWarningSign        ctermfg=3 ctermbg=none
-hi ALEVirtualTextError   ctermfg=1
-hi ALEVirtualTextWarning ctermfg=3
-hi link ALEVirtualTextInfo Comment
-
 hi TelescopeBorder       ctermfg=8 ctermbg=0
 hi TelescopePromptPrefix ctermfg=8 ctermbg=0
+
+let g:fugitive_dynamic_colors = 0

@@ -13,9 +13,10 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rizzatti/dash.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-fugitive'
 call plug#end()
+
+lua require("cfg")
 
 syntax enable
 colors mdwint
@@ -59,43 +60,7 @@ nnoremap <leader>o :only<cr>
 set ignorecase smartcase
 set inccommand=nosplit
 nnoremap <cr> :noh<cr><cr>
-nnoremap <c-p> :Telescope find_files hidden=true theme=get_ivy<cr>
-nnoremap <leader>a :Telescope live_grep theme=get_ivy<cr>
-nnoremap <leader>8 :Telescope grep_string theme=get_ivy<cr>
-nnoremap <leader>b :Telescope buffers theme=get_ivy<cr>
-nnoremap <leader>h :Telescope help_tags theme=get_ivy<cr>
 nmap <silent> <leader>f <plug>DashSearch
-
-lua << EOF
-require('cfg.lsp')
-
-require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained",
-  highlight = { enable = true },
-}
-
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    file_ignore_patterns = {
-      ".git/",
-      ".tox/",
-      "node_modules/",
-    },
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close
-      },
-    },
-  },
-  extensions = {
-    fzf = {},
-  }
-}
-require('telescope').load_extension('fzf')
-
-require('Comment').setup()
-EOF
 
 " Quickfix list
 function! ToggleQuickFix()
@@ -143,21 +108,6 @@ nnoremap <silent> <leader>e :Lexplore<cr>
 " Highlight yanked text
 au TextYankPost * silent! lua vim.highlight.on_yank()
 
-" Toggle comments
-nmap <c-_> gcc
-vmap <c-_> gccgv
-
-" Git plugins config
-let g:fugitive_dynamic_colors=0
-lua << EOF
-require('gitsigns').setup{
-  signs = {
-    add = {text = '+'},
-    change = {text = '~'},
-  },
-}
-EOF
-
 " For documentation files, enable text wrapping and spell checking
 augroup docs_config
   autocmd!
@@ -172,10 +122,3 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-
-" Show syntax group of text under cursor
-function! SynGroup()
-  let l:s=synID(line('.'), col('.'), 1)
-  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
-nnoremap <leader>i :call SynGroup()<cr>
