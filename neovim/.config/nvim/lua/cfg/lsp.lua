@@ -34,18 +34,15 @@ null_ls.config({
     fmt.black,
     fmt.isort,
 
-    -- Others:
+    -- Various:
     fmt.rustfmt,
     fmt.goimports,
     fmt.terraform_fmt,
-    fmt.json_tool,
     fmt.stylua,
     fmt.zigfmt,
-
-    -- Prose:
-    diag.proselint.with({
-      filetypes = { "markdown", "rst", "tex" },
-    }),
+    diag.yamllint,
+    fmt.prettier.with({ disabled_filetypes = { "yaml", "markdown" } }),
+    diag.proselint.with({ filetypes = { "markdown", "rst", "tex" } }),
 
     -- Defaults:
     fmt.trim_newlines,
