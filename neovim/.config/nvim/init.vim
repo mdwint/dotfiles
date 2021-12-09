@@ -31,6 +31,7 @@ set scrolloff=8
 set shell=/bin/bash
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set wildmenu wildmode=longest:full,full
+set completeopt+=longest
 map <space> <leader>
 
 " Reload config
