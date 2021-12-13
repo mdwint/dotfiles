@@ -21,7 +21,7 @@ local on_attach = function(client)
     vim.cmd([[
       augroup lsp_format
         autocmd!
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
       augroup END
     ]])
   end
@@ -42,7 +42,7 @@ null_ls.config({
     -- Various:
     fmt.rustfmt,
     fmt.goimports,
-    fmt.terraform_fmt,
+    -- fmt.terraform_fmt,
     fmt.stylua,
     fmt.zigfmt,
     diag.yamllint,
