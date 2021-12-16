@@ -30,7 +30,7 @@ end
 local null_ls = require("null-ls")
 local diag = null_ls.builtins.diagnostics
 local fmt = null_ls.builtins.formatting
-null_ls.config({
+null_ls.setup({
   -- debug = true,
   sources = {
     -- Python:
@@ -42,10 +42,10 @@ null_ls.config({
     -- Various:
     fmt.rustfmt,
     fmt.goimports,
-    -- fmt.terraform_fmt,
+    fmt.terraform_fmt,
     fmt.stylua,
     fmt.zigfmt,
-    diag.yamllint,
+    -- diag.yamllint,
     fmt.prettier.with({ disabled_filetypes = { "yaml", "markdown" } }),
     diag.proselint.with({ filetypes = { "markdown", "rst", "tex" } }),
 
@@ -53,13 +53,13 @@ null_ls.config({
     fmt.trim_newlines,
     fmt.trim_whitespace,
   },
+  on_attach = on_attach,
 })
 
 local servers = {
   "jedi_language_server",
   "rust_analyzer",
   "terraformls",
-  "null-ls",
 }
 for _, lsp in ipairs(servers) do
   require("lspconfig")[lsp].setup({
