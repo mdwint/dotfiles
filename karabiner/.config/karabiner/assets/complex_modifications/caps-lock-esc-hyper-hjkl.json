@@ -466,6 +466,34 @@
             }
           ],
           "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["right_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_decrement"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": ["right_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "volume_increment"
+            }
+          ],
+          "type": "basic"
         }
       ]
     },
