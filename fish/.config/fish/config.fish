@@ -5,7 +5,7 @@ if status --is-login; and not set -q __fish_login_config_sourced
     set -xU LC_CTYPE en_US.UTF-8
     set -xU PYENV_ROOT $HOME/.pyenv
 
-    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin ~/.poetry/bin $PYENV_ROOT/bin /usr/local/opt/libpq/bin
+    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin $PYENV_ROOT/bin /usr/local/opt/libpq/bin
 
     set -x __fish_login_config_sourced 1
 end
