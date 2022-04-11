@@ -12,7 +12,7 @@ has() {
 }
 
 if [ "$os" = macos ]; then
-    has brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    has brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     has git || brew install git
     has stow || brew install stow
 fi
