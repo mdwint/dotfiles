@@ -40,6 +40,8 @@ if status --is-interactive
     abbr gP 'git push'
     abbr gPu 'git push -u origin HEAD'
     abbr gPf 'git push --force-with-lease'
+    alias brew86 'arch -x86_64 /usr/local/bin/brew'
+    alias pyenv86 'arch -x86_64 pyenv'
 
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
