@@ -68,6 +68,20 @@ for _, lsp in ipairs(servers) do
 end
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = "all",
+  ensure_installed = {
+    "bash",
+    "css",
+    "fish",
+    "go",
+    "html",
+    "javascript",
+    "json",
+    "make",
+    "python",
+    "rst",
+    "rust",
+    "toml",
+    "yaml",
+  },
   highlight = { enable = true },
 })
