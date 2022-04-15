@@ -1,3 +1,5 @@
 fish_variables
+fish/.config/fish/functions/fish_user_key_bindings.fish
+fish/.config/fish/functions/fzf_key_bindings.fish
 karabiner/.config/karabiner/automatic_backups/
 karabiner/.config/karabiner/karabiner.json
