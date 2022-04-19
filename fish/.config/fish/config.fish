@@ -19,10 +19,6 @@ if status --is-interactive
     abbr l 'ls -lh'
     abbr chmox 'chmod +x'
     alias vim nvim
-    abbr v vim
-    abbr d date
-    abbr t watson
-    abbr tl 'watson log -c'
     abbr pr pull-request
     abbr gl 'git log'
     abbr gg 'git log --all --graph --oneline'
