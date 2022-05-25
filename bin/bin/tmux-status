@@ -1,0 +1,4 @@
+#!/bin/sh -e
+status='%a %d/%m %H:%M'
+if tmux show -g status-right | grep -q "$status"; then status=''; fi
+tmux set -g status-right "$status"
