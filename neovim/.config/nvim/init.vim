@@ -62,6 +62,9 @@ set inccommand=nosplit
 nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
 
+" Completion
+let g:SuperTabClosePreviewOnPopupClose=1
+
 " Quickfix list
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
