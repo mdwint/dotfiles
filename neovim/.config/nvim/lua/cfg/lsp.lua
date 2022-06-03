@@ -38,10 +38,10 @@ null_ls.setup({
   -- debug = true,
   sources = {
     -- Python:
-    diag.flake8,
-    diag.mypy,
-    fmt.black,
-    fmt.isort,
+    diag.flake8.with({ prefer_local = ".venv/bin" }),
+    diag.mypy.with({ prefer_local = ".venv/bin" }),
+    fmt.black.with({ prefer_local = ".venv/bin" }),
+    fmt.isort.with({ prefer_local = ".venv/bin" }),
 
     -- Various:
     fmt.rustfmt,
@@ -60,13 +60,28 @@ null_ls.setup({
   on_attach = on_attach,
 })
 
+local lspconfig = require("lspconfig")
+
+lspconfig.jedi_language_server.setup({
+  on_attach = on_attach,
+  init_options = {
+    workspace = {
+      extraPaths = {
+        ".venv/lib/python3.7/site-packages",
+        ".venv/lib/python3.8/site-packages",
+        ".venv/lib/python3.9/site-packages",
+        ".venv/lib/python3.10/site-packages",
+      },
+    },
+  },
+})
+
 local servers = {
-  "jedi_language_server",
   "rust_analyzer",
   "terraformls",
 }
 for _, lsp in ipairs(servers) do
-  require("lspconfig")[lsp].setup({
+  lspconfig[lsp].setup({
     on_attach = on_attach,
   })
 end
