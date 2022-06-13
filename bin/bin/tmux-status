@@ -1,4 +1,5 @@
 #!/bin/sh -e
-status='%a %d/%m %H:%M'
-if tmux show -g status-right | grep -q "$status"; then status=''; fi
-tmux set -g status-right "$status"
+# Only show the clock in tmux if an external display is connected. Otherwise,
+# on the MacBook display, an Übersicht widget shows a clock next to the notch.
+displays=$(osascript -e 'tell application "Image Events" to count displays')
+[[ $displays -gt 1 ]] && date +'%a %d/%m %H:%M'

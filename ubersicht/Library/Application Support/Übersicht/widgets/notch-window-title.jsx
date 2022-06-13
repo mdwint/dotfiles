@@ -16,7 +16,7 @@ return {windowTitle}
 '`;
 export const refreshFrequency = 100;
 
-export const className =`
+export const className = `
   left: 8px;
   top: 12px;
 
@@ -25,8 +25,6 @@ export const className =`
   color: white;
 `;
 
-export const render = ({output}) => {
-  return (
-    <div>{output}</div>
-  );
+export const render = ({ output }) => {
+  return <div>{output}</div>;
 };

@@ -1,7 +1,7 @@
 export const command = "date '+%a %d/%m %H:%M'";
 export const refreshFrequency = 1000;
 
-export const className =`
+export const className = `
   right: 8px;
   top: 12px;
 
@@ -10,8 +10,6 @@ export const className =`
   color: white;
 `;
 
-export const render = ({output}) => {
-  return (
-    <div>{output}</div>
-  );
+export const render = ({ output }) => {
+  return <div>{output}</div>;
 };
