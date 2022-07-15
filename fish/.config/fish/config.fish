@@ -1,5 +1,5 @@
 if status --is-login; and not set -q __fish_login_config_sourced
-    set -U fish_features stderr-nocaret qmark-noglob
+    set -U fish_features qmark-noglob
 
     set -xU LC_ALL en_US.UTF-8
     set -xU LC_CTYPE en_US.UTF-8
