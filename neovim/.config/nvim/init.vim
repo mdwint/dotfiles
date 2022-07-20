@@ -125,3 +125,9 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" Send visual selection to origin shell script
+function Origin()
+  silent execute "!origin % " . string(getpos("v")[1]) . " " . string(getpos(".")[1])
+endfunction
+vnoremap o <cmd>:call Origin()<cr>
