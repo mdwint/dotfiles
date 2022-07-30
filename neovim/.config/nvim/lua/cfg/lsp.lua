@@ -65,9 +65,11 @@ local lspconfig = require("lspconfig")
 lspconfig.jedi_language_server.setup({
   on_attach = on_attach,
   init_options = {
+    diagnostics = {
+      enable = false,
+    },
     workspace = {
       extraPaths = {
-        ".venv/lib/python3.7/site-packages",
         ".venv/lib/python3.8/site-packages",
         ".venv/lib/python3.9/site-packages",
         ".venv/lib/python3.10/site-packages",
