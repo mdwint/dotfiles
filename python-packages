@@ -1,9 +1,7 @@
 aws-export-credentials
-beancount
 black
 bump2version
 coverage
-fava
 flake8
 isort
 jedi-language-server
