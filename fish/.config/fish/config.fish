@@ -20,6 +20,7 @@ if status --is-interactive
     abbr chmox 'chmod +x'
     alias vim nvim
     abbr pr pull-request
+    abbr o origin
     abbr gl 'git log'
     abbr gg 'git log --all --graph --oneline'
     abbr gh 'git show HEAD'

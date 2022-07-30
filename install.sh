@@ -22,6 +22,9 @@ fi
     [ -d "$target_dir" ] || git clone https://github.com/mdwint/dotfiles.git "$target_dir"
     cd "$target_dir"
 
+    tpm=~/.tmux/plugins/tpm
+    [ -d "$tpm" ] || git clone https://github.com/tmux-plugins/tpm "$tpm"
+
     base16_shell=~/.config/base16-shell
     [ -d "$base16_shell" ] || git clone https://github.com/chriskempson/base16-shell.git "$base16_shell"
 
