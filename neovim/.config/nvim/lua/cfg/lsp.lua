@@ -50,6 +50,7 @@ null_ls.setup({
     fmt.stylua,
     fmt.zigfmt,
     -- diag.yamllint,
+    fmt.ocdc,
     fmt.prettier.with({ disabled_filetypes = { "yaml", "markdown" } }),
     diag.proselint.with({ filetypes = { "markdown", "rst", "tex" } }),
 
