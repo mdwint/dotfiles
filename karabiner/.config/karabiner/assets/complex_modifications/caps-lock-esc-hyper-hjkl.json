@@ -597,6 +597,36 @@
             }
           ],
           "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["right_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": ["right_shift"]
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["right_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": ["right_shift"]
+            }
+          ],
+          "type": "basic"
         }
       ]
     },
