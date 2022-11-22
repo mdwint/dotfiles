@@ -53,6 +53,7 @@ null_ls.setup({
     fmt.ocdc,
     fmt.prettier.with({ disabled_filetypes = { "yaml", "markdown" } }),
     diag.proselint.with({ filetypes = { "markdown", "rst", "tex" } }),
+    diag.commitlint,
 
     -- Defaults:
     fmt.trim_newlines,
