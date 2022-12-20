@@ -3,6 +3,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   vim.g.SuperTabDefaultCompletionType = "context"
+  vim.opt.formatexpr = ""
 
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
