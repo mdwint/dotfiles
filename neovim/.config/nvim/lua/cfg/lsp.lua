@@ -48,6 +48,7 @@ null_ls.setup({
     fmt.rustfmt,
     fmt.goimports,
     fmt.terraform_fmt,
+    fmt.packer,
     fmt.stylua,
     fmt.zigfmt,
     -- diag.yamllint,
