@@ -5,7 +5,7 @@ if status --is-login; and not set -q __fish_login_config_sourced
     set -xU LC_CTYPE en_US.UTF-8
     set -xU PYENV_ROOT $HOME/.pyenv
 
-    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin $PYENV_ROOT/bin /opt/homebrew/bin /usr/local/opt/libpq/bin
+    fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin /opt/homebrew/bin /usr/local/opt/libpq/bin
 
     set -x __fish_login_config_sourced 1
 end
@@ -39,8 +39,6 @@ if status --is-interactive
     abbr gP 'git push'
     abbr gPu 'git push -u origin HEAD'
     abbr gPf 'git push --force-with-lease'
-    alias brew86 'arch -x86_64 /usr/local/bin/brew'
-    alias pyenv86 'arch -x86_64 pyenv'
 
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
