@@ -59,7 +59,7 @@ null_ls.setup({
 
     -- Defaults:
     fmt.trim_newlines,
-    fmt.trim_whitespace,
+    fmt.trim_whitespace.with({ disabled_filetypes = { "cfg" } }),
   },
   on_attach = on_attach,
 })
@@ -74,9 +74,9 @@ lspconfig.jedi_language_server.setup({
     },
     workspace = {
       extraPaths = {
-        ".venv/lib/python3.8/site-packages",
         ".venv/lib/python3.9/site-packages",
         ".venv/lib/python3.10/site-packages",
+        ".venv/lib/python3.11/site-packages",
       },
     },
   },
