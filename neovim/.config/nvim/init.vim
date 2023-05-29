@@ -1,23 +1,3 @@
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'epwalsh/obsidian.nvim'
-Plug 'ervandew/supertab'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'lewis6991/impatient.nvim'
-Plug 'mbbill/undotree'
-Plug 'neovim/nvim-lspconfig'
-Plug 'numToStr/Comment.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'rizzatti/dash.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
-call plug#end()
-
 lua require("cfg")
 
 syntax enable

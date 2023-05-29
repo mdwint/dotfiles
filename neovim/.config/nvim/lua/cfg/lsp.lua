@@ -102,11 +102,16 @@ require("nvim-treesitter.configs").setup({
     "javascript",
     "json",
     "make",
+    "markdown",
+    "markdown_inline",
     "python",
     "rst",
     "rust",
     "toml",
     "yaml",
   },
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { "markdown" },
+  },
 })
