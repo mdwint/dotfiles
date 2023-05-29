@@ -1,6 +1,7 @@
 require("cfg.lsp")
 require("cfg.signs")
 require("cfg.telescope")
+require("cfg.obsidian")
 
 require("Comment").setup()
 vim.api.nvim_set_keymap("n", "<c-_>", "gcc", {})

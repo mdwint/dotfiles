@@ -1,5 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'epwalsh/obsidian.nvim'
 Plug 'ervandew/supertab'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'lewis6991/gitsigns.nvim'
