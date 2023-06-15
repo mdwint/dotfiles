@@ -5,7 +5,12 @@ branch=$(git symbolic-ref --short HEAD)
 path="$(git rev-parse --show-prefix)$1"
 case $remote in
     git@bitbucket.org:*)
-        url="https://bitbucket.org/$repo/src/$branch/$path"
+        if [[ $branch == *"/"* ]]; then
+            commit=$(git rev-parse --short HEAD)
+            url="https://bitbucket.org/$repo/src/$commit/$path?at=${branch//\//%2F}"
+        else
+            url="https://bitbucket.org/$repo/src/$branch/$path"
+        fi
         [[ -n "$2" ]] && url="$url#lines-$2"
         [[ -n "$3" ]] && url="$url:$3"
         ;;
