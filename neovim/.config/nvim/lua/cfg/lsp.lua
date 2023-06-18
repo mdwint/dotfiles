@@ -84,6 +84,7 @@ lspconfig.jedi_language_server.setup({
 
 local servers = {
   "rust_analyzer",
+  "svelte",
   "terraformls",
 }
 for _, lsp in ipairs(servers) do
