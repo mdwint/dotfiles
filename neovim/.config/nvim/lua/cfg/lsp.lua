@@ -31,38 +31,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local null_ls = require("null-ls")
-local diag = null_ls.builtins.diagnostics
-local fmt = null_ls.builtins.formatting
-null_ls.setup({
-  -- debug = true,
-  sources = {
-    -- Python:
-    diag.flake8.with({ prefer_local = ".venv/bin" }),
-    diag.mypy.with({ prefer_local = ".venv/bin" }),
-    fmt.black.with({ prefer_local = ".venv/bin" }),
-    fmt.isort.with({ prefer_local = ".venv/bin" }),
-
-    -- Various:
-    fmt.rustfmt,
-    fmt.goimports,
-    fmt.terraform_fmt,
-    fmt.packer,
-    fmt.stylua,
-    fmt.zigfmt,
-    -- diag.yamllint,
-    fmt.ocdc,
-    fmt.prettier.with({ disabled_filetypes = { "yaml", "markdown" } }),
-    diag.proselint.with({ filetypes = { "markdown", "rst", "tex" } }),
-    diag.commitlint,
-
-    -- Defaults:
-    fmt.trim_newlines,
-    fmt.trim_whitespace.with({ disabled_filetypes = { "cfg" } }),
-  },
-  on_attach = on_attach,
-})
-
 local lspconfig = require("lspconfig")
 
 lspconfig.jedi_language_server.setup({

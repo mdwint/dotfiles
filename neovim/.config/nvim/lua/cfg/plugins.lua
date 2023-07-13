@@ -14,13 +14,12 @@ vim.loader.enable()
 
 require("lazy").setup({
   "christoomey/vim-tmux-navigator",
+  "dense-analysis/ale",
   "ervandew/supertab",
-  "jose-elias-alvarez/null-ls.nvim",
   "lewis6991/gitsigns.nvim",
   "mbbill/undotree",
   "neovim/nvim-lspconfig",
   "rizzatti/dash.vim",
-  "sheerun/vim-polyglot",
   "tpope/vim-fugitive",
   {
     "numToStr/Comment.nvim",

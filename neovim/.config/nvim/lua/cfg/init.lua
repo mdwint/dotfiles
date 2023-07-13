@@ -1,4 +1,5 @@
 require("cfg.plugins")
+require("cfg.ale")
 require("cfg.lsp")
 require("cfg.signs")
 require("cfg.telescope")
