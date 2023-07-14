@@ -22,6 +22,7 @@ vim.cmd([[
 nnoremap <c-p> :Telescope find_files hidden=true theme=ivy<cr>
 nnoremap <leader>a :Telescope live_grep theme=ivy<cr>
 nnoremap <leader>8 :Telescope grep_string theme=ivy<cr>
+nnoremap <leader>r :Telescope lsp_references theme=ivy<cr>
 nnoremap <leader>b :Telescope buffers theme=ivy<cr>
 nnoremap <leader>h :Telescope help_tags theme=ivy<cr>
 nnoremap <leader>l :Telescope loclist theme=ivy<cr>
