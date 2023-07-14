@@ -19,10 +19,17 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
   "mbbill/undotree",
   "neovim/nvim-lspconfig",
-  "numToStr/Comment.nvim",
   "rizzatti/dash.vim",
   "sheerun/vim-polyglot",
   "tpope/vim-fugitive",
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+      vim.api.nvim_set_keymap("n", "<c-_>", "gcc", {})
+      vim.api.nvim_set_keymap("v", "<c-_>", "gccgv", {})
+    end,
+  },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
