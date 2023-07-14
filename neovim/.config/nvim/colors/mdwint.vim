@@ -13,7 +13,7 @@
 
 hi clear
 syntax reset
-let g:colors_name = "mdwint"
+let g:colors_name = 'mdwint'
 
 hi Boolean        ctermfg=6
 hi Character      ctermfg=7

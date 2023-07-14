@@ -12,4 +12,5 @@ pytest
 s3-pit-restore
 tox
 twine
+vim-vint
 yamllint

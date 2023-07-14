@@ -1,3 +1,4 @@
+scriptencoding utf-8
 lua require("cfg")
 
 syntax enable
@@ -111,6 +112,6 @@ augroup END
 
 " Send visual selection to origin shell script
 function Origin()
-  silent execute "!origin % " . string(getpos("v")[1]) . " " . string(getpos(".")[1])
+  silent execute '!origin % ' . string(getpos('v')[1]) . ' ' . string(getpos('.')[1])
 endfunction
 vnoremap o <cmd>:call Origin()<cr>
