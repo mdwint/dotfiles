@@ -1,15 +1,9 @@
-scriptencoding utf-8
-lua require("cfg")
+vim.cmd.colorscheme("mdwint")
+require("config.lazy")
 
-syntax enable
-colors mdwint
-filetype plugin on
-
-set autoread
-set backspace=indent,eol,start
+vim.cmd([[
 set clipboard=unnamed
 set cursorline
-set hidden
 set mouse=a
 set scrolloff=8
 set shell=/bin/bash
@@ -20,9 +14,6 @@ map <space> <leader>
 
 " Reload config
 noremap <leader>v :source $MYVIMRC<cr>
-
-" Quick save
-noremap <leader>w :update<cr>
 
 " Fix annoyances
 map q: <nop>
@@ -46,9 +37,6 @@ set inccommand=nosplit
 nnoremap <cr> :noh<cr><cr>
 nmap <silent> <leader>f <plug>DashSearch
 
-" Completion
-let g:SuperTabClosePreviewOnPopupClose=1
-
 " Quickfix list
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix')) | copen | else | cclose | endif
@@ -60,9 +48,6 @@ nnoremap <leader>1 :cfirst<cr>
 nnoremap gj :lnext<cr>
 nnoremap gk :lprev<cr>
 nnoremap g1 :lfirst<cr>
-
-" Yank until end of line
-nnoremap Y y$
 
 " Keep cursor centered when jumping
 nnoremap n nzzzv
@@ -115,3 +100,4 @@ function Origin()
   silent execute '!origin % ' . string(getpos('v')[1]) . ' ' . string(getpos('.')[1])
 endfunction
 vnoremap o <cmd>:call Origin()<cr>
+]])
