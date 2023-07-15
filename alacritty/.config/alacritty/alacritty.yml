@@ -550,3 +550,4 @@ key_bindings:
   - { key: W,        mods: Command, chars: "\x01x"                           }  # tmux - close window
   - { key: Z,        mods: Command, chars: "\x01z"                           }  # tmux - zoom window
   - { key: S,        mods: Command, chars: "\x1b:w\n"                        }  # nvim - write buffer
+  - { key: D,        mods: Command, chars: "darkmode\n"                      }

@@ -58,12 +58,6 @@ if status --is-interactive
         end
     end
 
-    function darkmode -d 'set macOS dark mode (true/false)'
-        type -q osascript; and osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$argv
-    end
-
-    alias dark 'base16 dark && darkmode true'
-    alias light 'base16 light && darkmode false'
     if test -f ~/.base16_theme; sh ~/.base16_theme; end
 
     set -U fish_color_autosuggestion    cyan
