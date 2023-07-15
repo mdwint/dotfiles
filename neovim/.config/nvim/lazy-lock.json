@@ -7,7 +7,6 @@
   "nvim-lspconfig": { "branch": "master", "commit": "4b26897a80c41eb2f116b271cbdcd4686fb52dd6" },
   "nvim-treesitter": { "branch": "master", "commit": "12d970f8aea7eed4d98727b3234ab098ddde3576" },
   "nvim-treesitter-context": { "branch": "master", "commit": "6f8f788738b968f24a108ee599c5be0031f94f06" },
-  "obsidian.nvim": { "branch": "main", "commit": "cb8a1408c64b2b3a2d9b1bfd220bb9b01f52d747" },
   "plenary.nvim": { "branch": "master", "commit": "1a6a7c929628566cf406aa7da1d048a1ddc7e9a8" },
   "supertab": { "branch": "master", "commit": "f0093ae12a9115498f887199809a6114659fc858" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9bc8237565ded606e6c366a71c64c0af25cd7a50" },
