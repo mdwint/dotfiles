@@ -47,8 +47,6 @@ if status --is-interactive
 
     function ccd -d 'mkdir and cd'; mkdir -p $argv && cd $argv; end
 
-    function e -d 'jump and open vim'; j $argv && vim; end
-
     function j -d 'jump or fzf directory'
         if test -n "$argv"
             z $argv
@@ -58,7 +56,7 @@ if status --is-interactive
         end
     end
 
-    if test -f ~/.base16_theme; sh ~/.base16_theme; end
+    colors $(cat ~/.color_theme || echo dark)
 
     set -U fish_color_autosuggestion    cyan
     set -U fish_color_command           normal

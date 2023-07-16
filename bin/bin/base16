@@ -1,4 +1,0 @@
-#!/bin/sh
-script=~/.config/base16-shell/scripts/base16-$1.sh
-. $script
-ln -sf $script ~/.base16_theme
