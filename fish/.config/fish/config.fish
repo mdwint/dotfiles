@@ -56,20 +56,23 @@ if status --is-interactive
         end
     end
 
-    colors $(cat ~/.color_theme || echo dark)
+    colors
 
-    set -U fish_color_autosuggestion    cyan
+    set -U fish_color_autosuggestion    brblack
     set -U fish_color_command           normal
-    set -U fish_color_comment           normal
+    set -U fish_color_comment           brblack
     set -U fish_color_cwd               brwhite
-    set -U fish_color_end               cyan
+    set -U fish_color_end               normal
     set -U fish_color_error             normal
-    set -U fish_color_escape            brcyan
-    set -U fish_color_operator          cyan
+    set -U fish_color_escape            cyan
+    set -U fish_color_operator          normal
     set -U fish_color_param             normal
     set -U fish_color_quote             normal
-    set -U fish_color_redirection       cyan
-    set -U fish_pager_color_description brcyan
+    set -U fish_color_redirection       normal
+    set -U fish_pager_color_completion  brblack
+    set -U fish_pager_color_description brblack
+    set -U fish_pager_color_prefix      normal
+    set -U fish_pager_color_progress    normal
     set -U fish_prompt_pwd_dir_length   0
     set fish_greeting
 end

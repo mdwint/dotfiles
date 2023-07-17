@@ -1,0 +1,16 @@
+color00=00/00/00
+color01=97/4b/46
+color02=5f/87/87
+color03=a7/9d/78
+color04=68/68/68
+color05=74/74/74
+color06=86/86/86
+color07=b9/b9/b9
+color08=52/52/52
+color15=f7/f7/f7
+color16=99/99/99
+color17=5e/5e/5e
+color18=25/25/25
+color19=46/46/46
+color20=ab/ab/ab
+color21=e3/e3/e3

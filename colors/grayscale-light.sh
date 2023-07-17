@@ -1,0 +1,16 @@
+color00=ff/ff/ff
+color01=ca/12/43
+color02=50/a1/4f
+color03=c1/84/01
+color04=68/68/68
+color05=74/74/74
+color06=86/86/86
+color07=00/00/00
+color08=ab/ab/ab
+color15=10/10/10
+color16=99/99/99
+color17=5e/5e/5e
+color18=e3/e3/e3
+color19=b9/b9/b9
+color20=52/52/52
+color21=25/25/25

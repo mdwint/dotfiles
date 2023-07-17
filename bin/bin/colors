@@ -2,8 +2,9 @@
 # Originally from base16-shell (https://github.com/chriskempson/base16-shell)
 # Adapted by Matteo De Wint (https://github.com/mdwint)
 
-. ~/dotfiles/colors/$1.sh
-echo $1 > ~/.color_theme
+theme=$1; [[ $theme ]] || theme=$(cat ~/.color_theme || echo dark)
+. ~/dotfiles/colors/$theme.sh
+echo $theme > ~/.color_theme
 
 if [ -n "$TMUX" ]; then
     # Tell tmux to pass the escape sequences through.
@@ -25,29 +26,31 @@ else
     put_template_custom() { printf '\033]%s%s\033\\' $@; }
 fi
 
-color09=$color01  # bright red
-color10=$color02  # bright green
-color11=$color03  # bright yellow
-color12=$color04  # bright blue
-color13=$color05  # bright magenta
-color14=$color06  # bright cyan
+[[ $colorFG ]] || colorFG=$color07
+[[ $colorBG ]] || colorBG=$color00
+[[ $color09 ]] || color09=$color01
+[[ $color10 ]] || color10=$color02
+[[ $color11 ]] || color11=$color03
+[[ $color12 ]] || color12=$color04
+[[ $color13 ]] || color13=$color05
+[[ $color14 ]] || color14=$color06
 
-put_template 0  $color00
-put_template 1  $color01
-put_template 2  $color02
-put_template 3  $color03
-put_template 4  $color04
-put_template 5  $color05
-put_template 6  $color06
-put_template 7  $color07
-put_template 8  $color08
-put_template 9  $color09
-put_template 10 $color10
-put_template 11 $color11
-put_template 12 $color12
-put_template 13 $color13
-put_template 14 $color14
-put_template 15 $color15
+put_template 0  $color00  # black
+put_template 1  $color01  # red
+put_template 2  $color02  # green
+put_template 3  $color03  # yellow
+put_template 4  $color04  # blue
+put_template 5  $color05  # magenta
+put_template 6  $color06  # cyan
+put_template 7  $color07  # white
+put_template 8  $color08  # bright black
+put_template 9  $color09  # bright red
+put_template 10 $color10  # bright green
+put_template 11 $color11  # bright yellow
+put_template 12 $color12  # bright blue
+put_template 13 $color13  # bright magenta
+put_template 14 $color14  # bright cyan
+put_template 15 $color15  # bright white
 put_template 16 $color16
 put_template 17 $color17
 put_template 18 $color18
