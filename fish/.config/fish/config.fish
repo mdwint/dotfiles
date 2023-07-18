@@ -58,7 +58,7 @@ if status --is-interactive
 
     colors
 
-    set -U fish_color_autosuggestion    brblack
+    set -U fish_color_autosuggestion    cyan
     set -U fish_color_command           normal
     set -U fish_color_comment           brblack
     set -U fish_color_cwd               brwhite
@@ -69,8 +69,9 @@ if status --is-interactive
     set -U fish_color_param             normal
     set -U fish_color_quote             normal
     set -U fish_color_redirection       normal
-    set -U fish_pager_color_completion  brblack
-    set -U fish_pager_color_description brblack
+    set -U fish_color_valid_path        normal
+    set -U fish_pager_color_completion  cyan
+    set -U fish_pager_color_description cyan
     set -U fish_pager_color_prefix      normal
     set -U fish_pager_color_progress    normal
     set -U fish_prompt_pwd_dir_length   0
