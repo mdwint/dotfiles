@@ -25,11 +25,11 @@ return {
       javascript = { "prettier" },
       json = { "prettier" },
       lua = { "stylua" },
-      packer = { "packer-fmt-fixer" },
+      packer = { "packer" },
       python = { "isort", "black" },
       rust = { "rustfmt" },
       svelte = { "prettier" },
-      terraform = { "terraform-fmt-fixer" },
+      terraform = { "terraform" },
       typescript = { "prettier" },
       ["*"] = { "remove_trailing_lines", "trim_whitespace" },
     }
