@@ -28,6 +28,7 @@ return {
       packer = { "packer" },
       python = { "isort", "black" },
       rust = { "rustfmt" },
+      scss = { "prettier" },
       svelte = { "prettier" },
       terraform = { "terraform" },
       typescript = { "prettier" },
