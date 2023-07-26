@@ -47,6 +47,9 @@ inoremap ( (<c-g>u
 inoremap [ [<c-g>u
 inoremap { {<c-g>u
 
+" Toggle spell checking
+nnoremap <c-s> :setlocal spell!<cr>
+
 " Toggle netrw file explorer
 nnoremap <silent> <leader>e :Lexplore<cr>
 

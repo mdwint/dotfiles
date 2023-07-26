@@ -34,6 +34,7 @@ return {
     nnoremap <leader>h :Telescope help_tags theme=ivy<cr>
     nnoremap <leader>l :Telescope loclist theme=ivy<cr>
     nnoremap <leader>m :Telescope keymaps theme=ivy<cr>
+    nnoremap z= :Telescope spell_suggest theme=ivy<cr>
     ]])
   end,
 }

@@ -8,7 +8,10 @@ return {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "bash",
+        "c",
+        "cpp",
         "css",
+        "dockerfile",
         "fish",
         "go",
         "html",
@@ -22,6 +25,7 @@ return {
         "rust",
         "terraform",
         "toml",
+        "vim",
         "yaml",
       },
       highlight = {

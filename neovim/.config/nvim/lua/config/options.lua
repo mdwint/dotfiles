@@ -3,6 +3,7 @@ vim.o.cursorline = true
 vim.o.mouse = "a"
 vim.o.scrolloff = 8
 vim.o.shell = "/bin/bash"
+vim.o.spelllang = "en"
 vim.o.undofile = true
 
 vim.o.number = true

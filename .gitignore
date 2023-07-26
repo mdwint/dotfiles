@@ -2,3 +2,4 @@ fish_variables
 fish/.config/fish/functions/fzf_key_bindings.fish
 karabiner/.config/karabiner/automatic_backups/
 karabiner/.config/karabiner/karabiner.json
+neovim/.config/nvim/spell/*.spl
