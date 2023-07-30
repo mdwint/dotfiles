@@ -34,5 +34,6 @@ return {
       typescript = { "prettier" },
       ["*"] = { "remove_trailing_lines", "trim_whitespace" },
     }
+    vim.g.ale_lua_stylua_options = "--config-path ~/.config/nvim/stylua.toml"
   end,
 }
