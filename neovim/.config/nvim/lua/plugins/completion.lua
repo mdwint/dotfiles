@@ -14,6 +14,8 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
     "L3MON4D3/LuaSnip",
@@ -28,7 +30,6 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         -- { name = "nvim_lsp_signature_help" },
-      }, {
         { name = "buffer" },
       }),
       snippet = {
@@ -39,7 +40,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -62,6 +63,21 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+      }),
+    })
+
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "cmdline" },
+        { name = "path" },
       }),
     })
   end,
