@@ -61,4 +61,13 @@ function Origin()
   silent execute '!origin % ' . string(getpos('v')[1]) . ' ' . string(getpos('.')[1])
 endfunction
 vnoremap o <cmd>:call Origin()<cr>
+
+" Add a line to the start of the current buffer (useful for imports)
+function PrependLine()
+  let l:line = input("Prepend line: ")
+  if len(l:line)
+    call nvim_buf_set_lines(0, 0, 0, 0, [l:line])
+  endif
+endfunction
+nnoremap <c-i> <cmd>:call PrependLine()<cr>
 ]])
