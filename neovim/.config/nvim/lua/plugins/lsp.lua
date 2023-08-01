@@ -6,17 +6,17 @@ return {
     local on_attach = function(client, bufnr)
       vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-      local function buf_set_keymap(...)
+      local function map(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
       end
 
       local opts = { noremap = true, silent = true }
-      buf_set_keymap("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-      buf_set_keymap("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      buf_set_keymap("n", "<leader>C", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-      buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+      map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      map("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      map("n", "<leader>C", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+      map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
       if client.supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
