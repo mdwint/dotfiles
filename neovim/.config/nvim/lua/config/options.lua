@@ -4,6 +4,7 @@ vim.o.mouse = "a"
 vim.o.scrolloff = 8
 vim.o.shell = "/bin/bash"
 vim.o.spelllang = "en"
+vim.o.swapfile = false
 vim.o.undofile = true
 
 vim.o.number = true
