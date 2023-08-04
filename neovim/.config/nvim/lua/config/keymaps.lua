@@ -69,5 +69,5 @@ function PrependLine()
     call nvim_buf_set_lines(0, 0, 0, 0, [l:line])
   endif
 endfunction
-nnoremap <c-i> <cmd>:call PrependLine()<cr>
+nnoremap <leader>i <cmd>:call PrependLine()<cr>
 ]])
