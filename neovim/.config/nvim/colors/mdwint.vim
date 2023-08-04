@@ -54,7 +54,7 @@ hi Label          ctermfg=4
 hi LineNr         ctermfg=8 ctermbg=none
 hi Macro          ctermfg=7
 hi MatchParen     ctermbg=8
-hi ModeMsg        cterm=bold ctermfg=3
+hi ModeMsg        cterm=bold ctermfg=7
 hi MoreMsg        ctermfg=5
 hi NonText        ctermfg=18
 hi Normal         ctermfg=7 ctermbg=none

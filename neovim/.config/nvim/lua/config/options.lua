@@ -27,6 +27,9 @@ vim.o.wildmenu = true
 vim.o.wildmode = "longest:full,full"
 vim.opt.completeopt:append("longest")
 
+vim.o.statusline = " %<%f %h%m%r%=%l:%v "
+vim.o.ruler = false
+
 vim.g.netrw_altv = 1
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3

@@ -8,7 +8,7 @@ command Q :q
 command W :w
 
 " Toggle relative line numbers
-nnoremap <c-n><c-n> :set invrelativenumber<cr>
+nnoremap <c-n> :set invrelativenumber<cr>
 
 " Split windows
 nnoremap <leader>- :sp<cr>
@@ -16,7 +16,7 @@ nnoremap <leader>\ :vsp<cr>
 nnoremap <leader>o :only<cr>
 
 " Search
-nnoremap <cr> :noh<cr><cr>
+nnoremap <silent> <cr> :noh<cr>:echo ''<cr><cr>
 nnoremap <silent> <leader>f <plug>DashSearch
 
 " Quickfix list
@@ -54,7 +54,7 @@ nnoremap <c-s> :setlocal spell!<cr>
 nnoremap <silent> <leader>e :Lexplore<cr>
 
 " Toggle undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <silent> <leader>u :UndotreeToggle<cr>
 
 " Send visual selection to origin shell script
 function Origin()
