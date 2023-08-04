@@ -22,8 +22,8 @@ fi
     [ -d "$target_dir" ] || git clone https://github.com/mdwint/dotfiles.git "$target_dir"
     cd "$target_dir"
 
-    tpm=~/.tmux/plugins/tpm
-    [ -d "$tpm" ] || git clone https://github.com/tmux-plugins/tpm "$tpm"
+    tpm=~/.config/tmux/plugins/tpm
+    [ -d "$tpm" ] || (mkdir -p $(dirname $tpm) && git clone https://github.com/tmux-plugins/tpm $tpm)
 
     if [ "$os" = macos ]; then
         ./macos-defaults.sh
