@@ -16,6 +16,9 @@ return {
 
     vim.g.ale_use_neovim_diagnostics_api = 1
     vim.g.ale_disable_lsp = 1
+    vim.g.ale_linters = {
+      sh = {}, -- Handled by LSP
+    }
     vim.g.ale_fix_on_save = 1
     vim.g.ale_fixers = {
       changelogmd = { "ocdc" },

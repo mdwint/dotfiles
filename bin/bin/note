@@ -1,8 +1,0 @@
-#!/bin/sh -e
-cd ~/notes
-new=$(date -u +%Y%m%d%H%M%S).md
-echo '# ' > $new
-nvim +star! $new
-title="$(head -n 1 $new | cut -c 3-)"
-git add $new
-git commit -m "$title" -e

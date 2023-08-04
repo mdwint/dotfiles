@@ -1,7 +1,7 @@
 #!/bin/sh
 prev=$(cat ~/.color_theme || echo dark)
-[ $prev = dark ] && next=light || next=dark
-[ $next = dark ] && bool=true || bool=false
+[ "$prev" = dark ] && next=light || next=dark
+[ "$next" = dark ] && bool=true || bool=false
 
-colors $next
-osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '$bool || true
+colors "$next"
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '"$bool" || true

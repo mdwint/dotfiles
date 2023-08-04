@@ -1,6 +1,6 @@
 #!/bin/sh
 remote=$(git remote get-url origin)
-repo=$(echo $remote | sed -nE 's/.+:(.+)\.git$/\1/p')
+repo=$(echo "$remote" | sed -nE 's/.+:(.+)\.git$/\1/p')
 branch=$(git symbolic-ref --short HEAD)
 case $remote in
     git@bitbucket.org:*)

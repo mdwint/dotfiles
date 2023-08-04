@@ -3,9 +3,12 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   config = function()
     local actions = require("telescope.actions")
+    local themes = require("telescope.themes")
+
     require("telescope").setup({
       defaults = {
         file_ignore_patterns = {
@@ -21,9 +24,14 @@ return {
       },
       extensions = {
         fzf = {},
+        ["ui-select"] = {
+          themes.get_cursor(),
+        },
       },
     })
+
     require("telescope").load_extension("fzf")
+    require("telescope").load_extension("ui-select")
 
     vim.cmd([[
     nnoremap <c-p> :Telescope find_files hidden=true theme=ivy<cr>
@@ -34,7 +42,7 @@ return {
     nnoremap <leader>h :Telescope help_tags theme=ivy<cr>
     nnoremap <leader>l :Telescope loclist theme=ivy<cr>
     nnoremap <leader>m :Telescope keymaps theme=ivy<cr>
-    nnoremap z= :Telescope spell_suggest theme=ivy<cr>
+    nnoremap z= :Telescope spell_suggest theme=cursor<cr>
     ]])
   end,
 }

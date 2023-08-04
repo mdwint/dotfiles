@@ -51,6 +51,7 @@ return {
     })
 
     local servers = {
+      "bashls",
       "rust_analyzer",
       "svelte",
       "terraformls",
