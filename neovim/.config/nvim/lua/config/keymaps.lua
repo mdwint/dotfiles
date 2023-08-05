@@ -35,13 +35,11 @@ nnoremap N Nzzzv
 vnoremap gs :sort<cr>
 vnoremap gS :sort u<cr>
 
-" Move lines up/down and reformat (alt-k/j)
-nnoremap ∆ :m .+1<cr>==
-nnoremap ˚ :m .-2<cr>==
-inoremap ∆ <esc>:m .+1<cr>==gi
-inoremap ˚ <esc>:m .-2<cr>==gi
-vnoremap ∆ :m '>+1<cr>gv=gv
-vnoremap ˚ :m '<-2<cr>gv=gv
+" Move lines up/down and reformat
+nnoremap <c-j> :m .+1<cr>==
+nnoremap <c-k> :m .-2<cr>==
+vnoremap <c-j> :m '>+1<cr>gv=gv
+vnoremap <c-k> :m '<-2<cr>gv=gv
 
 " Insert undo checkpoints on punctuation
 inoremap , ,<c-g>u
