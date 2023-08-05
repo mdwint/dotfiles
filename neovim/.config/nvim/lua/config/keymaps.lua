@@ -15,8 +15,10 @@ nnoremap <leader>- :sp<cr>
 nnoremap <leader>\ :vsp<cr>
 nnoremap <leader>o :only<cr>
 
+" Clear highlights and messages
+nnoremap <silent> <cr> :noh<cr>:echo ''<cr>
+
 " Search
-nnoremap <silent> <cr> :noh<cr>:echo ''<cr><cr>
 nnoremap <silent> <leader>f <plug>DashSearch
 
 " Quickfix list
