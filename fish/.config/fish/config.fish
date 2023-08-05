@@ -1,10 +1,17 @@
 if status --is-login; and not set -q __fish_login_config_sourced
     set -U fish_features qmark-noglob
 
-    set -xU EDITOR nvim
-    set -xU LC_ALL en_US.UTF-8
-    set -xU LC_CTYPE en_US.UTF-8
-    set -xU PYENV_ROOT $HOME/.pyenv
+    set -xg EDITOR nvim
+    set -xg LC_ALL en_US.UTF-8
+    set -xg LC_CTYPE en_US.UTF-8
+    set -xg PYENV_ROOT $HOME/.pyenv
+
+    set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
+    set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+    set -xg FZF_DEFAULT_OPTS '--color 16'
+
+    set -xg HOMEBREW_NO_COLOR 1
+    set -xg HOMEBREW_NO_EMOJI 1
 
     fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin /opt/homebrew/bin /usr/local/opt/libpq/bin
 
@@ -17,9 +24,9 @@ if status --is-interactive
     if type -q pyenv; pyenv init --path --no-rehash | source; end
     if type -q zoxide; zoxide init fish | source; end
 
+    alias vim nvim
     abbr l 'ls -lh'
     abbr chmox 'chmod +x'
-    alias vim nvim
     abbr pr pull-request
     abbr o origin
     abbr gl 'git log'
@@ -41,23 +48,7 @@ if status --is-interactive
     abbr gPu 'git push -u origin HEAD'
     abbr gPf 'git push --force-with-lease'
 
-    set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
-    set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-    set -xg FZF_DEFAULT_OPTS '--color 16'
-
-    function ccd -d 'mkdir and cd'; mkdir -p $argv && cd $argv; end
-
-    function j -d 'jump or fzf directory'
-        if test -n "$argv"
-            z $argv
-        else
-            set opts -d 5 -E Applications -E Documents -E Library -E Music
-            cd (cd && fd -t d $opts | fzf --preview='tree {}')
-        end
-    end
-
     colors
-
     set -U fish_color_autosuggestion    cyan
     set -U fish_color_command           normal
     set -U fish_color_comment           brblack
