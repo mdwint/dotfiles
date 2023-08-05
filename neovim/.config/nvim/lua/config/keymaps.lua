@@ -31,6 +31,10 @@ nnoremap g1 :lfirst<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Sort visual selection
+vnoremap gs :sort<cr>
+vnoremap gS :sort u<cr>
+
 " Move lines up/down and reformat (alt-k/j)
 nnoremap ∆ :m .+1<cr>==
 nnoremap ˚ :m .-2<cr>==
