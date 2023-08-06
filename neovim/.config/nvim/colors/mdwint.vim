@@ -106,6 +106,8 @@ hi link diffOldFile DiffRemoved
 hi link fugitiveStagedModifier DiffAdd
 hi link fugitiveUnstagedModifier DiffRemoved
 hi link pythonSpaceError Normal
+hi link FidgetTitle Debug
+hi link FidgetTask NonText
 
 hi TelescopeBorder       ctermfg=8 ctermbg=0
 hi TelescopePromptPrefix ctermfg=8 ctermbg=0

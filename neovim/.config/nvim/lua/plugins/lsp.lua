@@ -4,6 +4,16 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    {
+      "j-hui/fidget.nvim",
+      tag = "legacy",
+      event = "LspAttach",
+      opts = {
+        text = {
+          spinner = "arc",
+        },
+      },
+    },
   },
   config = function()
     local lspconfig = require("lspconfig")
