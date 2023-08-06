@@ -1,6 +1,13 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  },
   config = function()
+    local lspconfig = require("lspconfig")
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     local on_attach = function(client, bufnr)
@@ -30,56 +37,64 @@ return {
       end
     end
 
-    local lspconfig = require("lspconfig")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-    lspconfig.jedi_language_server.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      init_options = {
-        diagnostics = {
-          enable = false,
-        },
-        workspace = {
-          extraPaths = {
-            ".venv/lib/python3.9/site-packages",
-            ".venv/lib/python3.10/site-packages",
-            ".venv/lib/python3.11/site-packages",
-          },
-        },
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = {
+        "bashls",
+        "clangd",
+        "gopls",
+        "jedi_language_server",
+        "lua_ls",
+        "rust_analyzer",
+        "svelte",
+        "terraformls",
+      },
+      handlers = {
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+          })
+        end,
+        jedi_language_server = function()
+          lspconfig.jedi_language_server.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            init_options = {
+              diagnostics = {
+                enable = false,
+              },
+              workspace = {
+                extraPaths = {
+                  ".venv/lib/python3.9/site-packages",
+                  ".venv/lib/python3.10/site-packages",
+                  ".venv/lib/python3.11/site-packages",
+                },
+              },
+            },
+          })
+        end,
+        lua_ls = function()
+          lspconfig.lua_ls.setup({
+            settings = {
+              Lua = {
+                runtime = {
+                  version = "LuaJIT",
+                },
+                diagnostics = {
+                  globals = { "vim" },
+                },
+                workspace = {
+                  library = vim.api.nvim_get_runtime_file("", true),
+                },
+                telemetry = {
+                  enable = false,
+                },
+              },
+            },
+          })
+        end,
       },
     })
-
-    lspconfig.lua_ls.setup({
-      settings = {
-        Lua = {
-          runtime = {
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    })
-
-    local servers = {
-      "bashls",
-      "rust_analyzer",
-      "svelte",
-      "terraformls",
-    }
-    for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-    end
   end,
 }

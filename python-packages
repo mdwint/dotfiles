@@ -5,13 +5,10 @@ bump2version
 coverage
 flake8
 isort
-jedi-language-server
 jupyterlab
 mypy
-proselint
 pytest
 s3-pit-restore
 tox
 twine
 vim-vint
-yamllint
