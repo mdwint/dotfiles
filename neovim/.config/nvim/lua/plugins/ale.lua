@@ -29,7 +29,7 @@ return {
       json = { "prettier" },
       lua = { "stylua" },
       packer = { "packer" },
-      python = { "autoimport", "isort", "black" },
+      python = { "isort", "black" },
       rust = { "rustfmt" },
       scss = { "prettier" },
       svelte = { "prettier" },
