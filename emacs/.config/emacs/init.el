@@ -11,7 +11,7 @@
 (setq scroll-conservatively 101)
 (setq scroll-margin 8)
 
-(set-face-attribute 'default nil :font "Iosevka Term Light")
+(set-face-attribute 'default nil :font "Iosevka Term")
 (set-face-attribute 'default nil :height 160)
 
 (require 'package)
@@ -21,6 +21,7 @@
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://stable.melpa.org/packages/"))
 
+(use-package ef-themes :ensure t)
 (use-package evil :ensure t :config (evil-mode 1))
 (use-package magit :ensure t)
 (use-package modus-themes :ensure t)
@@ -31,7 +32,7 @@
     (which-key-mode)
   )
 
-(load-theme 'modus-vivendi :no-confirm)
+(load-theme 'ef-bio :no-confirm)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
