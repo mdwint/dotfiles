@@ -1,0 +1,68 @@
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough true
+  allow-cmd true
+)
+
+(defalias
+  a (tap-hold-next-release 200 a met)
+  s (tap-hold-next-release 200 s alt)
+  d (tap-hold-next-release 200 d ctl)
+  f (tap-hold-next-release 200 f sft)
+  j (tap-hold-next-release 200 j sft)
+  k (tap-hold-next-release 200 k ctl)
+  l (tap-hold-next-release 200 l alt)
+  ; (tap-hold-next-release 200 ; met)
+
+  nav (tap-hold-next-release 200 esc (layer-toggle nav))
+  sym (tap-hold-next-release 200 rmet (layer-toggle sym))
+
+  trm (cmd-button "open -a Alacritty")
+  www (cmd-button "open -a Vivaldi")
+  doc (cmd-button "open -a Dash")
+  mus (cmd-button "open -a Spotify")
+  cht (cmd-button "open -a Slack")
+  eml (cmd-button "open -a Mail")
+  cal (cmd-button "open -a Calendar")
+  vid (cmd-button "open -a zoom.us")
+
+  lwd (around lalt left)  ;; Move word left
+  rwd (around lalt rght)  ;; Move word right
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  nubs 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft `    z    x    c    v    b    n    m    ,    .    /    up   rsft
+  fn   lctl lalt lmet           spc            rmet ralt left down rght
+)
+
+(deflayer base
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  esc  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  @nav @a   @s   @d   @f   g    h    @j   @k   @l   @;   _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              @sym _    _    _    _
+)
+
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    del
+  _    _    @cht @eml _    _    home @lwd @rwd end  _    _    _    _
+  _    @mus @www @trm @doc _    left down up   rght _    _    _
+  _    _    _    @vid @cal _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _    _    _    _
+)
+
+(deflayer sym
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    ~    _    _    _    _    _    _    _    _
+  _    <    {    [   \(    `    "   \)    ]    }    >    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _    _    _    _
+)

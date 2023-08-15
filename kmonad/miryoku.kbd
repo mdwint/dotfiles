@@ -1,0 +1,62 @@
+(defcfg
+  input (iokit-name "Ducky One2 Mini RGB")
+  output (kext)
+  fallthrough false
+)
+
+(defalias
+  a (tap-hold-next-release 200 a met)
+  s (tap-hold-next-release 200 s alt)
+  d (tap-hold-next-release 200 d ctl)
+  f (tap-hold-next-release 200 f sft)
+  j (tap-hold-next-release 200 j sft)
+  k (tap-hold-next-release 200 k ctl)
+  l (tap-hold-next-release 200 l alt)
+  ; (tap-hold-next-release 200 ; met)
+  nav (tap-hold-next-release 200 tab (layer-toggle nav))
+  sym (tap-hold-next-release 200 spc (layer-toggle sym))
+  num (tap-hold-next-release 200 bspc (layer-toggle num))
+  med (tap-hold-next-release 200 ret (layer-toggle media))
+)
+
+(defsrc
+  q  w  e  r  t    y  u  i  o  p
+  a  s  d  f  g    h  j  k  l  ;
+  z  x  c  v  b    n  m  ,  .  /
+  lctl lmet lalt   spc ralt rmet
+)
+
+(deflayer base
+  q  w  e  r  t    y  u  i  o  p
+ @a @s @d @f  g    h @j @k @l @;
+  z  x  c  v  b    n  m  ,  .  /
+  esc @med @nav    @sym @num del
+)
+
+(deflayer nav
+ XX  XX  XX  XX  XX   S-M-z M-v  M-c  M-x  M-z
+ met alt ctl sft XX   caps  left down up   right
+ XX  XX  XX  XX  XX   ins   home pgdn pgup end
+         XX  XX  XX   spc   bspc del
+)
+
+(deflayer sym
+      {  &  * \(  }   XX  XX  XX  XX  XX
+      :  $  %  ^  +   XX  sft ctl alt met
+      ~  !  @  #  |   XX  XX  XX  XX  XX
+           \( \) \_   XX  XX  XX
+)
+
+(deflayer num
+         [ 7 8 9 ]    XX  XX  XX  XX  XX
+         ; 4 5 6 =    XX  sft ctl alt met
+         ` 1 2 3 \\   XX  XX  XX  XX  XX
+             . 0 -    XX  XX  XX
+)
+
+(deflayer media
+ XX  XX  XX  XX  XX   XX  XX   XX   XX   XX
+ met alt ctl sft XX   XX  prev vold volu next
+ XX  XX  XX  XX  XX   XX  XX   XX   XX   XX
+         XX  XX  XX   pp  mute XX
+)
