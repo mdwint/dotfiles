@@ -5,14 +5,14 @@
 )
 
 (defalias
-  a (tap-hold-next-release 200 a met)
+  a (tap-hold-next-release 200 a ctl)
   s (tap-hold-next-release 200 s alt)
-  d (tap-hold-next-release 200 d ctl)
+  d (tap-hold-next-release 200 d met)
   f (tap-hold-next-release 200 f sft)
   j (tap-hold-next-release 200 j sft)
-  k (tap-hold-next-release 200 k ctl)
+  k (tap-hold-next-release 200 k met)
   l (tap-hold-next-release 200 l alt)
-  ; (tap-hold-next-release 200 ; met)
+  ; (tap-hold-next-release 200 ; ctl)
   nav (tap-hold-next-release 200 tab (layer-toggle nav))
   sym (tap-hold-next-release 200 spc (layer-toggle sym))
   num (tap-hold-next-release 200 bspc (layer-toggle num))
