@@ -37,6 +37,10 @@ nnoremap N Nzzzv
 vnoremap gs :sort<cr>
 vnoremap gS :sort u<cr>
 
+" Format paragraphs
+nnoremap <leader>q gqip<cr>
+vnoremap <leader>q gq<cr>
+
 " Move lines up/down and reformat
 nnoremap <c-j> :m .+1<cr>==
 nnoremap <c-k> :m .-2<cr>==
