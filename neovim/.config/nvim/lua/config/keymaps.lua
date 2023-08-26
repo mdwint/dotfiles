@@ -41,12 +41,6 @@ vnoremap gS :sort u<cr>
 nnoremap <leader>q gqip<cr>
 vnoremap <leader>q gq<cr>
 
-" Move lines up/down and reformat
-nnoremap <c-j> :m .+1<cr>==
-nnoremap <c-k> :m .-2<cr>==
-vnoremap <c-j> :m '>+1<cr>gv=gv
-vnoremap <c-k> :m '<-2<cr>gv=gv
-
 " Insert undo checkpoints on punctuation
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
