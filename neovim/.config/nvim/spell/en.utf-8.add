@@ -23,4 +23,5 @@ github
 kwargs
 matteo
 monkeypatch
+picklable
 postgresql
