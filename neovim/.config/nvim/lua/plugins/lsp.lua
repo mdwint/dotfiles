@@ -52,6 +52,7 @@ return {
       ensure_installed = {
         "bashls",
         "clangd",
+        "esbonio",
         "gopls",
         "jedi_language_server",
         "lua_ls",
