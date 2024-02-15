@@ -43,6 +43,7 @@ if status --is-interactive
     abbr gCan 'git commit --amend --no-edit'
     abbr gM 'git merge'
     abbr gf 'git fetch --all --prune'
+    abbr gr 'git rebase --rebase-merges @{u}'
     abbr gp 'git pull'
     abbr gP 'git push'
     abbr gPu 'git push -u origin HEAD'
