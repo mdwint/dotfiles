@@ -6,6 +6,7 @@ osascript -e 'tell application "System Preferences" to quit'
 # Keyboard
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Menu bar
 defaults write -g _HIHideMenuBar -bool true
