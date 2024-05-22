@@ -1,7 +1,9 @@
 AWS
+Bitbucket
 CloudFormation
 CloudWatch
 CodePipeline
+CodePipelines
 FIXME
 IAM
 IDP
@@ -21,8 +23,10 @@ deduplicate
 dtype
 dtypes
 github
+hotfix
 kwargs
 matteo
 monkeypatch
 picklable
 postgresql
+rebase

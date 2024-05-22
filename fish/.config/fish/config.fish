@@ -2,6 +2,7 @@ if status --is-login; and not set -q __fish_login_config_sourced
     set -U fish_features qmark-noglob
 
     set -xg EDITOR nvim
+    set -xg MANPAGER 'nvim +Man!'
     set -xg LC_ALL en_US.UTF-8
     set -xg LC_CTYPE en_US.UTF-8
     set -xg PYENV_ROOT $HOME/.pyenv

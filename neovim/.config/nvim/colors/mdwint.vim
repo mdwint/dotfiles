@@ -13,6 +13,7 @@
 
 hi clear
 syntax reset
+set notermguicolors
 let g:colors_name = 'mdwint'
 
 hi Boolean        ctermfg=6
@@ -53,7 +54,7 @@ hi Keyword        ctermfg=5
 hi Label          ctermfg=4
 hi LineNr         ctermfg=8 ctermbg=none
 hi Macro          ctermfg=7
-hi MatchParen     ctermbg=8
+hi MatchParen     ctermbg=8 cterm=bold
 hi ModeMsg        cterm=bold ctermfg=7
 hi MoreMsg        ctermfg=5
 hi NonText        ctermfg=18
@@ -95,11 +96,13 @@ hi TooLong        ctermfg=1
 hi Type           ctermfg=4
 hi Typedef        ctermfg=4
 hi Underlined     cterm=underline ctermfg=7
-hi VertSplit      ctermfg=18 ctermbg=0 cterm=none
-hi Visual         ctermbg=19
+hi Visual         ctermfg=7 ctermbg=19
 hi VisualNOS      ctermfg=1
 hi WarningMsg     ctermfg=1
 hi WildMenu       ctermfg=7 ctermbg=11
+hi WinSeparator   ctermfg=18 ctermbg=0 cterm=none
+
+hi! link @variable Identifier
 
 hi link diffAdded DiffAdd
 hi link diffOldFile DiffRemoved

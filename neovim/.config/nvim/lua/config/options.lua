@@ -40,7 +40,7 @@ vim.diagnostic.config({
   virtual_text = {
     prefix = "•",
     spacing = 1,
-    source = "always",
+    source = true,
   },
 })
 
