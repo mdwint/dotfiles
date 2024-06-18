@@ -4,6 +4,7 @@ CloudFormation
 CloudWatch
 CodePipeline
 CodePipelines
+DataFrame
 FIXME
 IAM
 IDP
@@ -30,3 +31,4 @@ monkeypatch
 picklable
 postgresql
 rebase
+timestamp

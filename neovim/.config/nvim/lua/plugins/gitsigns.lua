@@ -12,6 +12,7 @@ return {
         change = { text = "~" },
         untracked = { text = "" },
       },
+      signs_staged_enable = false,
     })
 
     map("n", "<leader>ga", gs.stage_hunk)
