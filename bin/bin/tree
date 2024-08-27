@@ -1,2 +1,2 @@
 #!/bin/sh
-exa -T -I='__pycache__|node_modules' $@
+lsd --tree --icon=never -I=__pycache__ -I=node_modules $@
