@@ -1,4 +1,5 @@
-#header {
+#header,
+.SpeedDialView-Settings-Button {
   display: none !important;
 }
 
