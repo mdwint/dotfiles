@@ -13,6 +13,10 @@
   font-family: "Menlo", monospace !important;
 }
 
+.mainbar .toolbar-mainbar {
+  height: 28px;
+}
+
 .mainbar,
 .UrlBar,
 .UrlBar .button-toolbar {
