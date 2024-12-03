@@ -80,6 +80,8 @@ return {
                   ".venv/lib/python3.9/site-packages",
                   ".venv/lib/python3.10/site-packages",
                   ".venv/lib/python3.11/site-packages",
+                  ".venv/lib/python3.12/site-packages",
+                  ".venv/lib/python3.13/site-packages",
                 },
               },
             },
