@@ -1,2 +1,2 @@
 #!/bin/sh
-lsd --tree --icon=never -I=__pycache__ -I=node_modules $@
+lsd --tree --group-dirs=first --icon=never -I=__pycache__ -I=node_modules $@
