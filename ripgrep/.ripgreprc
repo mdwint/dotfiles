@@ -1,0 +1,4 @@
+ --colors=match:bg:yellow
+ --colors=match:fg:black
+ --colors=match:style:nobold
+ --smart-case

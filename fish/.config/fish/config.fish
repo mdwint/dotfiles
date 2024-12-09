@@ -6,6 +6,7 @@ if status --is-login; and not set -q __fish_login_config_sourced
     set -xg LC_ALL en_US.UTF-8
     set -xg LC_CTYPE en_US.UTF-8
     set -xg PYENV_ROOT $HOME/.pyenv
+    set -xg RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND

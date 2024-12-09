@@ -31,7 +31,7 @@ fi
         tic -x tmux/.tmux-terminfo.src
         brew bundle --no-lock --no-upgrade
     else
-        stow bin fish git neovim tmux
+        stow bin fish git neovim ripgrep tmux
     fi
 
     has nvim && nvim --headless '+Lazy! sync' +qa
