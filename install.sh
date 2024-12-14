@@ -30,6 +30,7 @@ fi
         stow -- */
         tic -x tmux/.tmux-terminfo.src
         brew bundle --no-lock --no-upgrade
+        brew autoupdate start 43200 --cleanup --immediate
     else
         stow bin fish git neovim ripgrep tmux
     fi

@@ -12,6 +12,7 @@ if status --is-login; and not set -q __fish_login_config_sourced
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
     set -xg FZF_DEFAULT_OPTS '--color 16'
 
+    set -xg HOMEBREW_AUTO_UPDATE_SECS 86400
     set -xg HOMEBREW_NO_COLOR 1
     set -xg HOMEBREW_NO_EMOJI 1
 
