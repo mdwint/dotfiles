@@ -111,6 +111,10 @@ hi link fugitiveUnstagedModifier DiffRemoved
 hi link pythonSpaceError Normal
 hi link FidgetTitle Debug
 hi link FidgetTask NonText
+hi link GitSignsStagedAdd NonText
+hi link GitSignsStagedChange NonText
+hi link GitSignsStagedDelete NonText
+hi link GitSignsStagedChangedelete NonText
 
 hi TelescopeBorder       ctermfg=8 ctermbg=0
 hi TelescopePromptPrefix ctermfg=8 ctermbg=0
