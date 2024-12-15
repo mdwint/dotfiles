@@ -28,6 +28,7 @@ if status --is-interactive
     if type -q zoxide; zoxide init fish | source; end
 
     alias vim nvim
+    alias w 'wtfutil > /dev/null'
     abbr l 'ls -lh'
     abbr chmox 'chmod +x'
     abbr pr pull-request

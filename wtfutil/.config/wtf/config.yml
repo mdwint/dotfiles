@@ -12,7 +12,7 @@ wtf:
       hourFormat: '24'
       conflictIcon: '!'
       currentIcon: '*'
-      eventCount: 16
+      eventCount: 32
       multiCalendar: false
       showDeclined: true
       showEndTime: true
