@@ -26,6 +26,7 @@ vim.o.smarttab = true
 vim.o.wildmenu = true
 vim.o.wildmode = "longest:full,full"
 vim.opt.completeopt:append("longest")
+vim.opt.path:append("**")
 
 vim.o.statusline = " %<%f %h%m%r%=%l:%v "
 vim.o.ruler = false
