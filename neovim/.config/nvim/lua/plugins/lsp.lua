@@ -54,8 +54,9 @@ return {
         "clangd",
         "esbonio",
         "gopls",
-        "jedi_language_server",
         "lua_ls",
+        "pylsp",
+        -- "ruff",
         "rust_analyzer",
         "svelte",
         "terraformls",
@@ -67,21 +68,31 @@ return {
             on_attach = on_attach,
           })
         end,
-        jedi_language_server = function()
-          lspconfig.jedi_language_server.setup({
+        pylsp = function()
+          lspconfig.pylsp.setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            init_options = {
-              diagnostics = {
-                enable = false,
-              },
-              workspace = {
-                extraPaths = {
-                  ".venv/lib/python3.9/site-packages",
-                  ".venv/lib/python3.10/site-packages",
-                  ".venv/lib/python3.11/site-packages",
-                  ".venv/lib/python3.12/site-packages",
-                  ".venv/lib/python3.13/site-packages",
+            settings = {
+              pylsp = {
+                plugins = {
+                  jedi = {
+                    prioritize_extra_paths = true,
+                    extra_paths = {
+                      ".venv/lib/python3.9/site-packages",
+                      ".venv/lib/python3.10/site-packages",
+                      ".venv/lib/python3.11/site-packages",
+                      ".venv/lib/python3.12/site-packages",
+                      ".venv/lib/python3.13/site-packages",
+                    },
+                  },
+                  rope_autoimport = {
+                    enabled = true,
+                  },
+                  autopep8 = { enabled = false },
+                  mccabe = { enabled = false },
+                  pycodestyle = { enabled = false },
+                  pyflakes = { enabled = false },
+                  yapf = { enabled = false },
                 },
               },
             },

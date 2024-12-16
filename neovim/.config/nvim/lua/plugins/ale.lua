@@ -30,7 +30,8 @@ return {
       json = { "prettier" },
       lua = { "stylua" },
       packer = { "packer" },
-      python = { "isort", "black" },
+      python = { "autoflake", "isort", "black" },
+      -- python = { "ruff" },
       rust = { "rustfmt" },
       scss = { "prettier" },
       svelte = { "prettier" },
@@ -39,6 +40,7 @@ return {
       ["*"] = { "remove_trailing_lines", "trim_whitespace" },
     }
     vim.g.ale_lua_stylua_options = "--config-path ~/.config/nvim/stylua.toml"
-    vim.g.ale_python_autoimport_options = "--ignore-init-modules"
+    vim.g.ale_python_autoflake_options =
+      "--remove-all-unused-imports --ignore-init-module-imports"
   end,
 }
