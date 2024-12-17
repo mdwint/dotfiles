@@ -56,7 +56,7 @@ return {
         "gopls",
         "lua_ls",
         "pylsp",
-        -- "ruff",
+        "ruff",
         "rust_analyzer",
         "svelte",
         "terraformls",
