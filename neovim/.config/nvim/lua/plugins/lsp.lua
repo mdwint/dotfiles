@@ -60,6 +60,7 @@ return {
         "rust_analyzer",
         "svelte",
         "terraformls",
+        "yamlls",
       },
       handlers = {
         function(server_name)
@@ -100,6 +101,8 @@ return {
         end,
         lua_ls = function()
           lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
             settings = {
               Lua = {
                 runtime = {
@@ -113,6 +116,20 @@ return {
                 },
                 telemetry = {
                   enable = false,
+                },
+              },
+            },
+          })
+        end,
+        yamlls = function()
+          lspconfig.yamlls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+              yaml = {
+                customTags = {
+                  "!env mapping",
+                  "!client mapping",
                 },
               },
             },
