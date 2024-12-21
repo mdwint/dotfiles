@@ -29,7 +29,7 @@ return {
       javascript = { "prettier" },
       json = { "prettier" },
       lua = { "stylua" },
-      python = { "autoflake" },
+      python = { "ruff" },
       typescript = { "prettier" },
       yaml = { "yamlfmt" },
       ["*"] = { "remove_trailing_lines", "trim_whitespace" },
