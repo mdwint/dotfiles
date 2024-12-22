@@ -1,5 +1,6 @@
 emacs/.config/emacs/auto-save-list/
 emacs/.config/emacs/elpa/
+emacs/.config/emacs/history
 emacs/.config/emacs/transient/
 fish/.config/fish/fish_variables
 fish/.config/fish/functions/fzf_key_bindings.fish
