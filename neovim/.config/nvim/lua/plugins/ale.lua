@@ -34,7 +34,6 @@ return {
       yaml = { "yamlfmt" },
       ["*"] = { "remove_trailing_lines", "trim_whitespace" },
     }
-    vim.g.ale_lua_stylua_options = "--config-path ~/.config/nvim/stylua.toml"
     vim.g.ale_python_autoflake_options =
       "--remove-all-unused-imports --ignore-init-module-imports"
   end,
