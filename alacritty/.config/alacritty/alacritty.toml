@@ -9,7 +9,7 @@ args = ["--login", "--init-command", "tmux new-session -A -s main"]
 history = 0
 
 [mouse]
-hide_when_typing = false
+hide_when_typing = true
 
 [selection]
 save_to_clipboard = true
@@ -19,92 +19,21 @@ decorations = "none"
 startup_mode = "Maximized"
 
 [font]
+normal = { family = "Iosevka Term", style = "Light" }
+bold = { style = "Semibold" }
+italic = { style = "Light Oblique" }
 size = 16.0
 
-[font.normal]
-family = "Iosevka Term"
-style = "Light"
-
-[font.bold]
-style = "Semibold"
-
-[font.italic]
-style = "Light Oblique"
-
 [colors.primary]
-background = "0x000000"
-foreground = "0xb9b9b9"
+background = "#000000"
+foreground = "#b9b9b9"
 
-[colors.normal]
-black = "0x101010"
-red = "0x7c7c7c"
-green = "0x8e8e8e"
-yellow = "0xa0a0a0"
-blue = "0x686868"
-magenta = "0x747474"
-cyan = "0x868686"
-white = "0xb9b9b9"
-
-[colors.bright]
-black = "0x525252"
-red = "0x7c7c7c"
-green = "0x8e8e8e"
-yellow = "0xa0a0a0"
-blue = "0x686868"
-magenta = "0x747474"
-cyan = "0x868686"
-white = "0xf7f7f7"
-
-[[colors.indexed_colors]]
-index = 16
-color = "0x999999"
-
-[[colors.indexed_colors]]
-index = 17
-color = "0x5e5e5e"
-
-[[colors.indexed_colors]]
-index = 18
-color = "0x252525"
-
-[[colors.indexed_colors]]
-index = 19
-color = "0x464646"
-
-[[colors.indexed_colors]]
-index = 20
-color = "0xababab"
-
-[[colors.indexed_colors]]
-index = 21
-color = "0xe3e3e3"
-
-[[keyboard.bindings]]
-key = "T"
-mods = "Command"
-chars = "\u0001c"  # tmux - new window
-
-[[keyboard.bindings]]
-key = "W"
-mods = "Command"
-chars = "\u0001x"  # tmux - close window
-
-[[keyboard.bindings]]
-key = "Z"
-mods = "Command"
-chars = "\u0001z"  # tmux - zoom window
-
-[[keyboard.bindings]]
-key = "P"
-mods = "Command"
-chars = "\u0001w"  # tmux - switch window
-
-[[keyboard.bindings]]
-key = "S"
-mods = "Command"
-chars = "\u001B:w\n"  # nvim - write buffer
-
-[[keyboard.bindings]]
-key = "D"
-mods = "Command"
-chars = "darkmode\n"
+[keyboard]
+bindings = [
+    { key = "T", mods = "Command", chars = "\u0001c" },  # tmux: new window
+    { key = "W", mods = "Command", chars = "\u0001x" },  # tmux: close window
+    { key = "Z", mods = "Command", chars = "\u0001z" },  # tmux: zoom window
+    { key = "P", mods = "Command", chars = "\u0001w" },  # tmux: switch window
+    { key = "S", mods = "Command", chars = "\u001B:w\n" },  # nvim: write buffer
+    { key = "D", mods = "Command", chars = "darkmode\n" },
+]
