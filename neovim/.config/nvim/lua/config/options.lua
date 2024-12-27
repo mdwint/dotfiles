@@ -6,6 +6,7 @@ vim.o.shell = "/bin/bash"
 vim.o.spelllang = "en"
 vim.o.swapfile = false
 vim.o.undofile = true
+vim.o.updatetime = 500
 
 vim.o.number = true
 vim.o.relativenumber = true
