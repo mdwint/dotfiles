@@ -3,8 +3,19 @@ return {
   dependencies = {
     "mfussenegger/nvim-dap-python",
     "theHamsta/nvim-dap-virtual-text",
+    { "debugloop/layers.nvim", opts = {} },
+  },
+  keys = {
+    {
+      "<leader>D",
+      function()
+        DEBUG:toggle()
+      end,
+      desc = "Toggle debug mode",
+    },
   },
   config = function()
+    local dap = require("dap")
     require("nvim-dap-virtual-text").setup()
 
     vim.fn.sign_define(
@@ -17,23 +28,57 @@ return {
     )
     vim.fn.sign_define("DapStopped", { text = "→", texthl = "" })
 
-    local map, opts = vim.api.nvim_set_keymap, { noremap = true }
-    map("n", "<leader>D", "<cmd>DapContinue<cr>", opts)
-    map("n", "<leader><space>", "<cmd>DapStepOver<cr>", opts)
-    map("n", "<leader><cr>", "<cmd>DapStepInto<cr>", opts)
-    map("n", "<leader><bs>", "<cmd>DapStepOut<cr>", opts)
-    map("n", "<leader>c", "<cmd>lua require('dap').run_to_cursor()<cr>", opts)
-    map("n", "<leader>B", "<cmd>DapToggleBreakpoint<cr>", opts)
-    map(
-      "n",
-      "<leader>X",
-      "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Condition: '))<cr>",
-      opts
-    )
-    map("n", "<leader>V", "<cmd>DapVirtualTextToggle<cr>", opts)
+    DEBUG = Layers.mode.new("Debug mode")
+    DEBUG:auto_show_help()
+    DEBUG:keymaps({
+      n = {
+        { "c", dap.continue, { desc = "Continue (or Start)" } },
+        { "r", dap.run_to_cursor, { desc = "Run to cursor" } },
+        { "s", dap.step_over, { desc = "Step over" } },
+        { "i", dap.step_into, { desc = "Step into" } },
+        { "o", dap.step_out, { desc = "Step out" } },
+        { "u", dap.up, { desc = "Frame up" } },
+        { "d", dap.down, { desc = "Frame down" } },
+        { "b", dap.toggle_breakpoint, { desc = "Toggle breakpoint" } },
+        {
+          "B",
+          function()
+            dap.set_breakpoint(vim.fn.input("Condition: "))
+          end,
+          { desc = "Conditional break" },
+        },
+        {
+          "v",
+          function()
+            require("nvim-dap-virtual-text").toggle()
+          end,
+          { desc = "Toggle virtual text" },
+        },
+        {
+          "<esc>",
+          function()
+            DEBUG:deactivate()
+          end,
+          { desc = "Exit this mode" },
+        },
+        { "R", dap.restart, { desc = "Restart" } },
+        { "Q", dap.terminate, { desc = "Terminate" } },
+      },
+    })
+
+    dap.listeners.after.event_initialized["debug_mode"] = function()
+      if not DEBUG:active() then
+        DEBUG:activate()
+      end
+    end
+    dap.listeners.before.event_terminated["debug_mode"] = function()
+      if DEBUG:active() then
+        DEBUG:deactivate()
+      end
+    end
 
     require("dap-python").setup()
-    require("dap").configurations.python = {
+    dap.configurations.python = {
       {
         type = "python",
         request = "launch",
