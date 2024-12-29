@@ -21,11 +21,9 @@ return {
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     local on_attach = function(client, bufnr)
-      local function map(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-      end
-
+      local function map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local opts = { noremap = true, silent = true }
+
       map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
       map("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
       map("n", "<leader>C", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -38,9 +36,7 @@ return {
         vim.api.nvim_create_autocmd("BufWritePre", {
           group = augroup,
           buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format()
-          end,
+          callback = function() vim.lsp.buf.format() end,
         })
       end
     end
@@ -108,6 +104,9 @@ return {
                 },
                 diagnostics = {
                   globals = { "vim" },
+                },
+                format = {
+                  enable = false,
                 },
                 workspace = {
                   library = vim.api.nvim_get_runtime_file("", true),

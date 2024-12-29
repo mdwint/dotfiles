@@ -6,17 +6,12 @@ return {
     { "debugloop/layers.nvim", opts = {} },
   },
   keys = {
-    {
-      "<leader>D",
-      function()
-        DEBUG:toggle()
-      end,
-      desc = "Toggle debug mode",
-    },
+    { "<leader>D", function() DEBUG:toggle() end, desc = "Toggle debug mode" },
   },
   config = function()
     local dap = require("dap")
-    require("nvim-dap-virtual-text").setup()
+    local virtual_text = require("nvim-dap-virtual-text")
+    virtual_text.setup()
 
     vim.fn.sign_define(
       "DapBreakpoint",
@@ -27,6 +22,10 @@ return {
       { text = "⏺︎", texthl = "DiagnosticSignWarn" }
     )
     vim.fn.sign_define("DapStopped", { text = "→", texthl = "" })
+
+    local set_conditional_breakpoint = function()
+      dap.set_breakpoint(vim.fn.input("Condition: "))
+    end
 
     DEBUG = Layers.mode.new("Debug mode")
     DEBUG:auto_show_help()
@@ -40,41 +39,19 @@ return {
         { "u", dap.up, { desc = "Frame up" } },
         { "d", dap.down, { desc = "Frame down" } },
         { "b", dap.toggle_breakpoint, { desc = "Toggle breakpoint" } },
-        {
-          "B",
-          function()
-            dap.set_breakpoint(vim.fn.input("Condition: "))
-          end,
-          { desc = "Conditional break" },
-        },
-        {
-          "v",
-          function()
-            require("nvim-dap-virtual-text").toggle()
-          end,
-          { desc = "Toggle virtual text" },
-        },
-        {
-          "<esc>",
-          function()
-            DEBUG:deactivate()
-          end,
-          { desc = "Exit this mode" },
-        },
+        { "B", set_conditional_breakpoint, { desc = "Conditional break" } },
+        { "v", virtual_text.toggle, { desc = "Toggle virtual text" } },
+        { "<esc>", function() DEBUG:deactivate() end, { desc = "Exit this mode" } },
         { "R", dap.restart, { desc = "Restart" } },
         { "Q", dap.terminate, { desc = "Terminate" } },
       },
     })
 
     dap.listeners.after.event_initialized["debug_mode"] = function()
-      if not DEBUG:active() then
-        DEBUG:activate()
-      end
+      if not DEBUG:active() then DEBUG:activate() end
     end
     dap.listeners.before.event_terminated["debug_mode"] = function()
-      if DEBUG:active() then
-        DEBUG:deactivate()
-      end
+      if DEBUG:active() then DEBUG:deactivate() end
     end
 
     require("dap-python").setup()
