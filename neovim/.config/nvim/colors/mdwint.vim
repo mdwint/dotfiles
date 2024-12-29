@@ -1,9 +1,8 @@
 " This is my first custom color scheme.
 "
 " It inherits all colors from the terminal, and is meant to be used together
-" with base16-shell (https://github.com/chriskempson/base16-shell), allowing
-" for easy switching between dark and light modes throughout the day without
-" having to restart the editor.
+" with my ~/bin/colors script, allowing for easy switching between dark and
+" light modes throughout the day without having to restart the editor.
 "
 " The colors red (1), green (2), and yellow (3) are reserved for errors,
 " warnings, search highlights, diffs, and other important aspects of the
@@ -22,7 +21,7 @@ hi ColorColumn    ctermbg=18 cterm=none
 hi Comment        ctermfg=8
 hi Conceal        ctermfg=4 ctermbg=0
 hi Conditional    ctermfg=5
-hi Constant       ctermfg=6
+hi Constant       ctermfg=7
 hi Cursor         ctermfg=0 ctermbg=7
 hi CursorColumn   ctermbg=18 cterm=none
 hi CursorLine     ctermbg=18 cterm=none
@@ -102,6 +101,7 @@ hi WarningMsg     ctermfg=1
 hi WildMenu       ctermfg=7 ctermbg=11
 hi WinSeparator   ctermfg=18 ctermbg=0 cterm=none
 
+hi! link @module Identifier
 hi! link @variable Identifier
 
 hi link diffAdded DiffAdd
