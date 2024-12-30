@@ -73,10 +73,10 @@ hi SignColumn     ctermfg=8 ctermbg=none
 hi Special        ctermfg=6
 hi SpecialChar    ctermfg=17
 hi SpecialKey     ctermfg=8
-hi SpellBad       cterm=undercurl ctermbg=none guisp=fg
-hi SpellCap       cterm=undercurl ctermbg=none guisp=fg
-hi SpellLocal     cterm=undercurl ctermbg=none guisp=fg
-hi SpellRare      cterm=undercurl ctermbg=none guisp=fg
+hi SpellBad       cterm=undercurl ctermbg=none guisp=none
+hi SpellCap       cterm=undercurl ctermbg=none guisp=none
+hi SpellLocal     cterm=undercurl ctermbg=none guisp=none
+hi SpellRare      cterm=undercurl ctermbg=none guisp=none
 hi Statement      ctermfg=4
 hi StatusLine     ctermfg=20 ctermbg=19 cterm=none
 hi StatusLineNC   ctermfg=8 ctermbg=18 cterm=none
