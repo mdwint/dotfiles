@@ -42,7 +42,7 @@ return {
     end
 
     require("mason").setup()
-    require("mason-lspconfig").setup({
+    require("mason-lspconfig").setup({ ---@diagnostic disable-line
       ensure_installed = {
         "bashls",
         "clangd",

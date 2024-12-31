@@ -27,7 +27,7 @@ return {
       dap.set_breakpoint(vim.fn.input("Condition: "))
     end
 
-    DEBUG = Layers.mode.new("Debug mode")
+    DEBUG = Layers.mode.new("Debug mode") ---@diagnostic disable-line
     DEBUG:auto_show_help()
     DEBUG:keymaps({
       n = {
