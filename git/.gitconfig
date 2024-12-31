@@ -15,6 +15,9 @@
 [merge]
     conflictstyle = diff3
 
+[rebase]
+    autosquash = true
+
 [rerere]
     enabled = true
 
