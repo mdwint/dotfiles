@@ -52,12 +52,6 @@ inoremap { {<c-g>u
 " Toggle spell checking
 nnoremap <c-s> :setlocal spell!<cr>
 
-" Toggle netrw file explorer
-nnoremap <silent> <leader>e :Lexplore<cr>
-
-" Toggle undo tree
-nnoremap <silent> <leader>u :UndotreeToggle<cr>
-
 " Send visual selection to origin shell script
 function Origin()
   silent execute '!origin % ' . string(getpos('v')[1]) . ' ' . string(getpos('.')[1])
