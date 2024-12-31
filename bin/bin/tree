@@ -1,2 +1,3 @@
 #!/bin/sh
-lsd --tree --group-dirs=first --icon=never -I=__pycache__ -I=node_modules $@
+lsd $@ --tree --group-dirs=first --classic --almost-all \
+    -I=.git -I=.mypy_cache -I=__pycache__ -I=node_modules
