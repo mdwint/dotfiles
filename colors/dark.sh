@@ -1,1 +1,1 @@
-grayscale-dark.sh
+amber-dark.sh
