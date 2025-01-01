@@ -10,7 +10,7 @@ if status --is-login; and not set -q __fish_login_config_sourced
 
     set -xg FZF_DEFAULT_COMMAND "rg --files --follow --hidden -g '!{.git,_vendor_*}'"
     set -xg FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-    set -xg FZF_DEFAULT_OPTS '--color 16'
+    set -xg FZF_DEFAULT_OPTS '--no-color --no-separator --no-scrollbar --info=right'
 
     set -xg HOMEBREW_AUTO_UPDATE_SECS 86400
     set -xg HOMEBREW_NO_COLOR 1
