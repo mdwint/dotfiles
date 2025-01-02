@@ -103,6 +103,13 @@ hi WinSeparator   ctermfg=18 ctermbg=0 cterm=none
 
 hi! link @module Identifier
 hi! link @variable Identifier
+hi! link DiagnosticVirtualTextHint Comment
+
+hi DiagnosticUnderlineError guisp=none
+hi DiagnosticUnderlineWarn  guisp=none
+hi DiagnosticUnderlineInfo  guisp=none
+hi DiagnosticUnderlineHint  guisp=none
+hi DiagnosticUnderlineOk    guisp=none
 
 hi link diffAdded DiffAdd
 hi link diffOldFile DiffRemoved

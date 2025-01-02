@@ -22,12 +22,10 @@ nnoremap <silent> <cr> :noh<cr>:echo ''<cr>
 nnoremap <silent> <leader>f <plug>DashSearch
 
 " Quickfix list
-nnoremap <leader>j :cnext<cr>
-nnoremap <leader>k :cprev<cr>
-nnoremap <leader>1 :cfirst<cr>
-nnoremap gj :lnext<cr>
-nnoremap gk :lprev<cr>
-nnoremap g1 :lfirst<cr>
+nnoremap ]q :cnext<cr>
+nnoremap [q :cprev<cr>
+nnoremap ]w :lnext<cr>
+nnoremap [w :lprev<cr>
 
 " Keep cursor centered when jumping
 nnoremap n nzzzv

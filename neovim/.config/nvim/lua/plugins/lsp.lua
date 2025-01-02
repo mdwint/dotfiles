@@ -49,7 +49,7 @@ return {
         "esbonio",
         "gopls",
         "lua_ls",
-        "pylsp",
+        "pyright",
         "ruff",
         "rust_analyzer",
         "svelte",
@@ -63,31 +63,24 @@ return {
             on_attach = on_attach,
           })
         end,
-        pylsp = function()
-          lspconfig.pylsp.setup({
+        pyright = function()
+          lspconfig.pyright.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             settings = {
-              pylsp = {
-                plugins = {
-                  jedi = {
-                    prioritize_extra_paths = true,
-                    extra_paths = {
-                      ".venv/lib/python3.9/site-packages",
-                      ".venv/lib/python3.10/site-packages",
-                      ".venv/lib/python3.11/site-packages",
-                      ".venv/lib/python3.12/site-packages",
-                      ".venv/lib/python3.13/site-packages",
-                    },
+              pyright = {
+                disableOrganizeImports = true,
+              },
+              python = {
+                analysis = {
+                  typeCheckingMode = "off",
+                  extraPaths = {
+                    ".venv/lib/python3.9/site-packages",
+                    ".venv/lib/python3.10/site-packages",
+                    ".venv/lib/python3.11/site-packages",
+                    ".venv/lib/python3.12/site-packages",
+                    ".venv/lib/python3.13/site-packages",
                   },
-                  rope_autoimport = {
-                    enabled = true,
-                  },
-                  autopep8 = { enabled = false },
-                  mccabe = { enabled = false },
-                  pycodestyle = { enabled = false },
-                  pyflakes = { enabled = false },
-                  yapf = { enabled = false },
                 },
               },
             },

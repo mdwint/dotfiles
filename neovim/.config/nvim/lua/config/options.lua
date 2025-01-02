@@ -38,10 +38,16 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 20
 
 vim.diagnostic.config({
-  underline = false,
+  severity_sort = true,
+  underline = true,
   virtual_text = {
-    prefix = "•",
+    prefix = "ϟ",
     spacing = 1,
+    source = true,
+  },
+  float = {
+    border = "rounded",
+    header = "",
     source = true,
   },
 })
