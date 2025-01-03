@@ -122,6 +122,8 @@ hi link GitSignsStagedAdd NonText
 hi link GitSignsStagedChange NonText
 hi link GitSignsStagedDelete NonText
 hi link GitSignsStagedChangedelete NonText
+hi link NeotestExpandMarker LineNr
+hi link NeotestIndent LineNr
 
 hi TelescopeBorder       ctermfg=8 ctermbg=0
 hi TelescopePromptPrefix ctermfg=8 ctermbg=0
