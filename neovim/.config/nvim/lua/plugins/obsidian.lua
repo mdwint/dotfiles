@@ -20,8 +20,10 @@ return {
       },
     },
     disable_frontmatter = true,
-    ui = {
-      enable = false,
-    },
+    ui = { enable = false },
+
+    note_id_func = function(title)
+      return os.date("%Y-%m-%d") .. "-" .. title:gsub(" ", "-"):lower()
+    end,
   },
 }
