@@ -61,9 +61,9 @@ hi Normal         ctermfg=7 ctermbg=none
 hi Number         ctermfg=6
 hi Operator       ctermfg=5
 hi Pmenu          ctermfg=7 ctermbg=18 cterm=none
-hi PmenuSbar      ctermbg=16
+hi PmenuSbar      ctermbg=19
 hi PmenuSel       ctermfg=18 ctermbg=7 cterm=none
-hi PmenuThumb     ctermbg=15
+hi PmenuThumb     ctermbg=20
 hi PreProc        ctermfg=4
 hi Question       ctermfg=4
 hi QuickFixLine   ctermbg=18
