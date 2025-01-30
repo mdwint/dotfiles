@@ -31,7 +31,7 @@ return {
       lua = { "stylua" },
       python = { "ruff" },
       typescript = { "prettier" },
-      yaml = { "yamlfmt" },
+      --yaml = { "yamlfmt" },
       ["*"] = { "remove_trailing_lines", "trim_whitespace" },
     }
     vim.g.ale_python_autoflake_options =
