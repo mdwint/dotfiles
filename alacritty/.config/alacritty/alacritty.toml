@@ -19,12 +19,10 @@ decorations = "none"
 startup_mode = "Maximized"
 
 [font]
-normal = { family = "BigBlueTermPlus Nerd Font" }
-size = 14.0
-# normal = { family = "Iosevka Term", style = "Light" }
-# bold = { style = "Semibold" }
-# italic = { style = "Light Oblique" }
-# size = 16.0
+normal = { family = "Iosevka Term", style = "Light" }
+bold = { style = "Semibold" }
+italic = { style = "Light Oblique" }
+size = 16.0
 
 [colors.primary]
 background = "#000000"
