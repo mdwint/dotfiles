@@ -1,8 +1,5 @@
-[env]
-SHELL = "/opt/homebrew/bin/fish"
-
 [terminal.shell]
-program = "/opt/homebrew/bin/fish"
+program = "fish"
 args = ["--login", "--init-command", "tmux new-session -A -s main"]
 
 [scrolling]
@@ -19,7 +16,7 @@ decorations = "none"
 startup_mode = "Maximized"
 
 [font]
-normal = { family = "Iosevka Term", style = "Light" }
+normal = { family = "Iosevka", style = "Light" }
 bold = { style = "Semibold" }
 italic = { style = "Light Oblique" }
 size = 16.0

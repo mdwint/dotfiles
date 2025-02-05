@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    -- { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-telescope/telescope-ui-select.nvim",
   },
   keys = {
@@ -32,14 +32,14 @@ return {
         },
       },
       extensions = {
-        fzf = {},
+        -- fzf = {},
         ["ui-select"] = {
           themes.get_cursor(),
         },
       },
     })
 
-    require("telescope").load_extension("fzf")
+    -- require("telescope").load_extension("fzf")
     require("telescope").load_extension("ui-select")
   end,
 }
