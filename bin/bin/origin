@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 remote=$(git remote get-url origin)
 repo=$(echo "$remote" | sed -nE 's/.+:(.+)\.git$/\1/p')
 branch=$(git symbolic-ref --short HEAD)

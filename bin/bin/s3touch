@@ -1,3 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+set -e
 url=$1; shift
 aws $@ s3 cp "$url" "$url" --metadata-directive REPLACE

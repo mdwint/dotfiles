@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 set -ex
 
 osascript -e 'tell application "System Preferences" to quit'
