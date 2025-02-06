@@ -47,10 +47,9 @@
   };
 
   xdg.configFile = {
-    "alacritty" = {
+    "alacritty/alacritty.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/alacritty/.config/alacritty";
-      recursive = true;
+        "${config.home.homeDirectory}/dotfiles/alacritty/.config/alacritty/alacritty.nixos.toml";
     };
 
     "fish" = {
