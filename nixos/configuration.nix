@@ -57,6 +57,7 @@
   environment.systemPackages = with pkgs; [
     gcc
     git
+    gnumake
     neovim
     unzip
     zip
