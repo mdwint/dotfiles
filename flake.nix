@@ -12,14 +12,19 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
     in {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          modules = [ ./nixos/configuration.nix ];
+        };
+      };
+
       homeConfigurations = {
         matteo = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [ ./nixos/home.nix ];
         };
       };
     };
