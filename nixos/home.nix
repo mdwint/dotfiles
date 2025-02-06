@@ -8,7 +8,6 @@
       fzf
       git
       go
-      iosevka
       lsd
       neovim
       nodejs

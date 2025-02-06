@@ -63,6 +63,11 @@
     zip
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.bigblue-terminal
+    nerd-fonts.iosevka-term
+  ];
+
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
