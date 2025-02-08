@@ -52,8 +52,6 @@
   programs.firefox.enable = true;
   programs.fish.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     gcc
     git

@@ -15,6 +15,8 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
     in {
+      nixpkgs.config.allowUnfree = true;
+
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           modules = [ ./nixos/configuration.nix ];

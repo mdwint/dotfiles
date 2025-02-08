@@ -14,6 +14,7 @@
       python3
       ripgrep
       rustc
+      signal-desktop
       tmux
       uv
       xxd
