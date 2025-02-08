@@ -8,3 +8,9 @@ program = "fish"
 normal = { family = "Iosevka Term Nerd Font", style = "Light" }
 # normal = { family = "BigBlueTerm437 Nerd Font Mono" }
 size = 14.0
+
+[keyboard]
+bindings = [
+    { key = "C", mods = "Super", action = "Copy" },
+    { key = "V", mods = "Super", action = "Paste" },
+]
