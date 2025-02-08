@@ -76,8 +76,14 @@
 
   # services.openssh.enable = true;
 
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  programs.kdeconnect.enable = true;
+
+  networking.firewall = rec {
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; }  # kdeconnect
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.11";
