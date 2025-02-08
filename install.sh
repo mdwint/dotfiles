@@ -18,9 +18,8 @@ if [ "$os" = macos ]; then
 fi
 
 (
-    target_dir=~/dotfiles
-    [ -d "$target_dir" ] || git clone https://github.com/mdwint/dotfiles.git "$target_dir"
-    cd "$target_dir"
+    [ -d ~/dotfiles ] || git clone https://github.com/mdwint/dotfiles.git ~/dotfiles
+    cd ~/dotfiles
 
     if [ "$os" = macos ]; then
         ./macos-defaults.sh
@@ -28,12 +27,20 @@ fi
         tic -x tmux/.tmux-terminfo.src
         brew bundle --no-lock --no-upgrade
         brew autoupdate start 43200 --cleanup --immediate
-    else
+        has rustup || curl https://sh.rustup.rs -sSf | sh
+    elif has stow; then
         stow bin fish git neovim ripgrep tmux
     fi
 
     has nvim && nvim --headless '+Lazy! sync' +qa
-    has pipx && while read -r pkg; do pipx install "$pkg" || true; done <python-packages
 )
 
-has rustup || curl https://sh.rustup.rs -sSf | sh
+if [ "$os" = macos ]; then
+    has uv || curl -LsSf https://astral.sh/uv/install.sh | sh
+    has uv && while read -r pkg; do uv tool install "$pkg" || true; done <<'EOF'
+        aws-export-credentials
+        s3-pit-restore
+        tox
+        twine
+    EOF
+endif

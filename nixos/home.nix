@@ -15,6 +15,7 @@
       ripgrep
       rustc
       tmux
+      uv
       xxd
       zig
       zoxide
