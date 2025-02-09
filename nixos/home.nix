@@ -3,6 +3,7 @@
   home = {
     packages = with pkgs; [
       alacritty
+      awscli2
       cargo
       dragon
       fish
