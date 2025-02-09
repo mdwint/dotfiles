@@ -4,6 +4,7 @@
     packages = with pkgs; [
       alacritty
       cargo
+      dragon
       fish
       fzf
       git
