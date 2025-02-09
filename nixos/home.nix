@@ -17,6 +17,7 @@
       ripgrep
       rustc
       signal-desktop
+      spotify
       tmux
       uv
       xxd
