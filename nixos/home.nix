@@ -3,6 +3,7 @@
   home = {
     packages = with pkgs; [
       alacritty
+      aws-vault
       awscli2
       cargo
       dragon
