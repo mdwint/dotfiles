@@ -15,6 +15,7 @@
       neovim
       nodejs
       python3
+      rclone
       ripgrep
       rustc
       signal-desktop
@@ -74,6 +75,23 @@
         "${config.home.homeDirectory}/dotfiles/tmux/.config/tmux";
       recursive = true;
     };
+  };
+
+  systemd.user.services.mount-icloud = {
+    Unit = {
+      Description = "Mount iCloud Drive with rclone";
+      After = [ "network-online.target" ];
+    };
+    Service = {
+      Type = "notify";
+      Environment = "RCLONE_PASSWORD_COMMAND='kwallet-query -r rclone-icloud kdewallet'";
+      ExecStartPre = "/usr/bin/env mkdir -p %h/iCloud";
+      ExecStart = "${pkgs.rclone}/bin/rclone --vfs-cache-mode=writes mount icloud: %h/iCloud";
+      ExecStop = "/usr/bin/env fusermount -u %h/iCloud";
+      Restart = "on-failure";
+      RestartSec = "10s";
+    };
+    Install.WantedBy = [ "default.target" ];
   };
 
   programs.home-manager.enable = true;
