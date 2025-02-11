@@ -7,6 +7,7 @@
       awscli2
       cargo
       dragon
+      fd
       fish
       fzf
       git

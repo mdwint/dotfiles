@@ -10,7 +10,7 @@ function j -d 'jump to or fuzzy-find a directory'
         end
     else
         # Fuzzy-find a directory in home.
-        set -l opts -d 5 -E Applications -E Documents -E Library -E Music
-        cd (cd && fd -t d $opts | fzf --preview='tree {}')
+        set -l opts -d 5 -E Applications -E Documents -E Library -E Music -E iCloud
+        cd (cd && fd -t d $opts | fzf --preview='tree {}' --height=40% --min-height=20+)
     end
 end
