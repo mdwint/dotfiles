@@ -53,6 +53,7 @@ return {
         "ruff",
         "rust_analyzer",
         "svelte",
+        "taplo",
         "terraformls",
         "yamlls",
       },
