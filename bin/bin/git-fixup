@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -e
+commit=$(git log --pretty=reference -n "${1:-10}" \
+    | fzf --reverse --height=~100% | cut -d' ' -f1)
+git commit --fixup=amend:$commit --no-edit
+git rebase --autosquash $commit~1
