@@ -5,5 +5,9 @@ prev=$(cat ~/.color_theme || echo dark)
 
 colors "$next"
 
-[ -x "$(command -v osascript)" ] && \
+if [ -x "$(command -v osascript)" ]; then
     osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to '"$bool"
+elif [ -x "$(command -v lookandfeeltool)" ]; then
+    [ "$next" = dark ] && theme=breezedark || theme=breeze
+    lookandfeeltool --apply "org.kde.$theme.desktop"
+fi
