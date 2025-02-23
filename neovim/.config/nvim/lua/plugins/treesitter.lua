@@ -29,6 +29,7 @@ return {
         "toml",
         "vim",
         "yaml",
+        "zig",
       },
       highlight = {
         enable = true,
