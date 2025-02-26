@@ -20,6 +20,9 @@
 (set-face-attribute 'default nil :font "Iosevka Term Light")
 (set-face-attribute 'default nil :height 160)
 
+(setq which-key-idle-delay 0.3)
+(which-key-mode 1)
+
 ;; Support opening new minibuffers from inside existing minibuffers.
 (setq enable-recursive-minibuffers t)
 
@@ -86,12 +89,6 @@
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion))))
-)
-
-(use-package which-key
-  :config
-  (setq which-key-idle-delay 0.3)
-  (which-key-mode 1)
 )
 
 (load-theme 'ef-tritanopia-dark :no-confirm)
