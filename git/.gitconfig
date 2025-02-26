@@ -7,13 +7,16 @@
     ignorecase = false
 
 [diff]
+    algorithm = histogram
     colorMoved = true
+    mnemonicPrefix = true
+    renames = true
 
 [pull]
     ff = only
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [rebase]
     autosquash = true
