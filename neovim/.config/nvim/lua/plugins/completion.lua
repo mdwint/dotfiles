@@ -28,6 +28,7 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
+        { name = "path" },
       }),
       snippet = {
         expand = function(args) luasnip.lsp_expand(args.body) end,
