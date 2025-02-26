@@ -6,12 +6,12 @@
       aws-vault
       awscli2
       cargo
-      dragon
       fd
       fish
       fzf
       git
       go
+      kdePackages.dragon
       lsd
       neovim
       nodejs
