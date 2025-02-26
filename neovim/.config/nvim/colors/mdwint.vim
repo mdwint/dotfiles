@@ -105,6 +105,11 @@ hi! link @module Identifier
 hi! link @variable Identifier
 hi! link DiagnosticVirtualTextHint Comment
 
+hi DiffviewDiffAdd    ctermfg=0 ctermbg=2
+hi DiffviewDiffDelete ctermfg=0 ctermbg=1
+hi DiffviewDiffText   ctermfg=0 ctermbg=3
+hi DiffviewDiffChange ctermfg=3 ctermbg=0
+
 hi DiagnosticUnderlineError guisp=none
 hi DiagnosticUnderlineWarn  guisp=none
 hi DiagnosticUnderlineInfo  guisp=none
