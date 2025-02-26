@@ -6,12 +6,15 @@
       aws-vault
       awscli2
       cargo
+      cmake
+      emacs30
       fd
       fish
       fzf
       git
       go
       kdePackages.dragon
+      libtool
       lsd
       neovim
       nodejs
@@ -57,6 +60,12 @@
     "alacritty/alacritty.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dotfiles/alacritty/.config/alacritty/alacritty.nixos.toml";
+    };
+
+    "emacs" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dotfiles/emacs/.config/emacs";
+      recursive = true;
     };
 
     "fish" = {

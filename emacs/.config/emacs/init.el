@@ -17,8 +17,12 @@
 )
 (add-hook 'term-mode-hook #'term-scroll)
 
-(set-face-attribute 'default nil :font "Iosevka Term Light")
-(set-face-attribute 'default nil :height 160)
+(if (eq system-type 'darwin)
+  (progn (set-face-attribute 'default nil :font "Iosevka Term Light")
+         (set-face-attribute 'default nil :height 160))
+  (progn (set-face-attribute 'default nil :font "Iosevka Term Nerd Font")
+         (set-face-attribute 'default nil :height 140))
+)
 
 (setq which-key-idle-delay 0.3)
 (which-key-mode 1)
