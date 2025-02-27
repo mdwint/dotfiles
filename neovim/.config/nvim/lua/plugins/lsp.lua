@@ -41,6 +41,16 @@ return {
       end
     end
 
+    local function find_python_venv()
+      local path = vim.fn.getcwd()
+      while path ~= "/" do
+        local site = vim.fn.glob(path .. "/.venv/lib/python*/site-packages", true, true)
+        if #site > 0 then return site[1] end
+        path = vim.fn.fnamemodify(path, ":h")
+      end
+      return nil
+    end
+
     require("mason").setup()
     require("mason-lspconfig").setup({ ---@diagnostic disable-line
       ensure_installed = {
@@ -76,11 +86,7 @@ return {
                 analysis = {
                   typeCheckingMode = "off",
                   extraPaths = {
-                    ".venv/lib/python3.9/site-packages",
-                    ".venv/lib/python3.10/site-packages",
-                    ".venv/lib/python3.11/site-packages",
-                    ".venv/lib/python3.12/site-packages",
-                    ".venv/lib/python3.13/site-packages",
+                    find_python_venv(),
                   },
                 },
               },
