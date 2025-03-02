@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -18,6 +18,7 @@
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
@@ -28,6 +29,7 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -52,6 +54,11 @@
   programs.firefox.enable = true;
   programs.fish.enable = true;
 
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+
   environment.systemPackages = with pkgs; [
     gcc
     git
@@ -69,6 +76,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryPackage = lib.mkForce pkgs.pinentry-qt;
   };
 
   # services.openssh.enable = true;
