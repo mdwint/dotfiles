@@ -1,0 +1,10 @@
+#nav-bar {
+  font-family: "Less Perfect DOS VGA", monospace !important;
+  font-size: 14px;
+}
+
+#back-button,
+#forward-button,
+#TabsToolbar {
+  display: none !important;
+}
