@@ -1,6 +1,6 @@
 [user]
     name = Matteo De Wint
-    email = matteo@gorilla.co
+    email = matteo@mailfence.com
 
 [core]
     editor = nvim
@@ -29,3 +29,6 @@
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
+
+[includeIf "gitdir:~/gorilla/"]
+    path = ~/.gitconfig.gorilla
