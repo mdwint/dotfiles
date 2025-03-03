@@ -37,6 +37,9 @@
     stateVersion = "24.11";
   };
 
+  xsession.enable = true;
+  home.keyboard.options = [ "altwin:swap_alt_win" "caps:hyper" ];
+
   home.file = {
     "bin" = {
       source = config.lib.file.mkOutOfStoreSymlink
