@@ -10,11 +10,12 @@
 #browser input,
 #browser select,
 #browser textarea {
-  font-family: "Menlo", monospace !important;
+  font-family: "Less Perfect DOS VGA", "Menlo", monospace !important;
+  font-size: 16px;
 }
 
 .mainbar .toolbar-mainbar {
-  height: 28px;
+  height: 24px;
 }
 
 .mainbar,

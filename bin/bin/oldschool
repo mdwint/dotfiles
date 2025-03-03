@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ "$(cat ~/.color_theme)" != "amber-"* ]]; then
-    alacritty msg config 'font.normal = { family = "BigBlueTermPlus Nerd Font", style = "Regular" }' 'font.size = 14.0'
+    alacritty msg config 'font.normal = { family = "Less Perfect DOS VGA", style = "Regular" }' 'font.size = 16.0'
     colors amber-dark
 else
     alacritty msg config --reset

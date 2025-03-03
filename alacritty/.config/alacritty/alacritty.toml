@@ -19,9 +19,10 @@ decorations = "none"
 startup_mode = "Maximized"
 
 [font]
-normal = { family = "Iosevka Term", style = "Light" }
-bold = { style = "Semibold" }
-italic = { style = "Light Oblique" }
+# normal = { family = "Iosevka Term", style = "Light" }
+# bold = { style = "Semibold" }
+# italic = { style = "Light Oblique" }
+normal = { family = "Less Perfect DOS VGA", style = "Regular" }
 size = 16.0
 
 [colors.primary]
@@ -30,10 +31,10 @@ foreground = "#b9b9b9"
 
 [keyboard]
 bindings = [
-    { key = "T", mods = "Command", chars = "\u0001c" },  # tmux: new window
-    { key = "W", mods = "Command", chars = "\u0001x" },  # tmux: close window
-    { key = "Z", mods = "Command", chars = "\u0001z" },  # tmux: zoom window
-    { key = "P", mods = "Command", chars = "\u0001w" },  # tmux: switch window
-    { key = "S", mods = "Command", chars = "\u001B:w\n" },  # nvim: write buffer
+    { key = "T", mods = "Command", chars = "\u0001c" },    # tmux: new window
+    { key = "W", mods = "Command", chars = "\u0001x" },    # tmux: close window
+    { key = "Z", mods = "Command", chars = "\u0001z" },    # tmux: zoom window
+    { key = "P", mods = "Command", chars = "\u0001w" },    # tmux: switch window
+    { key = "S", mods = "Command", chars = "\u001B:w\n" }, # nvim: write buffer
     { key = "D", mods = "Command", chars = "darkmode\n" },
 ]
