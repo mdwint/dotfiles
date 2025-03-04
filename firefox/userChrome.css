@@ -8,3 +8,15 @@
 #TabsToolbar {
   display: none !important;
 }
+
+#searchbar,
+#urlbar-background,
+.tab-background,
+menupopup,
+.menupopup-arrowscrollbox {
+  border-radius: 0 !important;
+}
+
+:root {
+  --arrowpanel-border-radius: 0px !important;
+}
