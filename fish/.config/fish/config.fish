@@ -34,7 +34,8 @@ if status --is-interactive
     abbr pr pull-request
     abbr o origin
     abbr gl 'git log'
-    abbr gg 'git log --branches --remotes --tags --graph --oneline'
+    abbr gg 'git log --graph --oneline --branches --tags'
+    abbr ggg 'git log --graph --oneline --branches --tags --remotes'
     abbr gh 'git show HEAD'
     abbr gs 'git status'
     abbr gd 'git diff'
