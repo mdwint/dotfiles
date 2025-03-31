@@ -1,6 +1,6 @@
 #nav-bar {
   font-family: "Less Perfect DOS VGA", monospace !important;
-  font-size: 14px;
+  font-size: var(--nav-font-size, 14px);
 }
 
 #back-button,
@@ -19,4 +19,42 @@ menupopup,
 
 :root {
   --arrowpanel-border-radius: 0px !important;
+}
+
+@media (-moz-platform: macos) {
+  :root {
+    --nav-font-size: 12px;
+  }
+
+  :root:not([inFullscreen]){
+    --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding))
+  }
+
+  :root[uidensity="compact"]:not([inFullscreen]){
+    --uc-bottom-toolbar-height: calc(32px + var(--toolbarbutton-outer-padding))
+  }
+
+  #browser,
+  #customization-container {
+    margin-bottom: var(--uc-bottom-toolbar-height, 0px)
+  }
+
+  #nav-bar {
+    position: fixed !important;
+    bottom: 0px;
+    display: -webkit-box;
+    width: 100%;
+    z-index: 1;
+  }
+
+  #nav-bar-customization-target{ -webkit-box-flex: 1; }
+  .panel-viewstack{ max-height: unset !important; }
+  .urlbarView-body-inner{ border-top-style: none !important; }
+
+  #urlbar[breakout][breakout-extend]{
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    bottom: 0px !important;
+    top: auto !important;
+  }
 }
