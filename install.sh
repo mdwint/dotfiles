@@ -33,7 +33,7 @@ fi
         ./macos-defaults.sh
         stow -- */
         tic -x tmux/.tmux-terminfo.src
-        brew bundle --no-lock --no-upgrade
+        brew bundle --no-upgrade
         brew autoupdate start 43200 --cleanup --immediate
         has rustup || curl https://sh.rustup.rs -sSf | sh
     elif [ "$os" = nixos ]; then

@@ -3,6 +3,7 @@ emacs/.config/emacs/eln-cache/
 emacs/.config/emacs/elpa/
 emacs/.config/emacs/history
 emacs/.config/emacs/transient/
+fish/.config/fish/conf.d/
 fish/.config/fish/fish_variables
 fish/.config/fish/functions/fzf_key_bindings.fish
 karabiner/.config/karabiner/automatic_backups/
