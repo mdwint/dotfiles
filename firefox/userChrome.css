@@ -5,6 +5,7 @@
 
 #back-button,
 #forward-button,
+#urlbar-searchmode-switcher,
 #TabsToolbar {
   display: none !important;
 }
