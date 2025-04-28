@@ -58,6 +58,7 @@ return {
         "clangd",
         "esbonio",
         "gopls",
+        "ltex",
         "lua_ls",
         "pyright",
         "ruff",

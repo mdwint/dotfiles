@@ -13,6 +13,7 @@
       fzf
       git
       go
+      jdk
       kdePackages.dragon
       libtool
       lsd
