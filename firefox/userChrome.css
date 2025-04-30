@@ -1,8 +1,3 @@
-#nav-bar {
-  font-family: "Less Perfect DOS VGA", monospace !important;
-  font-size: var(--nav-font-size, 14px);
-}
-
 #back-button,
 #forward-button,
 #urlbar-searchmode-switcher,
@@ -23,10 +18,6 @@ menupopup,
 }
 
 @media (-moz-platform: macos) {
-  :root {
-    --nav-font-size: 12px;
-  }
-
   :root:not([inFullscreen]){
     --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding))
   }
@@ -41,6 +32,8 @@ menupopup,
   }
 
   #nav-bar {
+    font-family: "Less Perfect DOS VGA", monospace !important;
+    font-size: 12px;
     position: fixed !important;
     bottom: 0px;
     display: -webkit-box;
