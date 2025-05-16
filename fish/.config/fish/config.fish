@@ -24,7 +24,7 @@ end
 if status --is-interactive
     if type -q direnv; eval (direnv hook fish); end
     if type -q fnm; eval (fnm env); end
-    if type -q pyenv; pyenv init --path --no-rehash | source; end
+    if type -q pyenv; pyenv init - fish | source; end
     if type -q zoxide; zoxide init fish --no-cmd | source; end
 
     alias vim nvim
