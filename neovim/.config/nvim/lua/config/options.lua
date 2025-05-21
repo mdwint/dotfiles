@@ -50,10 +50,11 @@ vim.diagnostic.config({
     header = "",
     source = true,
   },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "✘",
+      [vim.diagnostic.severity.WARN] = "?",
+      [vim.diagnostic.severity.INFO] = "i",
+    },
+  },
 })
-
-local signs = { Error = "✘", Warn = "?", Info = "i" }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl })
-end
