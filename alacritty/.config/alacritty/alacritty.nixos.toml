@@ -6,7 +6,6 @@ program = "fish"
 
 [font]
 # normal = { family = "Iosevka Term Nerd Font", style = "Regular" }
-normal = { family = "Less Perfect DOS VGA", style = "Regular" }
 size = 12.0
 
 [keyboard]
