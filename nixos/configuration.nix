@@ -69,7 +69,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    nerd-fonts.iosevka-term
+    # nerd-fonts.iosevka-term
   ];
 
   programs.gnupg.agent = {

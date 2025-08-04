@@ -1,12 +1,10 @@
 { pkgs, ... }:
 {
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.experimental-features = "nix-command flakes";
 
   users.users.matteo = {
     description = "Matteo De Wint";
+    home = "/Users/matteo";
     shell = pkgs.fish;
   };
 
@@ -17,7 +15,7 @@
     awscli2
     colima
     coreutils
-    databricks-cli
+    difftastic
     direnv
     docker
     docker-buildx
@@ -29,19 +27,22 @@
     git
     git-filter-repo
     git-lfs
+    go
     graphviz
     htop
-    jdk24_headless
+    jdk17_headless
     lsd
     mosh
     neovim
+    nodejs
     ollama
     parallel
+    pgcli
     plantuml
     pyenv
     ripgrep
+    ruff
     rustup
-    stow
     terraform
     tig
     tmux
@@ -51,6 +52,7 @@
     wget
     xxd
     yarn
+    zig
     zlib
     zoxide
   ];
@@ -61,10 +63,12 @@
     onActivation.cleanup = "uninstall";
 
     taps = [
+      "databricks/tap"
       "domt4/autoupdate"
     ];
 
     brews = [
+      "databricks"
       "docker-credential-helper-ecr"
     ];
 
@@ -74,7 +78,7 @@
       "balance-lock"
       "dash@6"
       # "emacs"
-      "font-iosevka"
+      # "font-iosevka"
       "gimp"
       "iina"
       "jordanbaird-ice"
@@ -93,6 +97,34 @@
     reattach = true;
     touchIdAuth = true;
     watchIdAuth = true;
+  };
+
+  system.defaults = {
+    NSGlobalDomain = {
+      ApplePressAndHoldEnabled = false;
+      InitialKeyRepeat = 15;
+      KeyRepeat = 2;
+      _HIHideMenuBar = true;
+    };
+
+    dock = {
+      autohide = true;
+      launchanim = false;
+      magnification = false;
+      mineffect = "scale";
+      minimize-to-application = true;
+      orientation = "right";
+      show-process-indicators = false;
+      show-recents = false;
+      static-only = true;
+      tilesize = 64;
+    };
+
+    finder = {
+      CreateDesktop = false;
+      _FXShowPosixPathInTitle = true;
+      _FXSortFoldersFirst = true;
+    };
   };
 
   system.primaryUser = "matteo";

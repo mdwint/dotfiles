@@ -5,7 +5,6 @@ export const className = `
   right: 8px;
   top: 12px;
 
-  //font-family: 'Iosevka Term Light';
   //font-family: 'Less Perfect DOS VGA';
   font-family: 'PragmataPro Mono';
   font-size: 16;

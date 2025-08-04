@@ -1,4 +1,10 @@
 { lib, pkgs, config, ... }:
+let
+  dotfile = path: {
+    source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/${path}";
+  };
+in
 {
   home = {
     packages = with pkgs; [
@@ -42,52 +48,18 @@
   home.keyboard.options = [ "altwin:swap_alt_win" "caps:hyper" ];
 
   home.file = {
-    "bin" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/bin/bin";
-      recursive = true;
-    };
-
-    ".gitconfig" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/git/.gitconfig";
-    };
-
-    ".ripgreprc" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/ripgrep/.ripgreprc";
-    };
+    ".gitconfig" = dotfile "git/.gitconfig";
+    ".ripgreprc" = dotfile "ripgrep/.ripgreprc";
+    "bin" = dotfile "bin/bin";
   };
 
   xdg.configFile = {
-    "alacritty/alacritty.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/alacritty/.config/alacritty/alacritty.nixos.toml";
-    };
-
-    "emacs" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/emacs/.config/emacs";
-      recursive = true;
-    };
-
-    "fish" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/fish/.config/fish";
-      recursive = true;
-    };
-
-    "nvim" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
-      recursive = true;
-    };
-
-    "tmux" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dotfiles/tmux/.config/tmux";
-      recursive = true;
-    };
+    "alacritty/alacritty.toml" = dotfile "alacritty/.config/alacritty/alacritty.nixos.toml";
+    "emacs" = dotfile "emacs/.config/emacs";
+    "fish" = dotfile "fish/.config/fish";
+    "nvim" = dotfile "neovim/.config/nvim";
+    "ruff" = dotfile "ruff/.config/ruff";
+    "tmux" = dotfile "tmux/.config/tmux";
   };
 
   systemd.user.services.mount-icloud = {

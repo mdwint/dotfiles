@@ -33,8 +33,6 @@ fi
             . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
             sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .
         fi
-        ./macos-defaults.sh
-        stow -- */
         tic -x tmux/.tmux-terminfo.src
         brew autoupdate start 43200 --cleanup --immediate
     elif [ "$os" = nixos ]; then

@@ -3,7 +3,7 @@ remote=$(git remote get-url origin)
 repo=$(echo "$remote" | sed -nE 's/.+:(.+)\.git$/\1/p')
 branch=$(git symbolic-ref --short HEAD)
 commit=$(git rev-parse --short HEAD)
-path="$(grealpath --relative-to="$(git rev-parse --show-toplevel)" "$1")"
+path="$(realpath --relative-to="$(git rev-parse --show-toplevel)" "$1")"
 case $remote in
     git@bitbucket.org:*)
         url="https://bitbucket.org/$repo/src/$commit/$path?at=${branch//\//%2F}"

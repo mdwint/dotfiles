@@ -15,27 +15,43 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nix-darwin, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
-    in {
+  outputs = { nixpkgs, home-manager, nix-darwin, ... }@args:
+    {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
-          modules = [ ./nixos/configuration.nix ];
-        };
-      };
-
-      homeConfigurations = {
-        matteo = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./nixos/home.nix ];
+        nixos = let
+          system = "x86_64-linux";
+          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = args // { pkgs = pkgs; };
+          modules = [
+            ./nixos/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.matteo = ./nixos/home.nix;
+            }
+          ];
         };
       };
 
       darwinConfigurations = {
-        "MacBook-Pro-Matteo-De-JV2LG3X9JP" = nix-darwin.lib.darwinSystem {
-          modules = [ ./nix-darwin/configuration.nix ];
+        "MacBook-Pro-Matteo-De-JV2LG3X9JP" = let
+          system = "aarch64-darwin";
+          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+        in nix-darwin.lib.darwinSystem {
+          inherit system;
+          specialArgs = args // { pkgs = pkgs; };
+          modules = [
+            ./nix-darwin/configuration.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.matteo = ./nix-darwin/home.nix;
+            }
+          ];
         };
       };
     };

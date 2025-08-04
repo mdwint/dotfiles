@@ -20,7 +20,7 @@ export const className = `
   left: 8px;
   top: 12px;
 
-  font-family: 'Iosevka Term Light';
+  font-family: 'PragmataPro Mono';
   font-size: 16;
   color: white;
 `;
