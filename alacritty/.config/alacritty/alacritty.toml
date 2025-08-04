@@ -1,8 +1,8 @@
 [env]
-SHELL = "/opt/homebrew/bin/fish"
+SHELL = "/run/current-system/sw/bin/fish"
 
 [terminal.shell]
-program = "/opt/homebrew/bin/fish"
+program = "/run/current-system/sw/bin/fish"
 args = ["--login", "--init-command", "tmux new-session -A -s main"]
 
 [scrolling]

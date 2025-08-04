@@ -13,9 +13,7 @@ has() {
 }
 
 if [ "$os" = macos ]; then
-    has brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    has git || brew install git
-    has stow || brew install stow
+    xcode-select --install
 fi
 
 if [ ! -d ~/dotfiles ]; then
@@ -30,12 +28,15 @@ fi
     cd ~/dotfiles
 
     if [ "$os" = macos ]; then
+        if ! has nix; then
+            curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+            . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+            sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .
+        fi
         ./macos-defaults.sh
         stow -- */
         tic -x tmux/.tmux-terminfo.src
-        brew bundle --no-upgrade
         brew autoupdate start 43200 --cleanup --immediate
-        has rustup || curl https://sh.rustup.rs -sSf | sh
     elif [ "$os" = nixos ]; then
         mkdir -p ~/.config/home-manager/
         ln -sf ~/dotfiles/flake.nix ~/.config/home-manager/
@@ -53,9 +54,7 @@ fi
 )
 
 if [ "$os" = macos ]; then
-    has uv || curl -LsSf https://astral.sh/uv/install.sh | sh
     has uv && while read -r pkg; do uv tool install "$pkg" || true; done <<'EOF'
-aws-export-credentials
 s3-pit-restore
 tox
 twine

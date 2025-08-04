@@ -51,7 +51,6 @@
     ".gitconfig" = {
       source = config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dotfiles/git/.gitconfig";
-      recursive = true;
     };
 
     ".ripgreprc" = {
