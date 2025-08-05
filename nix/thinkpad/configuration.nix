@@ -2,10 +2,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../shared/system/base.nix
+    ../shared/system/user.nix
   ];
-
-  nix.settings.experimental-features = "nix-command flakes";
-  nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,17 +42,7 @@
     # media-session.enable = true;
   };
 
-  users.users.matteo = {
-    isNormalUser = true;
-    description = "Matteo De Wint";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-    ];
-  };
-
   programs.firefox.enable = true;
-  programs.fish.enable = true;
 
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin

@@ -1,61 +1,15 @@
-{ lib, pkgs, config, ... }:
-let
-  dotfile = path: {
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/${path}";
-  };
-in
+{ pkgs, dotfile, ... }:
 {
+  imports = [ ../shared/home/base.nix ];
+
   home.username = "matteo";
   home.homeDirectory = "/home/matteo";
-
-  home.packages = with pkgs; [
-    alacritty
-    aws-vault
-    awscli2
-    cargo
-    cmake
-    emacs30
-    fd
-    fish
-    fzf
-    git
-    go
-    jdk
-    kdePackages.dragon
-    libtool
-    lsd
-    neovim
-    nodejs
-    python3
-    rclone
-    ripgrep
-    rustc
-    signal-desktop
-    spotify
-    tmux
-    uv
-    xxd
-    zig
-    zoxide
-  ];
 
   xsession.enable = true;
   home.keyboard.options = [ "altwin:swap_alt_win" "caps:hyper" ];
 
-  home.file = {
-    ".gitconfig" = dotfile "git/.gitconfig";
-    ".ripgreprc" = dotfile "ripgrep/.ripgreprc";
-    "bin" = dotfile "bin/bin";
-  };
-
   xdg.configFile = {
     "alacritty/alacritty.toml" = dotfile "alacritty/.config/alacritty/alacritty.nixos.toml";
-    "emacs" = dotfile "emacs/.config/emacs";
-    "fish" = dotfile "fish/.config/fish";
-    "nvim" = dotfile "neovim/.config/nvim";
-    "ruff" = dotfile "ruff/.config/ruff";
-    "tmux" = dotfile "tmux/.config/tmux";
   };
 
   systemd.user.services.mount-icloud = {
@@ -74,8 +28,6 @@ in
     };
     Install.WantedBy = [ "default.target" ];
   };
-
-  programs.home-manager.enable = true;
 
   home.stateVersion = "24.11";
 }

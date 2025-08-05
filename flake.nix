@@ -16,18 +16,20 @@
   };
 
   outputs = { nixpkgs, home-manager, nix-darwin, ... }@args:
+    let
+      homeConfig = homeFile: {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.matteo = homeFile;
+      };
+    in
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./nix/thinkpad/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.matteo = ./nix/thinkpad/home.nix;
-            }
+            home-manager.nixosModules.home-manager (homeConfig ./nix/thinkpad/home.nix)
           ];
         };
       };
@@ -37,12 +39,7 @@
           system = "aarch64-darwin";
           modules = [
             ./nix/macbook/configuration.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.matteo = ./nix/macbook/home.nix;
-            }
+            home-manager.darwinModules.home-manager (homeConfig ./nix/macbook/home.nix)
           ];
         };
       };

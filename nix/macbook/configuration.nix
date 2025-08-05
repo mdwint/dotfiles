@@ -1,62 +1,11 @@
 { pkgs, ... }:
 {
-  nix.settings.experimental-features = "nix-command flakes";
-  nixpkgs.config.allowUnfree = true;
-
-  users.users.matteo = {
-    description = "Matteo De Wint";
-    home = "/Users/matteo";
-    shell = pkgs.fish;
-  };
+  imports = [
+    ../shared/system/base.nix
+    ../shared/system/user.nix
+  ];
 
   programs.zsh.enable = true;
-  programs.fish.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    awscli2
-    colima
-    coreutils
-    difftastic
-    direnv
-    docker
-    docker-buildx
-    docker-compose
-    entr
-    fd
-    fnm
-    fzf
-    git
-    git-filter-repo
-    git-lfs
-    go
-    graphviz
-    htop
-    jdk17_headless
-    lsd
-    mosh
-    neovim
-    nodejs
-    ollama
-    parallel
-    pgcli
-    plantuml
-    pyenv
-    ripgrep
-    ruff
-    rustup
-    terraform
-    tig
-    tmux
-    tokei
-    uv
-    watch
-    wget
-    xxd
-    yarn
-    zig
-    zlib
-    zoxide
-  ];
 
   homebrew = {
     enable = true;

@@ -1,0 +1,68 @@
+{ pkgs, ... }:
+let
+  common = with pkgs; [
+    awscli2
+    direnv
+    entr
+    fd
+    fish
+    fzf
+    git
+    git-filter-repo
+    git-lfs
+    go
+    htop
+    lsd
+    neovim
+    nodejs
+    ripgrep
+    rustup
+    tmux
+    uv
+    xxd
+    zig
+    zoxide
+  ];
+
+  darwin = with pkgs; [
+    colima
+    coreutils
+    difftastic
+    docker
+    docker-buildx
+    docker-compose
+    fnm
+    graphviz
+    jdk17_headless
+    mosh
+    ollama
+    parallel
+    pgcli
+    plantuml
+    pyenv
+    ruff
+    terraform
+    tokei
+    watch
+    wget
+    yarn
+    zlib
+  ];
+
+  linux = with pkgs; [
+    alacritty
+    aws-vault
+    cmake
+    emacs30
+    jdk
+    kdePackages.dragon
+    libtool
+    python3
+    rclone
+    signal-desktop
+    spotify
+  ];
+in
+{
+  all = common ++ (if pkgs.stdenv.isDarwin then darwin else linux);
+}
