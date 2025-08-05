@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ pkgs, config, ... }:
 let
   dotfile = path: {
     source = config.lib.file.mkOutOfStoreSymlink

@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nix-darwin, ... }@args:
+  outputs = { nixpkgs, home-manager, nix-darwin, ... }:
     let
       homeConfig = homeFile: {
         home-manager.useGlobalPkgs = true;

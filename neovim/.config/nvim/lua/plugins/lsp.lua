@@ -13,6 +13,7 @@ return {
           "gopls",
           "ltex",
           "lua_ls",
+          "nil_ls",
           "pyright",
           "ruff",
           "rust_analyzer",
