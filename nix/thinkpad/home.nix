@@ -6,43 +6,39 @@ let
   };
 in
 {
-  home = {
-    packages = with pkgs; [
-      alacritty
-      aws-vault
-      awscli2
-      cargo
-      cmake
-      emacs30
-      fd
-      fish
-      fzf
-      git
-      go
-      jdk
-      kdePackages.dragon
-      libtool
-      lsd
-      neovim
-      nodejs
-      python3
-      rclone
-      ripgrep
-      rustc
-      signal-desktop
-      spotify
-      tmux
-      uv
-      xxd
-      zig
-      zoxide
-    ];
+  home.username = "matteo";
+  home.homeDirectory = "/home/matteo";
 
-    username = "matteo";
-    homeDirectory = "/home/matteo";
-
-    stateVersion = "24.11";
-  };
+  home.packages = with pkgs; [
+    alacritty
+    aws-vault
+    awscli2
+    cargo
+    cmake
+    emacs30
+    fd
+    fish
+    fzf
+    git
+    go
+    jdk
+    kdePackages.dragon
+    libtool
+    lsd
+    neovim
+    nodejs
+    python3
+    rclone
+    ripgrep
+    rustc
+    signal-desktop
+    spotify
+    tmux
+    uv
+    xxd
+    zig
+    zoxide
+  ];
 
   xsession.enable = true;
   home.keyboard.options = [ "altwin:swap_alt_win" "caps:hyper" ];
@@ -80,4 +76,6 @@ in
   };
 
   programs.home-manager.enable = true;
+
+  home.stateVersion = "24.11";
 }

@@ -36,13 +36,12 @@ fi
         tic -x tmux/.tmux-terminfo.src
         brew autoupdate start 43200 --cleanup --immediate
     elif [ "$os" = nixos ]; then
-        mkdir -p ~/.config/home-manager/
-        ln -sf ~/dotfiles/flake.nix ~/.config/home-manager/
         sudo ln -sf ~/dotfiles/flake.nix /etc/nixos/
-        [ -f /etc/nixos/hardware-configuration.nix ] &&
-            cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nixos/
+        if [ -f /etc/nixos/hardware-configuration.nix ]; then
+            mkdir -p ~/dotfiles/nix/$HOSTNAME/
+            cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nix/$HOSTNAME/
+        fi
         sudo nixos-rebuild switch
-        home-manager switch
         sudo rm -f /etc/nixos/*configuration.nix
     elif has stow; then
         stow bin fish git neovim ripgrep tmux

@@ -18,38 +18,30 @@
   outputs = { nixpkgs, home-manager, nix-darwin, ... }@args:
     {
       nixosConfigurations = {
-        nixos = let
+        nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
-        in nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = args // { pkgs = pkgs; };
           modules = [
-            ./nixos/configuration.nix
+            ./nix/thinkpad/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.matteo = ./nixos/home.nix;
+              home-manager.users.matteo = ./nix/thinkpad/home.nix;
             }
           ];
         };
       };
 
       darwinConfigurations = {
-        "MacBook-Pro-Matteo-De-JV2LG3X9JP" = let
+        "MacBook-Pro-Matteo-De-JV2LG3X9JP" = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
-        in nix-darwin.lib.darwinSystem {
-          inherit system;
-          specialArgs = args // { pkgs = pkgs; };
           modules = [
-            ./nix-darwin/configuration.nix
+            ./nix/macbook/configuration.nix
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.matteo = ./nix-darwin/home.nix;
+              home-manager.users.matteo = ./nix/macbook/home.nix;
             }
           ];
         };

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   nix.settings.experimental-features = "nix-command flakes";
+  nixpkgs.config.allowUnfree = true;
 
   users.users.matteo = {
     description = "Matteo De Wint";
@@ -96,7 +97,6 @@
   security.pam.services.sudo_local = {
     reattach = true;
     touchIdAuth = true;
-    watchIdAuth = true;
   };
 
   system.defaults = {
