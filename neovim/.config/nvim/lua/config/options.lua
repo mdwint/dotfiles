@@ -10,6 +10,7 @@ vim.o.updatetime = 500
 
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.signcolumn = "yes"
 
 vim.o.splitbelow = true
 vim.o.splitright = true
