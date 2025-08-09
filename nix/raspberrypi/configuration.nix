@@ -65,5 +65,25 @@
     user = config.services.transmission.user;
   };
 
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "security" = "user";
+        "hosts allow" = "192.168.178.";
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+        "fruit:copyfile" = "yes";
+      };
+      mnt = {
+        "path" = "/mnt";
+          "read only" = "yes";
+          "guest ok" = "yes";
+      };
+    };
+  };
+
   system.stateVersion = "25.11";
 }
