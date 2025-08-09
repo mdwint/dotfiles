@@ -8,16 +8,13 @@ return {
       opts = {
         ensure_installed = {
           "bashls",
-          "clangd",
           "esbonio",
-          "gopls",
           "ltex",
           "lua_ls",
           "nil_ls",
           "pyright",
           "ruff",
           "rust_analyzer",
-          "svelte",
           "taplo",
           "terraformls",
           "yamlls",

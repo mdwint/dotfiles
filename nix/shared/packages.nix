@@ -54,13 +54,16 @@ let
     aws-vault
     cmake
     emacs30
+    gcc
+    gnumake
     jdk
     kdePackages.dragon
     libtool
     python3
     rclone
     signal-desktop
-    spotify
+    unzip
+    zip
   ];
 in
 {
