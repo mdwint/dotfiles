@@ -25,11 +25,19 @@
     in
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        thinkpad = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./nix/thinkpad/configuration.nix
             home-manager.nixosModules.home-manager (homeConfig ./nix/thinkpad/home.nix)
+          ];
+        };
+
+        raspberrypi = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            ./nix/raspberrypi/configuration.nix
+            home-manager.nixosModules.home-manager (homeConfig ./nix/raspberrypi/home.nix)
           ];
         };
       };
