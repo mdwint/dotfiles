@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -46,6 +46,24 @@
   ];
 
   services.openssh.enable = true;
+
+  services.transmission = {
+    enable = true;
+    openRPCPort = true;
+    settings = {
+      download-dir = "/mnt/red/Movies";
+      incomplete-dir-enabled = false;
+      rpc-bind-address = "0.0.0.0";
+      rpc-host-whitelist = config.networking.hostName;
+      rpc-whitelist = "192.168.178.*,100.*.*.*";
+    };
+  };
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = config.services.transmission.user;
+  };
 
   system.stateVersion = "25.11";
 }
