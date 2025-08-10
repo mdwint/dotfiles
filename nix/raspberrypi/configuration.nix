@@ -53,9 +53,7 @@
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-bind-address = "0.0.0.0";
-      rpc-host-whitelist = config.networking.hostName;
-      rpc-whitelist = "192.168.178.*,100.*.*.*";
+      rpc-host-whitelist = "t.matteo.pub";
     };
   };
 
@@ -64,6 +62,19 @@
     openFirewall = true;
     user = config.services.transmission.user;
   };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."t.matteo.pub".extraConfig = ''
+      reverse_proxy http://127.0.0.1:9091
+      tls internal
+    '';
+    virtualHosts."j.matteo.pub".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8096
+      tls internal
+    '';
+  };
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   services.samba = {
     enable = true;
