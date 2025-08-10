@@ -42,9 +42,6 @@
     "d /mnt/red  0755 root root -"
   ];
 
-  environment.systemPackages = with pkgs; [
-  ];
-
   services.openssh.enable = true;
 
   services.transmission = {
@@ -53,7 +50,8 @@
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-host-whitelist = "t.matteo.pub";
+      rpc-host-whitelist = "transmission.home";
+      rpc-url = "/";
     };
   };
 
@@ -65,16 +63,15 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."t.matteo.pub".extraConfig = ''
+    virtualHosts."transmission.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:9091
       tls internal
     '';
-    virtualHosts."j.matteo.pub".extraConfig = ''
+    virtualHosts."jellyfin.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8096
       tls internal
     '';
   };
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   services.samba = {
     enable = true;
@@ -90,11 +87,55 @@
       };
       mnt = {
         "path" = "/mnt";
-          "read only" = "yes";
-          "guest ok" = "yes";
+        "read only" = "yes";
+        "guest ok" = "yes";
       };
     };
   };
+
+  services.unbound = {
+    enable = true;
+    settings = {
+      server = let
+        myIp = "192.168.178.100";
+      in
+      {
+        interface = [ "127.0.0.1" myIp ];
+        access-control = [ "192.168.178.0/24 allow" ];
+
+        auto-trust-anchor-file = "/var/lib/unbound/root.key";
+
+        harden-glue = true;
+        harden-dnssec-stripped = true;
+        use-caps-for-id = false;
+        prefetch = true;
+        edns-buffer-size = 1232;
+
+        hide-identity = true;
+        hide-version = true;
+
+        local-zone = "\"home.\" static";
+        local-data = [
+          "\"jellyfin.home. A ${myIp}\""
+          "\"transmission.home. A ${myIp}\""
+        ];
+      };
+
+      forward-zone = [
+        {
+          name = ".";
+          forward-addr = [
+            "9.9.9.9#dns.quad9.net"
+            "149.112.112.112#dns.quad9.net"
+          ];
+          forward-tls-upstream = true;
+        }
+      ];
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [ 53 80 443 ];
+  networking.firewall.allowedUDPPorts = [ 53 ];
 
   system.stateVersion = "25.11";
 }

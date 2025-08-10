@@ -49,13 +49,6 @@
     thunar-volman
   ];
 
-  environment.systemPackages = with pkgs; [
-  ];
-
-  fonts.packages = with pkgs; [
-    # nerd-fonts.iosevka-term
-  ];
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
