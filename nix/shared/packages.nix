@@ -2,7 +2,6 @@
 let
   common = with pkgs; [
     awscli2
-    direnv
     entr
     fd
     fish

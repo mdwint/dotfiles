@@ -23,4 +23,11 @@ in
     "ruff" = dotfile "ruff/.config/ruff";
     "tmux" = dotfile "tmux/.config/tmux";
   };
+
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
 }
