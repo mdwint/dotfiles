@@ -50,8 +50,7 @@
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-host-whitelist = "transmission.home";
-      rpc-url = "/";
+      rpc-host-whitelist = "raspberrypi.local";
     };
   };
 
@@ -63,11 +62,8 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."transmission.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:9091
-      tls internal
-    '';
-    virtualHosts."jellyfin.home".extraConfig = ''
+    virtualHosts."raspberrypi.local".extraConfig = ''
+      reverse_proxy /transmission/* http://127.0.0.1:9091
       reverse_proxy http://127.0.0.1:8096
       tls internal
     '';
@@ -93,14 +89,21 @@
     };
   };
 
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
+
   services.unbound = {
     enable = true;
     settings = {
-      server = let
-        myIp = "192.168.178.100";
-      in
-      {
-        interface = [ "127.0.0.1" myIp ];
+      server = {
+        interface = [ "127.0.0.1" "192.168.178.100" ];
         access-control = [ "192.168.178.0/24 allow" ];
 
         auto-trust-anchor-file = "/var/lib/unbound/root.key";
@@ -113,12 +116,6 @@
 
         hide-identity = true;
         hide-version = true;
-
-        local-zone = "\"home.\" static";
-        local-data = [
-          "\"jellyfin.home. A ${myIp}\""
-          "\"transmission.home. A ${myIp}\""
-        ];
       };
 
       forward-zone = [

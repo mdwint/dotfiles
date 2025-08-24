@@ -42,6 +42,11 @@
     # media-session.enable = true;
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
   programs.firefox.enable = true;
 
   programs.thunar.plugins = with pkgs.xfce; [
@@ -58,14 +63,6 @@
   # services.openssh.enable = true;
 
   programs.kdeconnect.enable = true;
-
-  networking.firewall = rec {
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; }  # kdeconnect
-    ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-  # networking.firewall.enable = false;
 
   system.stateVersion = "24.11";
 }
