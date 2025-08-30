@@ -65,6 +65,28 @@
     user = config.services.transmission.user;
   };
 
+  services.nextcloud = {
+    enable = true;
+    hostName = "localhost";
+    config = {
+      dbtype = "sqlite";
+      adminpassFile = "/etc/nextcloud-admin-pass";
+    };
+    settings = {
+      trusted_domains = [ "raspberrypi.prawn-vibe.ts.net" ];
+      trusted_proxies = [ "127.0.0.1" ];
+      overwriteprotocol = "https";
+    };
+  };
+
+  services.nginx = {
+    virtualHosts."localhost" = {
+      listen = [ { addr = "127.0.0.1"; port = 8080; } ];
+      forceSSL = false;
+      enableACME = false;
+    };
+  };
+
   services.caddy = {
     enable = true;
     virtualHosts."raspberrypi.local".extraConfig = ''
@@ -74,7 +96,7 @@
     '';
     virtualHosts."raspberrypi.prawn-vibe.ts.net".extraConfig = ''
       reverse_proxy /transmission/* http://127.0.0.1:9091
-      reverse_proxy http://127.0.0.1:8096
+      reverse_proxy http://127.0.0.1:8080
     '';
   };
 
