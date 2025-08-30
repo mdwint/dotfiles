@@ -43,7 +43,11 @@
   ];
 
   services.openssh.enable = true;
-  services.tailscale.enable = true;
+
+  services.tailscale = {
+    enable = true;
+    permitCertUid = "caddy";
+  };
 
   services.transmission = {
     enable = true;
@@ -51,7 +55,7 @@
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-host-whitelist = "raspberrypi.local";
+      rpc-host-whitelist = "raspberrypi.local,raspberrypi.prawn-vibe.ts.net";
     };
   };
 
@@ -67,6 +71,10 @@
       reverse_proxy /transmission/* http://127.0.0.1:9091
       reverse_proxy http://127.0.0.1:8096
       tls internal
+    '';
+    virtualHosts."raspberrypi.prawn-vibe.ts.net".extraConfig = ''
+      reverse_proxy /transmission/* http://127.0.0.1:9091
+      reverse_proxy http://127.0.0.1:8096
     '';
   };
 
