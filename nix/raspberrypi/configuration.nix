@@ -72,6 +72,7 @@
       dbtype = "sqlite";
       adminpassFile = "/etc/nextcloud-admin-pass";
     };
+    caching.redis = true;
     settings = {
       trusted_domains = [ "raspberrypi.prawn-vibe.ts.net" ];
       trusted_proxies = [ "127.0.0.1" ];
