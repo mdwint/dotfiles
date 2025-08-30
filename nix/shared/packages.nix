@@ -58,6 +58,7 @@ let
     jdk
     kdePackages.dragon
     libtool
+    nextcloud-client
     python3
     rclone
     signal-desktop
