@@ -49,6 +49,12 @@
     permitCertUid = "caddy";
   };
 
+  services.searx = {
+    enable = true;
+    domain = "search.home";
+    environmentFile = "/etc/searx.env";
+  };
+
   services.transmission = {
     enable = true;
     openRPCPort = true;
@@ -108,6 +114,10 @@
     '';
     virtualHosts."rss.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8027
+      tls internal
+    '';
+    virtualHosts."search.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8888
       tls internal
     '';
     virtualHosts."transmission.home".extraConfig = ''
