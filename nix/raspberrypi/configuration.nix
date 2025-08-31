@@ -1,4 +1,7 @@
 { pkgs, lib, config, ... }:
+let
+  tailnet = "raspberrypi.prawn-vibe.ts.net";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -55,7 +58,7 @@
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-host-whitelist = "raspberrypi.local,raspberrypi.prawn-vibe.ts.net";
+      rpc-host-whitelist = "raspberrypi.local,${tailnet}";
     };
   };
 
@@ -63,6 +66,15 @@
     enable = true;
     openFirewall = true;
     user = config.services.transmission.user;
+  };
+
+  services.miniflux = {
+    enable = true;
+    config = {
+      LISTEN_ADDR = "localhost:8027";
+      BASE_URL = "https://${tailnet}/rss/";
+    };
+    adminCredentialsFile = "/etc/miniflux-admin-credentials";
   };
 
   services.nextcloud = {
@@ -74,7 +86,7 @@
     };
     caching.redis = true;
     settings = {
-      trusted_domains = [ "raspberrypi.prawn-vibe.ts.net" ];
+      trusted_domains = [ tailnet ];
       trusted_proxies = [ "127.0.0.1" ];
       overwriteprotocol = "https";
     };
@@ -95,8 +107,9 @@
       reverse_proxy http://127.0.0.1:8096
       tls internal
     '';
-    virtualHosts."raspberrypi.prawn-vibe.ts.net".extraConfig = ''
+    virtualHosts."${tailnet}".extraConfig = ''
       reverse_proxy /transmission/* http://127.0.0.1:9091
+      reverse_proxy /rss/* http://127.0.0.1:8027
       reverse_proxy http://127.0.0.1:8080
     '';
   };
