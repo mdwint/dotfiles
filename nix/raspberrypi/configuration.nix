@@ -144,40 +144,8 @@ in
     };
   };
 
-  services.unbound = {
-    enable = true;
-    settings = {
-      server = {
-        interface = [ "127.0.0.1" "192.168.178.100" ];
-        access-control = [ "192.168.178.0/24 allow" ];
-
-        auto-trust-anchor-file = "/var/lib/unbound/root.key";
-
-        harden-glue = true;
-        harden-dnssec-stripped = true;
-        use-caps-for-id = false;
-        prefetch = true;
-        edns-buffer-size = 1232;
-
-        hide-identity = true;
-        hide-version = true;
-      };
-
-      forward-zone = [
-        {
-          name = ".";
-          forward-addr = [
-            "9.9.9.9#dns.quad9.net"
-            "149.112.112.112#dns.quad9.net"
-          ];
-          forward-tls-upstream = true;
-        }
-      ];
-    };
-  };
-
-  networking.firewall.allowedTCPPorts = [ 53 80 443 ];
-  networking.firewall.allowedUDPPorts = [ 53 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedUDPPorts = [];
 
   system.stateVersion = "25.11";
 }
