@@ -116,26 +116,6 @@
     '';
   };
 
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      global = {
-        "security" = "user";
-        "hosts allow" = "100. 192.168.178.";
-        "hosts deny" = "0.0.0.0/0";
-        "guest account" = "nobody";
-        "map to guest" = "bad user";
-        "fruit:copyfile" = "yes";
-      };
-      mnt = {
-        "path" = "/mnt";
-        "read only" = "yes";
-        "guest ok" = "yes";
-      };
-    };
-  };
-
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.allowedUDPPorts = [];
 
