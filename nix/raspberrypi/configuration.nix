@@ -1,7 +1,4 @@
 { pkgs, lib, config, ... }:
-let
-  tailnet = "raspberrypi.prawn-vibe.ts.net";
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -58,13 +55,12 @@ in
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-host-whitelist = "raspberrypi.local,${tailnet}";
+      rpc-host-whitelist = "transmission.home";
     };
   };
 
   services.jellyfin = {
     enable = true;
-    openFirewall = true;
     user = config.services.transmission.user;
   };
 
@@ -72,7 +68,7 @@ in
     enable = true;
     config = {
       LISTEN_ADDR = "localhost:8027";
-      BASE_URL = "https://${tailnet}/rss/";
+      BASE_URL = "https://rss.home";
     };
     adminCredentialsFile = "/etc/miniflux-admin-credentials";
   };
@@ -86,7 +82,7 @@ in
     };
     caching.redis = true;
     settings = {
-      trusted_domains = [ tailnet ];
+      trusted_domains = [ "files.home" ];
       trusted_proxies = [ "127.0.0.1" ];
       overwriteprotocol = "https";
     };
@@ -102,15 +98,21 @@ in
 
   services.caddy = {
     enable = true;
-    virtualHosts."raspberrypi.local".extraConfig = ''
-      reverse_proxy /transmission/* http://127.0.0.1:9091
+    virtualHosts."files.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8080
+      tls internal
+    '';
+    virtualHosts."jellyfin.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8096
       tls internal
     '';
-    virtualHosts."${tailnet}".extraConfig = ''
-      reverse_proxy /transmission/* http://127.0.0.1:9091
-      reverse_proxy /rss/* http://127.0.0.1:8027
-      reverse_proxy http://127.0.0.1:8080
+    virtualHosts."rss.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8027
+      tls internal
+    '';
+    virtualHosts."transmission.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:9091
+      tls internal
     '';
   };
 
@@ -120,7 +122,7 @@ in
     settings = {
       global = {
         "security" = "user";
-        "hosts allow" = "192.168.178.";
+        "hosts allow" = "100. 192.168.178.";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
@@ -131,16 +133,6 @@ in
         "read only" = "yes";
         "guest ok" = "yes";
       };
-    };
-  };
-
-  services.avahi = {
-    enable = true;
-    openFirewall = true;
-    nssmdns4 = true;
-    publish = {
-      enable = true;
-      addresses = true;
     };
   };
 
