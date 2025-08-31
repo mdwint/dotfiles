@@ -12,6 +12,7 @@ let
     go
     htop
     lsd
+    mosh
     neovim
     nodejs
     ripgrep
@@ -33,7 +34,6 @@ let
     fnm
     graphviz
     jdk17_headless
-    mosh
     ollama
     parallel
     pgcli
