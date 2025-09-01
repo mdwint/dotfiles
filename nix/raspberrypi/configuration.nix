@@ -53,6 +53,19 @@
     enable = true;
     domain = "search.home";
     environmentFile = "/etc/searx.env";
+    settings = {
+      search = {
+        autocomplete = "google";
+        favicon_resolver = "google";
+      };
+      server = {
+        method = "GET";
+      };
+      ui = {
+        query_in_title = true;
+        url_formatting = "full";
+      };
+    };
   };
 
   services.transmission = {
