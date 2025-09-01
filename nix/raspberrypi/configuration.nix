@@ -70,7 +70,6 @@
 
   services.transmission = {
     enable = true;
-    openRPCPort = true;
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
