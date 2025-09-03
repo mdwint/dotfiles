@@ -2,6 +2,7 @@
 let
   common = with pkgs; [
     awscli2
+    btop
     entr
     fd
     fish
