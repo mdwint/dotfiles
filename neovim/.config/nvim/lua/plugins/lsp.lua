@@ -17,7 +17,7 @@ return {
           "rust_analyzer",
           "taplo",
           "terraformls",
-          "yamlls",
+          -- "yamlls",
         },
       },
     },
