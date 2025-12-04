@@ -43,7 +43,7 @@
       };
 
       darwinConfigurations = {
-        "MacBook-Pro-Matteo-De-JV2LG3X9JP" = nix-darwin.lib.darwinSystem {
+        "MacBook-Pro-Matteo-De-Wint-JV2LG3X9JP" = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
             ./nix/macbook/configuration.nix
