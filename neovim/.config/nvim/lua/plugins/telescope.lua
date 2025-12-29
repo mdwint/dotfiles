@@ -21,9 +21,9 @@ return {
     require("telescope").setup({
       defaults = {
         file_ignore_patterns = {
-          ".git/",
-          ".tox/",
-          "node_modules/",
+          "^%.git/",
+          "^%.tox/",
+          "^node_modules/",
         },
         mappings = {
           i = {
