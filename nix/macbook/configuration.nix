@@ -27,7 +27,7 @@
       "alacritty"
       "alfred"
       "balance-lock"
-      "dash"
+      "dash@6"
       # "emacs"
       # "font-iosevka"
       "gimp"

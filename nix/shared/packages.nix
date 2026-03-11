@@ -36,6 +36,7 @@ let
     graphviz
     jdk17_headless
     ollama
+    opencode
     parallel
     pgcli
     plantuml
