@@ -3,7 +3,6 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-context",
-    "nvim-treesitter/nvim-treesitter-refactor",
   },
   config = function()
     require("nvim-treesitter.configs").setup({ ---@diagnostic disable-line
@@ -34,12 +33,6 @@ return {
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = { "markdown" },
-      },
-      refactor = {
-        highlight_definitions = {
-          enable = true,
-          clear_on_cursor_move = true,
-        },
       },
     })
   end,
