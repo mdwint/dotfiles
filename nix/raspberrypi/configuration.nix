@@ -93,6 +93,7 @@
 
   services.nextcloud = {
     enable = true;
+    package = pkgs.nextcloud33;
     hostName = "localhost";
     config = {
       dbtype = "sqlite";
