@@ -49,6 +49,16 @@
     permitCertUid = "caddy";
   };
 
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    dataDir = "/mnt/blue/syncthing";
+    overrideDevices = false;
+    overrideFolders = false;
+    guiPasswordFile = "/etc/syncthing-gui-password";
+    settings.gui.user = "matteo";
+  };
+
   services.searx = {
     enable = true;
     domain = "search.home";
@@ -91,34 +101,12 @@
     adminCredentialsFile = "/etc/miniflux-admin-credentials";
   };
 
-  services.nextcloud = {
-    enable = true;
-    package = pkgs.nextcloud33;
-    hostName = "localhost";
-    config = {
-      dbtype = "sqlite";
-      adminpassFile = "/etc/nextcloud-admin-pass";
-    };
-    caching.redis = true;
-    settings = {
-      trusted_domains = [ "files.home" ];
-      trusted_proxies = [ "127.0.0.1" ];
-      overwriteprotocol = "https";
-    };
-  };
-
-  services.nginx = {
-    virtualHosts."localhost" = {
-      listen = [ { addr = "127.0.0.1"; port = 8080; } ];
-      forceSSL = false;
-      enableACME = false;
-    };
-  };
-
   services.caddy = {
     enable = true;
     virtualHosts."files.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8080
+      reverse_proxy http://127.0.0.1:8384 {
+          header_up Host "127.0.0.1"
+      }
       tls internal
     '';
     virtualHosts."jellyfin.home".extraConfig = ''

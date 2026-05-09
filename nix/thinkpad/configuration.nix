@@ -49,6 +49,18 @@
     nssmdns4 = true;
   };
 
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "matteo";
+    dataDir = "/home/matteo";
+    configDir = "/home/matteo/.config/syncthing";
+    overrideDevices = false;
+    overrideFolders = false;
+    guiPasswordFile = "/etc/syncthing-gui-password";
+    settings.gui.user = "matteo";
+  };
+
   programs.firefox.enable = true;
 
   programs.thunar.plugins = with pkgs; [
