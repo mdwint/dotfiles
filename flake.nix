@@ -40,6 +40,14 @@
             home-manager.nixosModules.home-manager (homeConfig ./nix/raspberrypi/home.nix)
           ];
         };
+
+        mini = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./nix/mini/configuration.nix
+            home-manager.nixosModules.home-manager (homeConfig ./nix/mini/home.nix)
+          ];
+        };
       };
 
       darwinConfigurations = {
