@@ -43,12 +43,18 @@
     settings.gui.user = "matteo";
   };
 
+  services.jellyfin.enable = true;
+
   services.caddy = {
     enable = true;
     virtualHosts."sync.mini.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
+      tls internal
+    '';
+    virtualHosts."stream.mini.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8096
       tls internal
     '';
   };
