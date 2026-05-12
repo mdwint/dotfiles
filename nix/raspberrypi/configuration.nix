@@ -88,18 +88,22 @@
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
+      bind 100.92.40.13
       tls internal
     '';
     virtualHosts."jellyfin.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8096
+      bind 100.92.40.13
       tls internal
     '';
     virtualHosts."rss.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8027
+      bind 100.92.40.13
       tls internal
     '';
     virtualHosts."transmission.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:9091
+      bind 100.92.40.13
       tls internal
     '';
   };

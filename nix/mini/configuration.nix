@@ -51,10 +51,12 @@
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
+      bind 100.69.195.97
       tls internal
     '';
     virtualHosts."stream.mini.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8096
+      bind 100.69.195.97
       tls internal
     '';
   };
