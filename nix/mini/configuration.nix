@@ -24,8 +24,37 @@
   time.timeZone = "Europe/Brussels";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  services.zfs.autoScrub.enable = true;
+
   services.openssh.enable = true;
-  services.tailscale.enable = true;
+
+  services.tailscale = {
+    enable = true;
+    permitCertUid = "caddy";
+  };
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    dataDir = "/srv/media/syncthing";
+    overrideDevices = false;
+    overrideFolders = false;
+    guiPasswordFile = "/etc/syncthing-gui-password";
+    settings.gui.user = "matteo";
+  };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."sync.mini.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8384 {
+          header_up Host "127.0.0.1"
+      }
+      tls internal
+    '';
+  };
+
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedUDPPorts = [];
 
   system.stateVersion = "26.05";
 }
