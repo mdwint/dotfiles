@@ -59,25 +59,6 @@
     settings.gui.user = "matteo";
   };
 
-  services.searx = {
-    enable = true;
-    domain = "search.home";
-    environmentFile = "/etc/searx.env";
-    settings = {
-      search = {
-        autocomplete = "google";
-        favicon_resolver = "google";
-      };
-      server = {
-        method = "GET";
-      };
-      ui = {
-        query_in_title = true;
-        url_formatting = "full";
-      };
-    };
-  };
-
   services.transmission = {
     enable = true;
     settings = {
@@ -103,7 +84,7 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."files.home".extraConfig = ''
+    virtualHosts."sync.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
@@ -115,10 +96,6 @@
     '';
     virtualHosts."rss.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8027
-      tls internal
-    '';
-    virtualHosts."search.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8888
       tls internal
     '';
     virtualHosts."transmission.home".extraConfig = ''
