@@ -43,6 +43,15 @@
     settings.gui.user = "matteo";
   };
 
+  services.transmission = {
+    enable = true;
+    settings = {
+      download-dir = "/srv/media/transmission";
+      incomplete-dir-enabled = false;
+      rpc-host-whitelist = "seed.mini.home";
+    };
+  };
+
   services.jellyfin.enable = true;
 
   services.caddy = {
@@ -51,6 +60,11 @@
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
+      bind 100.69.195.97
+      tls internal
+    '';
+    virtualHosts."seed.mini.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:9091
       bind 100.69.195.97
       tls internal
     '';
