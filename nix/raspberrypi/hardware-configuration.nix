@@ -8,13 +8,23 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "uas" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/red" =
+    { device = "/dev/disk/by-uuid/3ed55ca0-7b31-4e69-9c53-92709289afce";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/blue" =
+    { device = "/dev/disk/by-uuid/477e5289-2007-4cf8-a6b8-c4f47a666380";
       fsType = "ext4";
     };
 

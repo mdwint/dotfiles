@@ -6,7 +6,6 @@
     ../shared/system/user.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
   boot.initrd.availableKernelModules = [ "usb_storage" ];
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
@@ -18,23 +17,9 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   fileSystems = {
-    "/" = lib.mkForce {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = [ "noatime" ];
-    };
-
-    "/mnt/blue" = {
-      device = "/dev/disk/by-label/Blue";
-      fsType = "ext4";
-      options = [ "noatime" "nofail" "x-systemd.device-timeout=10" ];
-    };
-
-    "/mnt/red" = {
-      device = "/dev/disk/by-label/Red";
-      fsType = "ext4";
-      options = [ "noatime" "nofail" "x-systemd.device-timeout=10" ];
-    };
+    "/".options         = [ "noatime" ];
+    "/mnt/blue".options = [ "noatime" "nofail" "x-systemd.device-timeout=10" ];
+    "/mnt/red".options  = [ "noatime" "nofail" "x-systemd.device-timeout=10" ];
   };
 
   systemd.tmpfiles.rules = [
