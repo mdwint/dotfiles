@@ -25,6 +25,7 @@ if status --is-interactive
     if type -q direnv; eval (direnv hook fish); end
     if type -q fnm; eval (fnm env); end
     if type -q fzf; fzf --fish | source; end
+    if type -q git-town; git town completions fish | source; end
     if type -q pyenv; pyenv init - fish | source; end
     if type -q zoxide; zoxide init fish --no-cmd | source; end
 

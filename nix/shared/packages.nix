@@ -10,6 +10,7 @@ let
     git
     git-filter-repo
     git-lfs
+    git-town
     go
     htop
     lsd
