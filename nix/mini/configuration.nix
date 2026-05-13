@@ -54,6 +54,15 @@
 
   services.jellyfin.enable = true;
 
+  services.miniflux = {
+    enable = true;
+    config = {
+      LISTEN_ADDR = "localhost:8027";
+      BASE_URL = "https://rss.home";
+    };
+    adminCredentialsFile = "/etc/miniflux-admin-credentials";
+  };
+
   services.caddy = {
     enable = true;
     virtualHosts."sync.mini.home".extraConfig = ''
@@ -70,6 +79,11 @@
     '';
     virtualHosts."stream.mini.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8096
+      bind 100.69.195.97
+      tls internal
+    '';
+    virtualHosts."rss.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8027
       bind 100.69.195.97
       tls internal
     '';

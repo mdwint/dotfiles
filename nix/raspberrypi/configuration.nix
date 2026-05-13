@@ -64,7 +64,7 @@
     settings = {
       download-dir = "/mnt/red/Movies";
       incomplete-dir-enabled = false;
-      rpc-host-whitelist = "transmission.home";
+      rpc-host-whitelist = "seed.pi.home";
     };
   };
 
@@ -73,36 +73,22 @@
     user = config.services.transmission.user;
   };
 
-  services.miniflux = {
-    enable = true;
-    config = {
-      LISTEN_ADDR = "localhost:8027";
-      BASE_URL = "https://rss.home";
-    };
-    adminCredentialsFile = "/etc/miniflux-admin-credentials";
-  };
-
   services.caddy = {
     enable = true;
-    virtualHosts."sync.home".extraConfig = ''
+    virtualHosts."sync.pi.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
       bind 100.92.40.13
       tls internal
     '';
-    virtualHosts."jellyfin.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8096
-      bind 100.92.40.13
-      tls internal
-    '';
-    virtualHosts."rss.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8027
-      bind 100.92.40.13
-      tls internal
-    '';
-    virtualHosts."transmission.home".extraConfig = ''
+    virtualHosts."seed.pi.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:9091
+      bind 100.92.40.13
+      tls internal
+    '';
+    virtualHosts."stream.pi.home".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8096
       bind 100.92.40.13
       tls internal
     '';
