@@ -24,6 +24,8 @@
   time.timeZone = "Europe/Brussels";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  fileSystems."/srv/red".options  = [ "noatime" "nofail" "x-systemd.device-timeout=10" ];
+
   services.zfs.autoScrub.enable = true;
 
   services.openssh.enable = true;
