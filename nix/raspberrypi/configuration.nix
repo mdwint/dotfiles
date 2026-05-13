@@ -44,36 +44,12 @@
     settings.gui.user = "matteo";
   };
 
-  services.transmission = {
-    enable = true;
-    settings = {
-      download-dir = "/mnt/red/Movies";
-      incomplete-dir-enabled = false;
-      rpc-host-whitelist = "seed.pi.home";
-    };
-  };
-
-  services.jellyfin = {
-    enable = true;
-    user = config.services.transmission.user;
-  };
-
   services.caddy = {
     enable = true;
     virtualHosts."sync.pi.home".extraConfig = ''
       reverse_proxy http://127.0.0.1:8384 {
           header_up Host "127.0.0.1"
       }
-      bind 100.92.40.13
-      tls internal
-    '';
-    virtualHosts."seed.pi.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:9091
-      bind 100.92.40.13
-      tls internal
-    '';
-    virtualHosts."stream.pi.home".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8096
       bind 100.92.40.13
       tls internal
     '';
