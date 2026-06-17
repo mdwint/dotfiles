@@ -5,11 +5,7 @@
   display: none !important;
 }
 
-#searchbar,
-#urlbar-background,
-.tab-background,
-menupopup,
-.menupopup-arrowscrollbox {
+* {
   border-radius: 0 !important;
 }
 
@@ -18,43 +14,23 @@ menupopup,
 }
 
 @media (-moz-platform: macos) {
-  :root:not([inFullscreen]) {
-    --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding));
-  }
-
-  :root[uidensity="compact"]:not([inFullscreen]) {
-    --uc-bottom-toolbar-height: calc(32px + var(--toolbarbutton-outer-padding));
-  }
-
-  #browser,
-  #customization-container {
-    margin-bottom: var(--uc-bottom-toolbar-height, 0px);
+  #navigator-toolbox {
+    order: 1 !important;
   }
 
   #nav-bar {
     font-family: "PragmataPro Mono", monospace !important;
     font-size: 12px;
-    position: fixed !important;
-    bottom: 0px;
-    display: -webkit-box;
-    width: 100%;
-    z-index: 1;
-  }
-
-  #nav-bar-customization-target {
-    -webkit-box-flex: 1;
-  }
-  .panel-viewstack {
-    max-height: unset !important;
-  }
-  .urlbarView-body-inner {
-    border-top-style: none !important;
   }
 
   #urlbar[breakout][breakout-extend] {
     display: flex !important;
     flex-direction: column-reverse !important;
-    bottom: 0px !important;
+    bottom: 5px !important;
     top: auto !important;
+  }
+
+  .urlbarView-row-inner {
+    padding-block: 2px !important;
   }
 }
