@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 set -e
+[ "$(uname -s)" = "Darwin" ] || exit 0
 # Only show the clock in tmux if an external display is connected. Otherwise,
 # on the MacBook display, an Übersicht widget shows a clock next to the notch.
 display=$(osascript -e 'tell application "System Events" to display name of desktop 1' || true)
