@@ -40,7 +40,6 @@ let
     opencode
     parallel
     pgcli
-    plantuml
     pyenv
     ruff
     terraform

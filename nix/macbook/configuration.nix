@@ -20,6 +20,7 @@
     brews = [
       "databricks"
       "docker-credential-helper-ecr"
+      "plantuml"
       "xz" # for pyenv to build python
     ];
 
