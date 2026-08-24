@@ -13,6 +13,7 @@ let
     git-town
     go
     htop
+    hunk
     lsd
     mosh
     neovim
