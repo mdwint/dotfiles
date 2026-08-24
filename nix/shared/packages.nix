@@ -68,5 +68,5 @@ let
   ];
 in
 {
-  all = common ++ (if pkgs.stdenv.isDarwin then darwin else linux);
+  all = common ++ (if pkgs.stdenv.hostPlatform.isDarwin then darwin else linux);
 }
