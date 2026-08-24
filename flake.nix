@@ -18,6 +18,7 @@
   outputs = { nixpkgs, home-manager, nix-darwin, ... }:
     let
       homeConfig = homeFile: {
+        home-manager.backupFileExtension = "hm-bak";
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.matteo = homeFile;
