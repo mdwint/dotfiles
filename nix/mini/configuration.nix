@@ -54,7 +54,14 @@
     };
   };
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = [ pkgs.intel-media-driver ];
+  };
+  environment.systemPackages = [ pkgs.libva-utils ];
+
   services.jellyfin.enable = true;
+  users.users.jellyfin.extraGroups = [ "render" "video" ];
 
   services.miniflux = {
     enable = true;
