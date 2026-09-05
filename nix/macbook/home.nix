@@ -9,6 +9,7 @@
 
   xdg.configFile = {
     "alacritty" = dotfile "alacritty/.config/alacritty";
+    "ghostty" = dotfile "ghostty/.config/ghostty";
   };
 
   home.stateVersion = "25.05";

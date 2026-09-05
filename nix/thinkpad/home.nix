@@ -10,6 +10,10 @@
 
   xdg.configFile = {
     "alacritty/alacritty.toml" = dotfile "alacritty/.config/alacritty/alacritty.nixos.toml";
+    "ghostty/config" = dotfile "ghostty/.config/ghostty/config";
+    "ghostty/config.local" = dotfile "ghostty/.config/ghostty/config.nixos";
+    "fontconfig/conf.d/11-pragmatapro-mono-spacing.conf" =
+      dotfile "fontconfig/.config/fontconfig/conf.d/11-pragmatapro-mono-spacing.conf";
   };
 
   home.stateVersion = "24.11";

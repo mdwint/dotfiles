@@ -31,6 +31,7 @@
       "dash@6"
       # "emacs"
       # "font-iosevka"
+      "ghostty"
       "gimp"
       "iina"
       "jordanbaird-ice"

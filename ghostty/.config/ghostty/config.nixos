@@ -1,0 +1,4 @@
+font-size = 12
+
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard

@@ -57,6 +57,7 @@ let
     cmake
     emacs30
     gcc
+    ghostty
     gnumake
     jdk
     kdePackages.dragon

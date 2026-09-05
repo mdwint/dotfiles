@@ -1,9 +1,6 @@
 [general]
 import = ["~/dotfiles/alacritty/.config/alacritty/alacritty.toml"]
 
-[terminal.shell]
-program = "fish"
-
 [font]
 # normal = { family = "Iosevka Term Nerd Font", style = "Regular" }
 size = 12.0
