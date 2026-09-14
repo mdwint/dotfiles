@@ -55,7 +55,7 @@ let
     alacritty
     aws-vault
     cmake
-    emacs30
+    emacs
     gcc
     ghostty
     gnumake
