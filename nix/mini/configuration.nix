@@ -44,6 +44,7 @@
     guiPasswordFile = "/etc/syncthing-gui-password";
     settings.gui.user = "matteo";
   };
+  users.users.syncthing.homeMode = "750";
 
   services.transmission = {
     enable = true;
@@ -61,7 +62,7 @@
   environment.systemPackages = [ pkgs.libva-utils ];
 
   services.jellyfin.enable = true;
-  users.users.jellyfin.extraGroups = [ "render" "video" ];
+  users.users.jellyfin.extraGroups = [ "render" "video" "syncthing" ];
 
   services.miniflux = {
     enable = true;
