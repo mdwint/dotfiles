@@ -99,6 +99,7 @@
     '';
   };
 
+  boot.kernel.sysctl."net.ipv4.ip_nonlocal_bind" = 1;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.allowedUDPPorts = [];
 
