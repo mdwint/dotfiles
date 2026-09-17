@@ -13,8 +13,8 @@
     onActivation.cleanup = "uninstall";
 
     taps = [
-      "databricks/tap"
-      "domt4/autoupdate"
+      { name = "databricks/tap"; trusted = true; }
+      { name = "domt4/autoupdate"; trusted = true; }
     ];
 
     brews = [
