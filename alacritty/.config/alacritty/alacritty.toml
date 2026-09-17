@@ -14,6 +14,23 @@ hide_when_typing = true
 [selection]
 save_to_clipboard = true
 
+# Replace alacritty's default URL hint, which is dropped once any hint is defined.
+[[hints.enabled]]
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+hyperlinks = true
+post_processing = true
+mouse = { enabled = true, mods = "Command" }
+command = { program = "/bin/sh", args = [
+    "-c",
+    "if command -v xdg-open >/dev/null; then xdg-open \"$0\"; else open \"$0\"; fi",
+] }
+
+# Open `path[:line[:col]]` references in nvim on click.
+[[hints.enabled]]
+regex = "(~|\\.\\.?)?(/[A-Za-z0-9_.@-]+)+(:[0-9]+){0,2}|[A-Za-z0-9_.@-]+(/[A-Za-z0-9_.@-]+)+(:[0-9]+){0,2}|[A-Za-z0-9_@-]+\\.[A-Za-z0-9]+:[0-9]+(:[0-9]+)?"
+mouse = { enabled = true, mods = "Command" }
+command = { program = "/bin/sh", args = ["-c", "exec ~/bin/edit-hint \"$0\""] }
+
 [window]
 decorations = "none"
 startup_mode = "Maximized"

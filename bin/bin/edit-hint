@@ -1,0 +1,46 @@
+#!/bin/sh
+# Opens a `path[:line[:col]]` hint from the terminal in nvim. Relative paths are
+# resolved against the active tmux pane's directory. If a pane in the current
+# window runs nvim, the file is opened there, otherwise in a new split pane.
+set -e
+PATH="/etc/profiles/per-user/$(id -un)/bin:$HOME/.nix-profile/bin:/run/current-system/sw/bin:$PATH"
+session=${TMUX_SESSION:-main}
+
+target=$1
+file=${target%%:*}
+rest=${target#"$file"}
+line=$(printf '%s' "$rest" | cut -s -d: -f2)
+col=$(printf '%s' "$rest" | cut -s -d: -f3)
+
+case $file in
+    "~"/*) file=$HOME${file#\~} ;;
+esac
+dir=$(tmux display-message -p -t "$session" '#{pane_current_path}')
+case $file in
+    # git diff headers prefix paths with a/, b/ or the mnemonic c/, i/, w/, o/
+    [a-z]/*) [ -e "$dir/$file" ] || [ ! -e "$dir/${file#??}" ] || file=${file#??} ;;
+esac
+case $file in
+    /*) ;;
+    *) file=$dir/$file ;;
+esac
+
+if [ -n "$col" ]; then
+    jump="+call cursor($line,$col)"
+elif [ -n "$line" ]; then
+    jump="+$line"
+fi
+
+nvim_pane=$(tmux list-panes -t "$session" -F '#{pane_id} #{pane_current_command}' \
+    | awk '$2 == "nvim" { print $1; exit }')
+if [ -n "$nvim_pane" ]; then
+    nvim_dir=$(tmux display-message -p -t "$nvim_pane" '#{pane_current_path}')
+    case $file in
+        "$nvim_dir"/*) file=${file#"$nvim_dir"/} ;;
+    esac
+    jump=$(printf '%s' "$jump" | sed 's/ /\\ /g')
+    tmux send-keys -t "$nvim_pane" Escape ":edit ${jump:+$jump }$file" Enter
+    tmux select-pane -t "$nvim_pane"
+else
+    tmux split-window -h -t "$session" -c "$dir" -- nvim ${jump:+"$jump"} "$file"
+fi
