@@ -17,10 +17,19 @@ return {
     vim.g.ale_use_neovim_diagnostics_api = 1
     vim.g.ale_disable_lsp = 1
     vim.g.ale_linters = {
-      python = { "mypy" },
+      python = {},
       sh = {},
       yaml = {},
     }
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("ale_python_typechecker", {}),
+      pattern = "python",
+      callback = function(args)
+        if require("pytypechecker").get(args.buf) == "mypy" then
+          vim.b[args.buf].ale_linters = { python = { "mypy" } }
+        end
+      end,
+    })
     vim.g.ale_fix_on_save = 1
     vim.g.ale_fixers = {
       changelogmd = { "ocdc" },

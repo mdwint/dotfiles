@@ -61,5 +61,12 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    vim.lsp.config("ty", {
+      root_dir = function(bufnr, on_dir)
+        local checker, root = require("pytypechecker").get(bufnr)
+        if checker == "ty" then on_dir(root) end
+      end,
+    })
   end,
 }
