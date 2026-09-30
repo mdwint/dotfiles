@@ -23,11 +23,42 @@
     font-size: 12px;
   }
 
-  #urlbar[breakout][breakout-extend] {
-    display: flex !important;
-    flex-direction: column-reverse !important;
-    bottom: 5px !important;
-    top: auto !important;
+  /* The toolbar sits at the bottom, so the results view opens upward and the
+     two halves of the joint background swap which way they overhang. */
+  .urlbarView:popover-open {
+    position-area: block-start center !important;
+  }
+
+  .urlbar[popover-open] > .urlbar-background {
+    inset-block: calc(-1 * var(--urlbar-joint-background-overlap))
+      calc(
+        -1 *
+          (
+            var(--urlbar-background-overhang-open) +
+              var(--urlbar-input-growth-open-block)
+          )
+      ) !important;
+    clip-path: inset(
+      calc(
+          var(--urlbar-joint-background-overlap) -
+            var(--urlbar-input-growth-open-block)
+        )
+        calc(-1 * var(--urlbar-joint-background-shadow-margin))
+        calc(-1 * var(--urlbar-joint-background-shadow-margin))
+    ) !important;
+  }
+
+  .urlbar > .urlbarView > .urlbarView-background {
+    inset-block: calc(-1 * var(--urlbarView-joint-background-outset-block))
+      calc(
+        -1 * var(--urlbarView-margin-block) -
+          var(--urlbar-joint-background-overlap)
+      ) !important;
+    clip-path: inset(
+      calc(-1 * var(--urlbar-joint-background-shadow-margin))
+        calc(-1 * var(--urlbar-joint-background-shadow-margin))
+        var(--urlbar-joint-background-overlap)
+    ) !important;
   }
 
   .urlbarView-row-inner {
