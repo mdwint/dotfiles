@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 remote=$(git remote get-url origin)
-repo=$(echo "$remote" | sed -nE 's/.+:(.+)\.git$/\1/p')
+repo=$(echo "$remote" | sed -nE 's#^(ssh://)?[^@]+@[^:/]+(:[0-9]+)?[:/](.+)\.git$#\3#p')
 branch=$(git symbolic-ref --short HEAD)
 case $remote in
-    git@bitbucket.org:*)
+    git@bitbucket.org:*|*@ssh.bitbucket.org[:/]*)
         open "https://bitbucket.org/$repo/pull-requests/new?source=$branch&t=1"
         ;;
     git@github.com:*)
