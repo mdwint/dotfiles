@@ -22,8 +22,8 @@ if status --is-login; and not set -q __fish_login_config_sourced
 end
 
 if status --is-interactive
-    if type -q direnv; eval (direnv hook fish); end
-    if type -q fnm; eval (fnm env); end
+    if type -q direnv; direnv hook fish | source; end
+    if type -q fnm; fnm env | source; end
     if type -q fzf; fzf --fish | source; end
     if type -q git-town; git town completions fish | source; end
     if type -q pyenv; pyenv init - fish | source; end
