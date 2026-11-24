@@ -24,9 +24,10 @@
   }
 
   /* The toolbar sits at the bottom, so the results view opens upward and the
-     two halves of the joint background swap which way they overhang. */
+     two halves of the joint background swap which way they overhang. The view
+     also spans the window's full width so no page shows beside it. */
   .urlbarView:popover-open {
-    position-area: block-start center !important;
+    position-area: block-start span-all !important;
   }
 
   .urlbar[popover-open] > .urlbar-background {
@@ -49,9 +50,9 @@
   }
 
   .urlbar > .urlbarView > .urlbarView-background {
-    inset-block: calc(-1 * var(--urlbarView-joint-background-outset-block))
+    inset-block: calc(-1 * var(--urlbarview-joint-background-outset-block))
       calc(
-        -1 * var(--urlbarView-margin-block) -
+        -1 * var(--urlbarview-margin-block) -
           var(--urlbar-joint-background-overlap)
       ) !important;
     clip-path: inset(
