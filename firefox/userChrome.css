@@ -7,6 +7,11 @@
 }
 
 @media (-moz-platform: macos) {
+  :root {
+    --user-font-family: "PragmataPro Mono", monospace;
+    --user-font-size: 12px;
+  }
+
   #back-button,
   #forward-button,
   .searchmode-switcher,
@@ -19,8 +24,8 @@
   }
 
   #nav-bar {
-    font-family: "PragmataPro Mono", monospace !important;
-    font-size: 12px;
+    font-family: var(--user-font-family) !important;
+    font-size: var(--user-font-size);
   }
 
   /* The toolbar sits at the bottom, so the results view opens upward and the
@@ -64,5 +69,41 @@
 
   .urlbarView-row-inner {
     padding-block: 2px !important;
+  }
+
+  /* Lay the link status over the address bar's text, so hovering a link
+     looks like the address itself changes. */
+  #urlbar .urlbar-input-box {
+    anchor-name: --urlbar-input;
+  }
+
+  #statuspanel:not([hidden]) {
+    position: fixed !important;
+    position-anchor: --urlbar-input;
+    inset: anchor(top) anchor(right) anchor(bottom) anchor(left) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    align-items: center;
+    background-color: var(--urlbar-background-color);
+    transition: none !important;
+    font-family: var(--user-font-family) !important;
+    font-size: calc(var(--user-font-size) * 1.25) !important;
+  }
+
+  :root:has(#urlbar:is([focused], [popover-open])) #statuspanel {
+    visibility: hidden !important;
+  }
+
+  #statuspanel-label {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    color: var(--toolbar-field-text-color) !important;
+  }
+
+  #statuspanel:not([type="overLink"]) > #statuspanel-label {
+    color: var(--text-color-deemphasized) !important;
   }
 }
