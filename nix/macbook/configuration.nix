@@ -33,6 +33,7 @@
       # "font-iosevka"
       "ghostty"
       "gimp"
+      "handy"
       "iina"
       "jordanbaird-ice"
       "karabiner-elements"
